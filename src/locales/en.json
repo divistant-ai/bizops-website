@@ -1,0 +1,66 @@
+{
+  "RootLayout": {
+    "description": "BizOps ERP - Integrated Business Operating System",
+    "home_link": "Home",
+    "about_link": "About",
+    "counter_link": "Counter",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Sign In",
+    "sign_up_link": "Sign Up"
+  },
+  "Homepage": {
+    "announcement": "New: AI-Powered Inventory Forecasting",
+    "hero_title_prefix": "One Control System for",
+    "hero_title_highlight": "Your Entire Business Ops.",
+    "hero_description": "Ditch the fragmented spreadsheets. BizOps unifies HR, Finance, and Supply Chain into one secure, fast, and scalable platform.",
+    "cta_demo": "Start Free Demo",
+    "cta_pricing": "Pricing Simulator"
+  },
+  "Counter": {
+    "meta_title": "Counter",
+    "meta_description": "Simple counter demo",
+    "security_powered_by": "Security powered by"
+  },
+  "CounterForm": {
+    "presentation": "Increment the counter",
+    "label_increment": "Increment:",
+    "error_increment_range": "Please enter a number between 1 and 10",
+    "button_increment": "Increment"
+  },
+  "CurrentCount": {
+    "count": "Current count: {count}"
+  },
+  "SignIn": {
+    "meta_title": "Sign In",
+    "meta_description": "Sign in to your account"
+  },
+  "SignUp": {
+    "meta_title": "Sign Up",
+    "meta_description": "Create a new account"
+  },
+  "Dashboard": {
+    "meta_title": "Dashboard"
+  },
+  "UserProfile": {
+    "meta_title": "User Profile"
+  },
+  "BaseTemplate": {
+    "description": "Base Template",
+    "made_with": "Made with <author></author>"
+  },
+  "Hello": {
+    "hello_message": "Hello, {email}!",
+    "alternative_message": "Check out the <url>Pro SaaS Starter Kit</url> for more features!"
+  },
+  "Portfolio": {
+    "meta_title": "Portfolio - {slug}",
+    "meta_description": "Portfolio item: {slug}",
+    "header": "{slug}",
+    "content": "This is a portfolio item",
+    "code_review_powered_by": "Code review powered by",
+    "presentation": "Portfolio items",
+    "portfolio_name": "Portfolio: {name}",
+    "error_reporting_powered_by": "Error reporting powered by",
+    "coverage_powered_by": "Coverage powered by"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug Turbopack (Chrome - Fast)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://_N_E/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "turbopack://*": "${webRoot}/*",
+        "turbopack:///./*": "${webRoot}/*",
+        "turbopack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "turbopack:///_next/*": "${webRoot}/.next/*"
+      },
+      "skipFiles": ["<node_internals>/**"],
+      "trace": false,
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+      "runtimeExecutable": null,
+      "pathMapping": {
+        "/_next": "${workspaceFolder}/.next"
+      },
+      "preLaunchTask": "Next.js: dev (Turbopack)"
+    },
+    {
+      "name": "Next.js: debug Turbopack (Node.js)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--inspect-brk=9229",
+        "${workspaceFolder}/node_modules/.bin/next",
+        "dev",
+        "--turbo"
+      ],
+      "env": {
+        "NODE_OPTIONS": "--inspect-brk=9229",
+        "SKIP_ENV_VALIDATION": "true",
+        "NEXT_TELEMETRY_DISABLED": "1"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "stopOnEntry": false,
+      "restart": true,
+      "timeout": 10000
+    },
+    {
+      "name": "Next.js: debug Turbopack (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://_N_E/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "turbopack://*": "${webRoot}/*",
+        "turbopack:///./*": "${webRoot}/*",
+        "turbopack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "turbopack:///_next/*": "${webRoot}/.next/*"
+      },
+      "skipFiles": ["<node_internals>/**"],
+      "trace": true,
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+      "runtimeExecutable": null,
+      "pathMapping": {
+        "/_next": "${workspaceFolder}/.next"
+      }
+    },
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev:next -- --turbo",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      },
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://_N_E/*": "${webRoot}/*",
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        "turbopack://*": "${webRoot}/*",
+        "turbopack:///./*": "${webRoot}/*",
+        "turbopack:///./~/*": "${workspaceFolder}/node_modules/*"
+      },
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--inspect", "${workspaceFolder}/node_modules/.bin/next", "dev", "--turbo"],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      },
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      },
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true
+    },
+    {
+      "name": "Attach to Next.js",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "restart": true,
+      "timeout": 10000
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Next.js: debug full stack (Turbopack)",
+      "configurations": [
+        "Next.js: debug Turbopack (Node.js)",
+        "Next.js: debug Turbopack (Chrome)"
+      ],
+      "stopAll": true
+    },
+    {
+      "name": "Next.js: debug client-side only (Turbopack - Fast)",
+      "configurations": [
+        "Next.js: debug Turbopack (Chrome - Fast)"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "turbopack",
+        "order": 1
+      }
+    }
+  ]
+}

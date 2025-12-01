@@ -1,0 +1,66 @@
+{
+  "RootLayout": {
+    "description": "BizOps ERP - Sistem Operasional Bisnis Terintegrasi",
+    "home_link": "Beranda",
+    "about_link": "Tentang",
+    "counter_link": "Counter",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Masuk",
+    "sign_up_link": "Daftar"
+  },
+  "Homepage": {
+    "announcement": "Baru: AI-Powered Inventory Forecasting",
+    "hero_title_prefix": "Satu Sistem Kendali untuk",
+    "hero_title_highlight": "Seluruh Operasional Bisnis.",
+    "hero_description": "Tinggalkan spreadsheet yang terpisah-pisah. BizOps menyatukan HR, Finance, dan Supply Chain dalam satu platform yang aman, cepat, dan siap scale-up.",
+    "cta_demo": "Mulai Demo Gratis",
+    "cta_pricing": "Simulasi Harga"
+  },
+  "Counter": {
+    "meta_title": "Counter",
+    "meta_description": "Demo counter sederhana",
+    "security_powered_by": "Keamanan didukung oleh"
+  },
+  "CounterForm": {
+    "presentation": "Tambahkan counter",
+    "label_increment": "Increment:",
+    "error_increment_range": "Masukkan angka antara 1 dan 10",
+    "button_increment": "Tambah"
+  },
+  "CurrentCount": {
+    "count": "Jumlah saat ini: {count}"
+  },
+  "SignIn": {
+    "meta_title": "Masuk",
+    "meta_description": "Masuk ke akun Anda"
+  },
+  "SignUp": {
+    "meta_title": "Daftar",
+    "meta_description": "Buat akun baru"
+  },
+  "Dashboard": {
+    "meta_title": "Dashboard"
+  },
+  "UserProfile": {
+    "meta_title": "Profil Pengguna"
+  },
+  "BaseTemplate": {
+    "description": "Template Dasar",
+    "made_with": "Dibuat dengan <author></author>"
+  },
+  "Hello": {
+    "hello_message": "Halo, {email}!",
+    "alternative_message": "Lihat <url>Pro SaaS Starter Kit</url> untuk fitur lebih lanjut!"
+  },
+  "Portfolio": {
+    "meta_title": "Portfolio - {slug}",
+    "meta_description": "Item portfolio: {slug}",
+    "header": "{slug}",
+    "content": "Ini adalah item portfolio",
+    "code_review_powered_by": "Code review didukung oleh",
+    "presentation": "Item portfolio",
+    "portfolio_name": "Portfolio: {name}",
+    "error_reporting_powered_by": "Pelaporan error didukung oleh",
+    "coverage_powered_by": "Coverage didukung oleh"
+  }
+}

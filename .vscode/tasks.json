@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Next.js: dev (Turbopack)",
+      "type": "npm",
+      "script": "dev:next",
+      "args": ["--", "--turbo"],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": {
+          "regexp": "^([^\\s].*):(\\d+):(\\d+):\\s+(warning|error)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": ".*Ready in.*|.*- Local:.+http://localhost:3000"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      },
+      "options": {
+        "env": {
+          "SKIP_ENV_VALIDATION": "true",
+          "NEXT_TELEMETRY_DISABLED": "1"
+        }
+      }
+    },
+    {
+      "label": "Next.js: build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Next.js: type-check",
+      "type": "npm",
+      "script": "type-check",
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}

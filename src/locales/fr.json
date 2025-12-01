@@ -1,0 +1,58 @@
+{
+  "RootLayout": {
+    "description": "BizOps Website",
+    "home_link": "Accueil",
+    "about_link": "À propos",
+    "counter_link": "Compteur",
+    "portfolio_link": "Portfolio",
+    "sign_in_link": "Se connecter",
+    "sign_up_link": "S'inscrire"
+  },
+  "Counter": {
+    "meta_title": "Compteur",
+    "meta_description": "Démo de compteur simple",
+    "security_powered_by": "Sécurité alimentée par"
+  },
+  "CounterForm": {
+    "presentation": "Incrémenter le compteur",
+    "label_increment": "Incrément:",
+    "error_increment_range": "Veuillez entrer un nombre entre 1 et 10",
+    "button_increment": "Incrémenter"
+  },
+  "CurrentCount": {
+    "count": "Compte actuel: {count}"
+  },
+  "SignIn": {
+    "meta_title": "Se connecter",
+    "meta_description": "Connectez-vous à votre compte"
+  },
+  "SignUp": {
+    "meta_title": "S'inscrire",
+    "meta_description": "Créer un nouveau compte"
+  },
+  "Dashboard": {
+    "meta_title": "Tableau de bord"
+  },
+  "UserProfile": {
+    "meta_title": "Profil utilisateur"
+  },
+  "BaseTemplate": {
+    "description": "Modèle de base",
+    "made_with": "Fait avec <author></author>"
+  },
+  "Hello": {
+    "hello_message": "Bonjour, {email}!",
+    "alternative_message": "Découvrez le <url>Pro SaaS Starter Kit</url> pour plus de fonctionnalités!"
+  },
+  "Portfolio": {
+    "meta_title": "Portfolio - {slug}",
+    "meta_description": "Élément du portfolio: {slug}",
+    "header": "{slug}",
+    "content": "Ceci est un élément du portfolio",
+    "code_review_powered_by": "Révision de code alimentée par",
+    "presentation": "Éléments du portfolio",
+    "portfolio_name": "Portfolio: {name}",
+    "error_reporting_powered_by": "Rapport d'erreur alimenté par",
+    "coverage_powered_by": "Couverture alimentée par"
+  }
+}

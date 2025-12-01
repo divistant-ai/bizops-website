@@ -1,0 +1,15 @@
+# Folder ini akan berisi utility functions dari bizops-website
+# Files yang akan dimigrasikan:
+# - pwa.ts
+# - tracking.ts
+# - seo.ts
+# - format.ts
+# - validation.ts
+# - api.ts
+# - constants.ts
+# - helpers.ts
+# - storage.ts
+# - analytics.ts
+# - error-handling.ts
+# - performance.ts
+
