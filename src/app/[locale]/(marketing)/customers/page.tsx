@@ -11,4 +11,3 @@ export const metadata = genMeta({
 export default function CustomersPage() {
   return <CustomersContent />;
 }
-

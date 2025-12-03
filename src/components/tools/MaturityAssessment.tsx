@@ -172,7 +172,9 @@ export default function MaturityAssessment() {
   };
 
   const handleAnswer = (score: number) => {
-    if (!currentQuestion) return;
+    if (!currentQuestion) {
+      return;
+    }
     const newAnswers = { ...answers, [currentQuestion.id]: score };
     setAnswers(newAnswers);
 

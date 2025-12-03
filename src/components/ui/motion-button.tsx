@@ -9,16 +9,16 @@ type BouncyButtonProps = {
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const BouncyButton = ({ 
-  ref, 
-  children, 
-  className = '', 
-  onAnimationStart, 
+export const BouncyButton = ({
+  ref,
+  children,
+  className = '',
+  onAnimationStart,
   onAnimationEnd,
   onDrag,
   onDragStart,
   onDragEnd,
-  ...props 
+  ...props
 }: BouncyButtonProps & { ref?: React.RefObject<HTMLButtonElement | null> }) => {
   const prefersReducedMotion = useReducedMotion();
 

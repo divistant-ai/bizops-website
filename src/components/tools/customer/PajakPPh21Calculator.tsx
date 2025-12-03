@@ -82,7 +82,9 @@ export default function PajakPPh21Calculator() {
 
       for (let i = 0; i < TAX_BRACKETS.length; i++) {
         const bracket = TAX_BRACKETS[i];
-        if (!bracket) continue;
+        if (!bracket) {
+          continue;
+        }
         const prevLimit = i === 0 ? 0 : (TAX_BRACKETS[i - 1]?.limit || 0);
         const bracketSize = bracket.limit - prevLimit;
         const taxableInBracket = Math.min(remainingIncome, bracketSize);

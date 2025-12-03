@@ -67,7 +67,6 @@ const differentiators = [
 ];
 
 export default function WhyBizOpsContent() {
-
   return (
     <div className="flex flex-col bg-slate-50 transition-colors dark:bg-slate-950">
       {/* HERO SECTION */}

@@ -143,7 +143,9 @@ export default function ServicesContent() {
             <div className="grid auto-rows-[minmax(280px,auto)] grid-cols-1 gap-6 md:grid-cols-3">
               {services.map((service, idx) => {
                 const Icon = service.icon;
-                if (!Icon) return null;
+                if (!Icon) {
+                  return null;
+                }
                 // Bento Grid Spanning Logic
                 const isLarge = idx === 0 || idx === 3; // 1st and 4th items are large horizontal
                 const isTall = idx === 2; // 3rd item is tall

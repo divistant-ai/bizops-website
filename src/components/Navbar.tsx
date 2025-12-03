@@ -3,10 +3,10 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { DemoModal } from './ui/ClientLazyComponents';
 import NavbarDesktop from './navbar/NavbarDesktop';
 import NavbarLogo from './navbar/NavbarLogo';
 import NavbarMobile from './navbar/NavbarMobile';
+import { DemoModal } from './ui/ClientLazyComponents';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

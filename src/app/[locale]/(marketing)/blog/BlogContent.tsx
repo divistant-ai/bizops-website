@@ -322,7 +322,7 @@ export default function BlogContent() {
                 exit={{ opacity: 0, y: -20 }}
                 className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
               >
-                {paginatedPosts.map((post) => (
+                {paginatedPosts.map(post => (
                   <Link key={post.slug} href={`/blog/${post.slug}`}>
                     <SpotlightCard className="h-full rounded-2xl">
                       <article className="flex h-full flex-col p-6">

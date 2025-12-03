@@ -38,10 +38,10 @@ function loadLocale(locale: string): TranslationKeys {
 
 function main() {
   console.log('🔍 Verifying i18n translations...\n');
-  
+
   const localeData: Record<string, TranslationKeys> = {};
   const allKeys: Set<string> = new Set();
-  
+
   // Load all locales
   for (const locale of locales) {
     const data = loadLocale(locale);
@@ -53,10 +53,12 @@ function main() {
   // Check for missing keys
   const missing: Record<string, string[]> = {};
   let hasErrors = false;
-  
+
   for (const locale of locales) {
     const data = localeData[locale];
-    if (!data) continue;
+    if (!data) {
+      continue;
+    }
     const keys = flattenKeys(data);
     const missingKeys: string[] = [];
 
