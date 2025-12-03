@@ -62,5 +62,37 @@
     "portfolio_name": "Portfolio: {name}",
     "error_reporting_powered_by": "Error reporting powered by",
     "coverage_powered_by": "Coverage powered by"
+  },
+  "Platform": {
+    "automation_ai": {
+      "title": "Let the System Work, Not You.",
+      "description": "Reduce repetitive and boring manual work by up to 80%. BizOps is equipped with Automation engine (Workflow Builder) and practical Artificial Intelligence (Applied AI) to make your business run on autopilot.",
+      "cta": "See Automation Demo",
+      "workflow_title": "Workflow Automation (No-Code Logic)",
+      "ai_title": "Applied AI Capabilities"
+    },
+    "analytics": {
+      "title": "Your Reports, Your Way. No Coding.",
+      "description": "Every business has a unique way of viewing data. Don't be stuck with rigid standard reports. With Report Builder, you become the data analyst for your own company.",
+      "cta": "Try Report Builder"
+    },
+    "multi_company": {
+      "title": "One Platform for Your Entire Business Group.",
+      "description": "Have multiple PTs, CVs, or different business units? Don't manage them on separate islands. Unite your corporate group management with a native Multi-Company structure.",
+      "cta": "Demo Holding Structure"
+    },
+    "portals": {
+      "title": "Stop Being an Admin for Your Clients.",
+      "description": "Free your CS, Sales Admin, and Purchasing teams from repetitive questions via WhatsApp. Provide 24/7 self-service portal access to your business partners to view the data they need themselves."
+    }
+  },
+  "Common": {
+    "demo": "Demo",
+    "login": "Login",
+    "contact_us": "Contact Us",
+    "learn_more": "Learn More",
+    "get_started": "Get Started",
+    "view_all": "View All",
+    "read_more": "Read More"
   }
 }

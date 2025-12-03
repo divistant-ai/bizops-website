@@ -7,7 +7,7 @@ export const Sponsors = () => (
       <tr className="h-56">
         <td className="border-2 border-gray-300 p-3">
           <a
-            href="https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate"
+            href="https://clerk.com?utm_source=bizops&utm_medium=website&utm_campaign=partners"
             target="_blank"
             rel="noopener"
           >
@@ -20,7 +20,7 @@ export const Sponsors = () => (
           </a>
         </td>
         <td className="border-2 border-gray-300 p-3">
-          <a href="https://www.coderabbit.ai?utm_source=next_js_starter&utm_medium=github&utm_campaign=next_js_starter_oss_2025" target="_blank" rel="noopener">
+          <a href="https://www.coderabbit.ai?utm_source=bizops&utm_medium=website&utm_campaign=partners" target="_blank" rel="noopener">
             <Image
               src="/assets/images/coderabbit-logo-light.svg"
               alt="CodeRabbit"
@@ -31,7 +31,7 @@ export const Sponsors = () => (
         </td>
         <td className="border-2 border-gray-300 p-3">
           <a
-            href="https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo"
+            href="https://sentry.io/for/nextjs/?utm_source=bizops&utm_medium=website&utm_campaign=partners"
             target="_blank"
             rel="noopener"
           >
@@ -46,7 +46,7 @@ export const Sponsors = () => (
       </tr>
       <tr className="h-56">
         <td className="border-2 border-gray-300 p-3">
-          <a href="https://launch.arcjet.com/Q6eLbRE">
+          <a href="https://arcjet.com?utm_source=bizops&utm_medium=website&utm_campaign=partners" target="_blank" rel="noopener">
             <Image
               src="/assets/images/arcjet-light.svg"
               alt="Arcjet"
@@ -56,7 +56,7 @@ export const Sponsors = () => (
           </a>
         </td>
         <td className="border-2 border-gray-300 p-3">
-          <a href="https://sevalla.com/">
+          <a href="https://sevalla.com?utm_source=bizops&utm_medium=website&utm_campaign=partners" target="_blank" rel="noopener">
             <Image
               src="/assets/images/sevalla-light.png"
               alt="Sevalla"
@@ -66,7 +66,7 @@ export const Sponsors = () => (
           </a>
         </td>
         <td className="border-2 border-gray-300 p-3">
-          <a href="https://l.crowdin.com/next-js" target="_blank" rel="noopener">
+          <a href="https://crowdin.com?utm_source=bizops&utm_medium=website&utm_campaign=partners" target="_blank" rel="noopener">
             <Image
               src="/assets/images/crowdin-dark.png"
               alt="Crowdin"
@@ -79,7 +79,7 @@ export const Sponsors = () => (
       <tr className="h-56">
         <td className="border-2 border-gray-300 p-3">
           <a
-            href="https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=next-js-boilerplate"
+            href="https://betterstack.com/?utm_source=bizops&utm_medium=website&utm_campaign=partners"
             target="_blank"
             rel="noopener"
           >
@@ -93,7 +93,7 @@ export const Sponsors = () => (
         </td>
         <td className="border-2 border-gray-300 p-3">
           <a
-            href="https://posthog.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=next-js-boilerplate"
+            href="https://posthog.com/?utm_source=bizops&utm_medium=website&utm_campaign=partners"
             target="_blank"
             rel="noopener"
           >
@@ -107,7 +107,7 @@ export const Sponsors = () => (
         </td>
         <td className="border-2 border-gray-300 p-3">
           <a
-            href="https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=next-js-boilerplate"
+            href="https://www.checklyhq.com/?utm_source=bizops&utm_medium=website&utm_campaign=partners"
             target="_blank"
             rel="noopener"
           >
@@ -121,16 +121,6 @@ export const Sponsors = () => (
         </td>
       </tr>
       <tr className="h-56">
-        <td className="border-2 border-gray-300 p-3">
-          <a href="https://nextjs-boilerplate.com/pro-saas-starter-kit">
-            <Image
-              src="/assets/images/nextjs-boilerplate-saas.png"
-              alt="Next.js SaaS Boilerplate"
-              width={260}
-              height={224}
-            />
-          </a>
-        </td>
       </tr>
     </tbody>
   </table>

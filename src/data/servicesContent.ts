@@ -147,4 +147,30 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     cta: 'Pelajari Paket SLA',
   },
+  'custom-development': {
+    title: 'Custom Development',
+    subtitle: 'Build Your Secret Sauce.',
+    description: 'Jangan korbankan keunikan bisnis Anda demi menyesuaikan diri dengan software kaku. Kami mengembangkan modul kustom yang presisi di atas framework BizOps yang kokoh, aman, dan scalable.',
+    icon: Code,
+    methodology: [
+      { title: 'Requirements Workshop', desc: 'Sesi intensif dengan stakeholder untuk memahami kebutuhan bisnis unik yang tidak bisa dipenuhi modul standar.' },
+      { title: 'Technical Design', desc: 'Arsitektur solusi kustom yang terintegrasi seamless dengan core system tanpa mengganggu upgrade path.' },
+      { title: 'Agile Development', desc: 'Pembangunan iteratif dengan demo setiap 2 minggu untuk memastikan arah development sesuai ekspektasi.' },
+      { title: 'Testing & Deployment', desc: 'Unit test, integration test, dan UAT komprehensif sebelum deployment ke production environment.' },
+    ],
+    benefits: [
+      { title: 'Upgrade-Safe Architecture', desc: 'Kode kustom terisolasi sebagai App terpisah. Aman saat update core system.' },
+      { title: 'Rapid Development', desc: '5x lebih cepat menggunakan Low-Code Framework yang sudah matang dibanding build from scratch.' },
+      { title: 'Seamless Integration', desc: 'Langsung terhubung dengan modul standar (Accounting, HR, Inventory) tanpa API ribet.' },
+    ],
+    deliverables: [
+      'Source Code Repository (Git)',
+      'Technical Documentation (API & Architecture)',
+      'Automated Test Scripts',
+      'User Manual & Training Guide',
+      'Deployment Scripts (CI/CD)',
+      'Warranty & Support (3 bulan)',
+    ],
+    cta: 'Consult Your Needs',
+  },
 };

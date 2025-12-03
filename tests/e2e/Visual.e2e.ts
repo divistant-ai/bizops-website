@@ -42,11 +42,11 @@ test.describe('Visual testing', () => {
       await takeSnapshot(page, testInfo);
     });
 
-    test('should take screenshot of the French homepage', async ({ page }, testInfo) => {
-      await page.goto('/fr');
+    test('should take screenshot of the English homepage', async ({ page }, testInfo) => {
+      await page.goto('/en');
 
       await expect(
-        page.getByRole('heading', { name: 'Code de démarrage pour Next.js avec Tailwind CSS' }),
+        page.getByRole('heading', { name: 'One Control System for' }),
       ).toBeVisible();
 
       await takeSnapshot(page, testInfo);

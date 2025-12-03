@@ -1,8 +1,7 @@
-'use client';
-
 import { ArrowRight, CheckCircle2, ChevronRight, Quote, Share2, Smartphone, Table as TableIcon } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/FAQAccordion';
 import { Container, Section } from '@/components/layout';
 import { Button } from '@/components/ui';
@@ -105,6 +104,9 @@ export type GenericLandingPageProps = {
   methodology?: Methodology[];
   benefits?: Benefit[];
   deliverables?: string[];
+
+  // Breadcrumbs
+  breadcrumbs?: Array<{ label: string; path: string }>;
 };
 
 const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data }) => {
@@ -127,41 +129,49 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
         <div className="bg-primary-100/50 pointer-events-none absolute top-0 right-0 h-[800px] w-[800px] rounded-full opacity-60 blur-[120px]"></div>
         <div className="bg-primary-200/50 pointer-events-none absolute bottom-0 left-0 h-[600px] w-[600px] rounded-full opacity-60 blur-[100px]"></div>
 
-        <Container size="7xl" className="relative z-10 text-center">
-          {data.icon && (
-            <FadeIn>
-              <div className="bg-primary-50 text-primary-600 border-primary-100 mx-auto mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl border shadow-sm">
-                {data.icon}
-              </div>
-            </FadeIn>
+        <Container size="7xl" className="relative z-10">
+          {data.breadcrumbs && (
+            <div className="mb-8 text-left">
+              <Breadcrumbs items={data.breadcrumbs} />
+            </div>
           )}
 
-          <FadeIn delay={0.1}>
-            <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-neutral-900 md:text-6xl lg:text-7xl">
-              {headline}
-            </h1>
-          </FadeIn>
+          <div className="text-center">
+            {data.icon && (
+              <FadeIn>
+                <div className="bg-primary-50 text-primary-600 border-primary-100 mx-auto mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl border shadow-sm">
+                  {data.icon}
+                </div>
+              </FadeIn>
+            )}
 
-          <FadeIn delay={0.2}>
-            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed font-normal text-neutral-600 md:text-2xl">
-              {subheadline}
-            </p>
-          </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-neutral-900 md:text-6xl lg:text-7xl">
+                {headline}
+              </h1>
+            </FadeIn>
 
-          <FadeIn delay={0.3}>
-            <div className="flex justify-center gap-4">
-              <Button size="lg" className="bg-primary-600 hover:bg-primary-700 shadow-primary-500/20 transform rounded-full px-8 text-white shadow-xl transition-all hover:-translate-y-1">
-                {ctaBtnText}
-                {' '}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full border-neutral-300 px-8 text-neutral-700 hover:bg-neutral-50">
-                  Hubungi Kami
+            <FadeIn delay={0.2}>
+              <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed font-normal text-neutral-600 md:text-2xl">
+                {subheadline}
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className="flex justify-center gap-4">
+                <Button size="lg" className="bg-primary-600 hover:bg-primary-700 shadow-primary-500/20 transform rounded-full px-8 text-white shadow-xl transition-all hover:-translate-y-1">
+                  {ctaBtnText}
+                  {' '}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
-            </div>
-          </FadeIn>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="rounded-full border-neutral-300 px-8 text-neutral-700 hover:bg-neutral-50">
+                    Hubungi Kami
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
+          </div>
 
           {/* Metrics Grid */}
           {data.metrics && (

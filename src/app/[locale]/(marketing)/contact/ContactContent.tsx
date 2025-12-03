@@ -1,3 +1,7 @@
+'use client';
+
+'use client';
+
 import { Clock, Mail, MapPin, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
@@ -6,7 +10,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 
 export default function ContactContent() {
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-neutral-50 dark:bg-slate-950">
       {/* Hero */}
       <Section className="bg-neutral-900 pt-32 pb-20 text-white">
         <Container size="4xl" className="text-center">
@@ -24,7 +28,7 @@ export default function ContactContent() {
             {/* Contact Info */}
             <FadeIn className="space-y-8 lg:col-span-1">
               <div>
-                <h3 className="mb-4 text-xl font-bold text-neutral-900">Sales & Enterprise</h3>
+                <h3 className="mb-4 text-xl font-bold text-neutral-900 dark:text-white">Sales & Enterprise</h3>
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 text-primary-600 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
                     <Mail className="h-5 w-5" />

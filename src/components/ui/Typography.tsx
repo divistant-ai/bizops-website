@@ -1,9 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { typography } from '@/design-tokens';
 
 /**
  * Typography component for consistent text styling
+ * Server Component - no client-side interactivity needed
  * Uses design tokens from design-tokens.ts
  *
  * @example
@@ -32,7 +33,7 @@ type TypographyProps = {
   id?: string;
 };
 
-const Typography: React.FC<TypographyProps> = memo(({
+const Typography: React.FC<TypographyProps> = ({
   variant,
   as,
   children,
@@ -67,15 +68,15 @@ const Typography: React.FC<TypographyProps> = memo(({
 
   const Component = as || defaultElement;
 
-  // Color classes
+  // Color classes - Design System: Light & dark mode support
   const colorClasses = {
-    default: 'text-slate-900 dark:text-white',
+    default: 'text-slate-900 dark:text-slate-50',
     muted: 'text-slate-600 dark:text-slate-400',
     primary: 'text-primary-600 dark:text-primary-400',
-    white: 'text-white',
-    success: 'text-green-600 dark:text-green-400',
-    warning: 'text-amber-600 dark:text-amber-400',
-    danger: 'text-red-600 dark:text-red-400',
+    white: 'text-white dark:text-slate-50',
+    success: 'text-green-700 dark:text-green-400',
+    warning: 'text-amber-700 dark:text-amber-400',
+    danger: 'text-red-700 dark:text-red-400',
   };
 
   // Alignment classes
@@ -107,7 +108,7 @@ const Typography: React.FC<TypographyProps> = memo(({
       {children}
     </Component>
   );
-});
+};
 
 Typography.displayName = 'Typography';
 

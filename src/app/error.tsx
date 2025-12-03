@@ -21,7 +21,7 @@ export default function Error({
     <Section className="flex min-h-[60vh] items-center">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400">
+          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
             <AlertTriangle className="h-8 w-8" />
           </div>
           <Typography variant="h1" as="h1" className="mb-4">

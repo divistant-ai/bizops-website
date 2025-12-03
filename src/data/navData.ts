@@ -25,7 +25,6 @@ import {
   Layout,
   LayoutGrid,
   LifeBuoy,
-  Map,
   MessageSquare,
   Newspaper,
   Package,
@@ -34,12 +33,14 @@ import {
   Rocket,
   Search,
   Server,
+  Shield,
   ShieldCheck,
   ShoppingCart,
   Signal,
   Smartphone,
   Smile,
   Star,
+  Target,
   TrendingUp,
   UserCheck,
   Users,
@@ -80,12 +81,12 @@ export const platformContent: Record<string, MenuContent> = {
     title: 'Core Business Modules',
     description: 'Integrated applications to run your entire enterprise.',
     items: [
-      { to: '/platform/modules/hr', label: 'Human Capital', desc: 'Payroll, Attendance, LMS', icon: Users, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20' },
-      { to: '/platform/modules/finance', label: 'Finance & Control', desc: 'Accounting, Expense, Asset', icon: DollarSign, color: 'text-green-600', bg: 'bg-green-50 dark:bg-green-900/20' },
-      { to: '/platform/modules/operations', label: 'Operations', desc: 'Timesheet, Project, S-Curve', icon: Briefcase, color: 'text-purple-600', bg: 'bg-purple-50 dark:bg-purple-900/20' },
-      { to: '/platform/modules/sales', label: 'Sales & CRM', desc: 'CRM, Quotation, POS', icon: TrendingUp, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-900/20' },
-      { to: '/platform/modules/supply-chain', label: 'Supply Chain', desc: 'Inventory, Warehouse, BOM', icon: Package, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-900/20' },
-      { to: '/platform/modules/governance', label: 'Governance', desc: 'BI Dashboard, Audit Trail', icon: BarChart, color: 'text-slate-600', bg: 'bg-slate-100 dark:bg-slate-800' },
+      { to: '/platform/modules/hr', label: 'Human Capital', desc: 'Payroll, Attendance, LMS', icon: Users, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+      { to: '/platform/modules/finance', label: 'Finance & Control', desc: 'Accounting, Expense, Asset', icon: DollarSign, color: 'text-green-600 dark:text-green-400', bg: 'bg-green-50 dark:bg-green-900/20' },
+      { to: '/platform/modules/operations', label: 'Operations', desc: 'Timesheet, Project, S-Curve', icon: Briefcase, color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20' },
+      { to: '/platform/modules/sales', label: 'Sales & CRM', desc: 'CRM, Quotation, POS', icon: TrendingUp, color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+      { to: '/platform/modules/supply-chain', label: 'Supply Chain', desc: 'Inventory, Warehouse, BOM', icon: Package, color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-900/20' },
+      { to: '/platform/modules/governance', label: 'Governance', desc: 'BI Dashboard, Audit Trail', icon: BarChart, color: 'text-slate-600 dark:text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800' },
     ],
   },
   capabilities: {
@@ -145,12 +146,13 @@ export const solutionsContent: Record<string, MenuContent> = {
 
 export const resourcesTabs: Array<MenuTab> = [
   { id: 'insights', label: 'Insights & News', icon: BookOpen },
-  { id: 'tools', label: 'Tools & Utilities', icon: Calculator },
+  { id: 'customer-tools', label: 'Customer Tools', icon: Calculator },
+  { id: 'strategic-tools', label: 'Strategic Tools', icon: BarChart },
   { id: 'support', label: 'Support Center', icon: LifeBuoy },
 ];
 
 export const resourcesContent: Record<string, MenuContent> = {
-  insights: {
+  'insights': {
     title: 'Latest Insights',
     description: 'Stay updated with industry trends and success stories.',
     items: [
@@ -160,21 +162,35 @@ export const resourcesContent: Record<string, MenuContent> = {
       { to: '/events', label: 'Events & Webinars', desc: 'Join our upcoming sessions', icon: Video },
     ],
   },
-  tools: {
-    title: 'Business Tools',
-    description: 'Interactive tools to help you make better decisions.',
+  'customer-tools': {
+    title: 'Customer Tools',
+    description: 'Kalkulator & tools untuk operasional sehari-hari.',
     items: [
-      { to: '/tools/assessment', label: 'Maturity Assessment', desc: 'Check your digital readiness', icon: BarChart },
-      { to: '/tools/needs-analysis', label: 'Solution Finder', desc: 'Map your operational needs', icon: Crosshair },
-      { to: '/tools/roi-calculator', label: 'ROI Calculator', desc: 'Calculate your potential savings', icon: Calculator },
-      { to: '/tools/pricing-calculator', label: 'Pricing Calculator', desc: 'Estimate software costs', icon: DollarSign },
-      { to: '/tools/project-planner', label: 'Project Planner', desc: 'Estimate implementation timeline', icon: GanttChartSquare },
-      { to: '/tools/migration-center', label: 'Migration Center', desc: 'Guides for moving to BizOps', icon: FileSpreadsheet },
-      { to: '/tools/comparison', label: 'System Comparison', desc: 'Compare vs Odoo, SAP & Excel', icon: LayoutGrid },
-      { to: '/roadmap', label: 'Product Roadmap', desc: 'See what is coming next', icon: Map },
+      { to: '/tools', label: 'View All Tools', desc: 'Browse all available tools', icon: LayoutGrid },
+      { to: '/tools/pajak-pph21', label: 'Kalkulator Pajak PPh 21', desc: 'Hitung pajak karyawan', icon: Calculator },
+      { to: '/tools/gaji-bersih', label: 'Kalkulator Gaji Bersih', desc: 'Hitung take home pay', icon: DollarSign },
+      { to: '/tools/bpjs', label: 'Kalkulator BPJS', desc: 'Hitung iuran BPJS', icon: Shield },
+      { to: '/tools/margin-markup', label: 'Margin & Markup', desc: 'Hitung harga jual optimal', icon: TrendingUp },
+      { to: '/tools/invoice-checker', label: 'Invoice Checker', desc: 'Validasi kelengkapan invoice', icon: FileSpreadsheet },
+      { to: '/tools/break-even-point', label: 'Break Even Point', desc: 'Hitung titik impas', icon: Target },
+      { to: '/tools/efisiensi-produksi', label: 'Efisiensi Produksi', desc: 'Hitung OEE mesin', icon: Factory },
     ],
   },
-  support: {
+  'strategic-tools': {
+    title: 'Strategic Tools',
+    description: 'Tools untuk perencanaan & transformasi digital.',
+    items: [
+      { to: '/tools/assessment', label: 'Maturity Assessment', desc: 'Digital readiness evaluation', icon: PieChart },
+      { to: '/tools/needs-analysis', label: 'Solution Finder', desc: '7-step needs analysis', icon: Crosshair },
+      { to: '/tools/roi-calculator', label: 'ROI Calculator', desc: 'Investment analysis', icon: DollarSign },
+      { to: '/tools/timeline-generator', label: 'Timeline Generator', desc: 'Project planning', icon: GanttChartSquare },
+      { to: '/pricing/calculator', label: 'Pricing Calculator', desc: 'Cost estimation', icon: Calculator },
+      { to: '/tools/biaya-turnover', label: 'Biaya Turnover', desc: 'HR cost analysis', icon: Users },
+      { to: '/comparisons', label: 'System Comparison', desc: 'Compare with competitors', icon: LayoutGrid },
+      { to: '/migration', label: 'Migration Center', desc: 'Data migration guides', icon: Rocket },
+    ],
+  },
+  'support': {
     title: 'Help & Support',
     description: 'Get the assistance you need to succeed.',
     items: [

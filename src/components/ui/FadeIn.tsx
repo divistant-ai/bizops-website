@@ -2,7 +2,7 @@
 
 import type { HTMLMotionProps } from 'framer-motion';
 import { motion, useReducedMotion } from 'framer-motion';
-import { createContext, useContext } from 'react';
+import { createContext, use } from 'react';
 
 const FadeInStaggerContext = createContext(false);
 
@@ -23,7 +23,7 @@ export function FadeIn({
   ...props
 }: FadeInProps) {
   const shouldReduceMotion = useReducedMotion();
-  const isInStaggerGroup = useContext(FadeInStaggerContext);
+  const isInStaggerGroup = use(FadeInStaggerContext);
 
   return (
     <motion.div
@@ -49,7 +49,7 @@ export function FadeIn({
 
 export function FadeInStagger({ faster = false, className, children, ...props }: any) {
   return (
-    <FadeInStaggerContext.Provider value={true}>
+    <FadeInStaggerContext value={true}>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -60,6 +60,6 @@ export function FadeInStagger({ faster = false, className, children, ...props }:
       >
         {children}
       </motion.div>
-    </FadeInStaggerContext.Provider>
+    </FadeInStaggerContext>
   );
 }

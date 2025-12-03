@@ -32,6 +32,7 @@ export default async function RolePage(props: { params: Promise<{ slug: string }
     notFound();
   }
 
+  // Transform data on server
   const data = transformContent(rawData);
 
   return <GenericLandingPage data={data as any} />;

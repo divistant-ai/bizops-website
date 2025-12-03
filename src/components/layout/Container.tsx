@@ -1,8 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 /**
  * Container component for consistent max-width and padding
+ * Server Component - no client-side interactivity needed
  *
  * @example
  * ```tsx
@@ -24,7 +25,7 @@ type ContainerProps = {
   as?: 'div' | 'section' | 'article' | 'main' | 'aside';
 };
 
-const Container: React.FC<ContainerProps> = memo(({
+const Container: React.FC<ContainerProps> = ({
   children,
   size = 'default',
   noPadding = false,
@@ -45,14 +46,15 @@ const Container: React.FC<ContainerProps> = memo(({
   };
 
   const maxWidthClass = sizeClasses[size] || sizeClasses.default;
-  const paddingClass = noPadding ? '' : 'px-4 md:px-6 lg:px-8';
+  // Premium spacing: slightly more breathing room on mobile
+  const paddingClass = noPadding ? '' : 'px-5 sm:px-6 md:px-8 lg:px-12';
 
   return (
     <Component className={twMerge(maxWidthClass, 'mx-auto', paddingClass, className)}>
       {children}
     </Component>
   );
-});
+};
 
 Container.displayName = 'Container';
 

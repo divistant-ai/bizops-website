@@ -343,7 +343,7 @@ export default function AssessmentWizard() {
                   Layanan Pendukung
                 </h3>
                 {results.topServices.length > 0
-                  ? results.topServices.map((srv) => (
+                  ? results.topServices.map(srv => (
                       <div key={srv.id} className="flex items-start gap-4 rounded-xl border border-amber-100 bg-amber-50/50 p-4">
                         <div className="mt-1">
                           <srv.icon className="h-5 w-5 text-amber-600" />

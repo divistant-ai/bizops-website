@@ -105,7 +105,7 @@ const Modal: React.FC<ModalProps> = memo(({
 
   return (
     <div
-      className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+      className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm dark:bg-black/70"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -125,7 +125,7 @@ const Modal: React.FC<ModalProps> = memo(({
           {showClose && (
             <button
               onClick={onClose}
-              className="focus:ring-primary-500 rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 focus:ring-2 focus:outline-none dark:hover:bg-slate-800 dark:hover:text-slate-200"
+              className="focus:ring-primary-500 rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600 focus:ring-2 focus:outline-none dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-slate-300"
               aria-label="Close modal"
             >
               <X className="h-6 w-6" />

@@ -1,5 +1,5 @@
-import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 import ProductTourContent from '@/components/pages/ProductTourContent';
+import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 
 export const metadata = genMeta({
   title: 'Interactive Product Tour | BizOps ERP In Action',

@@ -1,17 +1,35 @@
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import React from 'react';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
-import ErrorBoundary from '@/components/ErrorBoundary';
+import { Providers } from '@/components/providers';
 import { PWAInit } from '@/components/PWAInit';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import ScrollToTop from '@/components/ScrollToTop';
+import StructuredData from '@/components/StructuredData';
+import { WebVitalsReporter } from '@/components/WebVitalsReporter';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 import { routing } from '@/libs/I18nRouting';
+import { getOrganizationSchema, getWebSiteSchema } from '@/libs/utils/structured-data';
 import '@/styles/global.css';
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bizops.id'),
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -55,7 +73,7 @@ export default async function RootLayout(props: {
   const messages = (await import(`../../locales/${locale}.json`)).default;
 
   return (
-    <html lang={locale} className="">
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <script
           suppressHydrationWarning
@@ -63,24 +81,34 @@ export default async function RootLayout(props: {
             __html: `
               (function() {
                 try {
-                  localStorage.removeItem('theme');
-                  document.documentElement.classList.remove('dark');
+                  const theme = localStorage.getItem('theme');
+                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  const shouldBeDark = theme === 'dark' || (!theme && systemPrefersDark);
+                  if (shouldBeDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
                 } catch (e) {}
               })();
             `,
           }}
         />
+        {/* Structured Data for SEO */}
+        <StructuredData data={[getOrganizationSchema(), getWebSiteSchema()]} />
       </head>
-      <body className="bg-white text-slate-900" suppressHydrationWarning>
+      <body className={`${inter.variable} ${plusJakartaSans.variable} bg-background text-foreground font-sans antialiased transition-colors`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <PWAInit />
-          <ScrollToTop />
-          <PWAInstallPrompt />
-          <ErrorBoundary>
+          <Providers>
+            <PWAInit />
+            <ScrollToTop />
+            <PWAInstallPrompt />
+            <WebVitalsReporter />
+            <WhatsAppFloat />
             <PostHogProvider>
               {props.children}
             </PostHogProvider>
-          </ErrorBoundary>
+          </Providers>
 
           {/* <DemoBadge /> */}
         </NextIntlClientProvider>

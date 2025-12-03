@@ -1,7 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
+import { cn } from '@/libs/utils/cn';
 
 /**
  * Card component for displaying content in a contained box
+ * Server Component - interactive features handled via props
  */
 type CardProps = {
   /** Card content */
@@ -11,7 +13,7 @@ type CardProps = {
   /** Enable hover elevation effect */
   'hoverEffect'?: boolean;
   /** Visual style variant */
-  'variant'?: 'default' | 'outline' | 'flat' | 'dark';
+  'variant'?: 'default' | 'outline' | 'flat' | 'dark' | 'glass';
   /** Click handler */
   'onClick'?: () => void;
   /** Padding size */
@@ -26,7 +28,7 @@ type CardProps = {
   'as'?: React.ElementType;
 };
 
-const Card: React.FC<CardProps> = memo(({
+const Card: React.FC<CardProps> = ({
   children,
   className = '',
   hoverEffect = false,
@@ -38,13 +40,12 @@ const Card: React.FC<CardProps> = memo(({
   role,
   as: Component = 'div',
 }) => {
-  const baseStyles = 'rounded-2xl transition-all duration-300 relative overflow-hidden group';
-
   const variants = {
-    default: 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm',
-    outline: 'bg-transparent border border-slate-200 dark:border-slate-700',
-    flat: 'bg-slate-50 dark:bg-slate-800/50 border-none',
-    dark: 'bg-slate-900 text-white border border-slate-800',
+    default: 'bg-card text-card-foreground border border-border shadow-sm',
+    outline: 'bg-transparent border border-border',
+    flat: 'bg-muted/50 text-foreground border-none',
+    dark: 'bg-slate-900 text-white border border-white/10',
+    glass: 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg',
   };
 
   const paddings = {
@@ -54,11 +55,15 @@ const Card: React.FC<CardProps> = memo(({
     lg: 'p-8 md:p-10',
   };
 
-  const hoverStyles = hoverEffect ? 'hover:shadow-xl hover:-translate-y-2 hover:border-blue-300 dark:hover:border-blue-700 hover:ring-2 hover:ring-blue-500/10 cursor-pointer transition-shadow duration-300' : '';
-
   return (
     <Component
-      className={`${baseStyles} ${variants[variant]} ${paddings[padding]} ${hoverStyles} ${className}`}
+      className={cn(
+        'rounded-2xl transition-all duration-300 relative overflow-hidden group',
+        variants[variant],
+        paddings[padding],
+        hoverEffect && 'hover:shadow-premium hover:-translate-y-1 hover:border-primary/50 cursor-pointer',
+        className,
+      )}
       onClick={onClick}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledby}
@@ -76,7 +81,7 @@ const Card: React.FC<CardProps> = memo(({
       {children}
     </Component>
   );
-});
+};
 
 Card.displayName = 'Card';
 

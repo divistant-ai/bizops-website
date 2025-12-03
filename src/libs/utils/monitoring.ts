@@ -2,39 +2,19 @@ import * as Sentry from '@sentry/react';
 import { logger } from './logger';
 
 const getEnvVar = (key: string): string => {
-  try {
-    // @ts-ignore
-    if (typeof import.meta !== 'undefined' && import.meta.env) {
-      // @ts-ignore
-      return import.meta.env[key] || '';
-    }
-  } catch {
-    // Ignore
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env[key] || '';
   }
-
-  try {
-    if (typeof process !== 'undefined' && process.env) {
-      return process.env[key] || '';
-    }
-  } catch {
-    // Ignore
-  }
-
   return '';
 };
 
 const getEnvironment = (): string => {
-  try {
-    // @ts-ignore
-    return import.meta.env?.MODE || process.env?.NODE_ENV || 'production';
-  } catch {
-    return 'production';
-  }
+  return process.env.NODE_ENV || 'production';
 };
 
 export const initMonitoring = () => {
-  // Attempt to get DSN from standard environment variables
-  const dsn = getEnvVar('VITE_SENTRY_DSN') || getEnvVar('REACT_APP_SENTRY_DSN');
+  // Attempt to get DSN from Next.js environment variables
+  const dsn = getEnvVar('NEXT_PUBLIC_SENTRY_DSN') || getEnvVar('SENTRY_DSN');
 
   // Only initialize if DSN is present (user has configured .env)
   if (dsn) {
@@ -61,7 +41,7 @@ export const initHeatmap = () => {
   // Placeholder for Hotjar/FullStory integration.
   // In production, this would inject the script tag based on an ENV variable ID.
 
-  const hotjarId = getEnvVar('VITE_HOTJAR_ID') || getEnvVar('REACT_APP_HOTJAR_ID');
+  const hotjarId = getEnvVar('NEXT_PUBLIC_HOTJAR_ID') || getEnvVar('HOTJAR_ID');
 
   if (hotjarId) {
     // Example Logic:

@@ -3,7 +3,7 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import DemoModal from './DemoModal';
+import { DemoModal } from './ui/ClientLazyComponents';
 import NavbarDesktop from './navbar/NavbarDesktop';
 import NavbarLogo from './navbar/NavbarLogo';
 import NavbarMobile from './navbar/NavbarMobile';
@@ -58,8 +58,8 @@ export const Navbar: React.FC = () => {
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className={`sticky top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'shadow-premium border-b border-neutral-200/50 bg-white/80 backdrop-blur-xl'
-            : 'border-b border-transparent bg-white/60 backdrop-blur-md'
+            ? 'border-b border-neutral-200/50 bg-white/90 shadow-sm backdrop-blur-xl dark:border-white/5 dark:bg-slate-950/90'
+            : 'border-b border-transparent bg-white/80 backdrop-blur-md dark:bg-slate-950/80'
         }`}
       >
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

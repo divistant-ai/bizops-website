@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import React, { memo } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -71,15 +74,24 @@ const Button: React.FC<ButtonProps> = memo(({
 }: ButtonProps) => {
   const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed rounded-lg active:scale-[0.98]';
 
+  // Design System: Ensure proper color contrast for all variants
   const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
-    'primary': 'bg-primary-600 text-white hover:bg-primary-500 border border-transparent shadow-sm focus:ring-primary-500 hover:shadow-primary-500/25',
-    'secondary': 'bg-slate-900 dark:bg-slate-700 text-white hover:bg-slate-800 dark:hover:bg-slate-600 border border-transparent shadow-sm focus:ring-slate-900',
-    'accent': 'bg-amber-500 text-slate-950 hover:bg-amber-400 border border-transparent shadow-sm focus:ring-amber-500 hover:shadow-amber-500/25',
-    'white': 'bg-white text-slate-900 hover:bg-slate-50 border border-transparent shadow-sm focus:ring-white',
-    'outline': 'bg-transparent text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 focus:ring-slate-500',
-    'outline-white': 'bg-transparent text-white border border-white/30 hover:bg-white/10 focus:ring-white',
-    'ghost': 'bg-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white',
-    'link': 'text-primary-600 hover:underline px-0 shadow-none active:scale-100',
+    // Primary: Dark blue background with white text (high contrast)
+    'primary': 'bg-primary-600 text-white hover:bg-primary-700 border border-transparent shadow-sm focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600',
+    // Secondary: Dark background with white text (high contrast)
+    'secondary': 'bg-slate-900 text-white hover:bg-slate-800 border border-transparent shadow-sm focus:ring-slate-900 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100',
+    // Accent: Amber background with dark text (high contrast)
+    'accent': 'bg-amber-500 text-slate-950 hover:bg-amber-400 border border-transparent shadow-sm focus:ring-amber-500',
+    // White: White background with dark text (high contrast)
+    'white': 'bg-white text-slate-900 hover:bg-slate-50 border border-transparent shadow-sm focus:ring-white dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700',
+    // Outline: Transparent with border, adapts to context
+    'outline': 'bg-transparent text-slate-900 border border-slate-300 hover:bg-slate-50 hover:border-slate-400 focus:ring-slate-500 dark:text-slate-100 dark:border-slate-600 dark:hover:bg-slate-800',
+    // Outline-white: For use on dark backgrounds only (explicit)
+    'outline-white': 'bg-transparent text-white border border-white/30 hover:bg-white/10 hover:border-white/50 focus:ring-white',
+    // Ghost: Subtle hover effect
+    'ghost': 'bg-transparent text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus:ring-slate-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white',
+    // Link: Text-only button
+    'link': 'text-primary-600 hover:text-primary-700 hover:underline px-0 shadow-none active:scale-100 dark:text-primary-400 dark:hover:text-primary-300',
   };
 
   const sizes: Record<NonNullable<ButtonProps['size']>, string> = {
@@ -106,7 +118,7 @@ const Button: React.FC<ButtonProps> = memo(({
   }
 
   return (
-    <button
+    <motion.button
       type={type}
       className={buttonClassName}
       disabled={disabled || isLoading}
@@ -117,10 +129,12 @@ const Button: React.FC<ButtonProps> = memo(({
       aria-controls={ariaControls}
       aria-pressed={ariaPressed}
       aria-busy={isLoading}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
     >
       {isLoading && <Loader2 className="mr-2 h-5 w-5 animate-spin" aria-hidden="true" />}
       {children}
-    </button>
+    </motion.button>
   );
 });
 

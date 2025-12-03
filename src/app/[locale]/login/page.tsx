@@ -1,5 +1,5 @@
-import { generateMetadata } from '@/libs/utils/metadata';
 import { LoginContent } from '@/components/pages/LoginContent';
+import { generateMetadata } from '@/libs/utils/metadata';
 
 export const metadata = generateMetadata({
   title: 'Login to BizOps | Enterprise ERP',

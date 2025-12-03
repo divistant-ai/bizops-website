@@ -1,34 +1,77 @@
-// React not needed 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import React from 'react';
-import { FADE_UP_VARIANTS, STAGGER_CONTAINER } from '../../libs/utils/animation';
+'use client';
 
-export const StaggeredText: React.FC<{ text: string; className?: string }> = ({ text, className }) => {
-  // Split per kata untuk a11y yang lebih baik daripada per huruf
-  const words = text.split(' ');
-  const shouldReduceMotion = useReducedMotion();
+import { motion } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
-  // Jika user prefer reduced motion, render text biasa
-  if (shouldReduceMotion) {
-    return <h1 className={className}>{text}</h1>;
+type StaggeredTextProps = {
+  text: string;
+  className?: string;
+  delay?: number;
+  duration?: number;
+};
+
+export function StaggeredText({
+  text,
+  className = '',
+  delay = 0,
+  duration = 0.05,
+}: StaggeredTextProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <span className={className}>{text}</span>;
   }
+
+  const words = text.split(' ');
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: () => ({
+      opacity: 1,
+      transition: {
+        staggerChildren: duration,
+        delayChildren: delay,
+      },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring' as const,
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: 'spring' as const,
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
     <motion.span
-      className={`inline-flex flex-wrap gap-x-2 overflow-hidden ${className}`}
-      variants={STAGGER_CONTAINER}
+      className={className}
+      variants={container}
       initial="hidden"
       animate="visible"
     >
-      {words.map((word, i) => (
+      {words.map((word, index) => (
         <motion.span
-          key={i}
-          variants={FADE_UP_VARIANTS}
-          className="inline-block"
+          key={index}
+          variants={child}
+          style={{ display: 'inline-block', marginRight: '0.25em' }}
         >
           {word}
         </motion.span>
       ))}
     </motion.span>
   );
-};
+}

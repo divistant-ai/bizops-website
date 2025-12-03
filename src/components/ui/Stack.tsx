@@ -1,7 +1,9 @@
-'use client';
+import React from 'react';
 
-import React, { memo } from 'react';
-
+/**
+ * Stack component for flex layouts
+ * Server Component - no client-side interactivity needed
+ */
 type StackProps = {
   children: React.ReactNode;
   direction?: 'vertical' | 'horizontal';
@@ -12,7 +14,7 @@ type StackProps = {
   className?: string;
 };
 
-const Stack: React.FC<StackProps> = memo(({
+const Stack: React.FC<StackProps> = ({
   children,
   direction = 'vertical',
   gap = 4,
@@ -54,7 +56,7 @@ const Stack: React.FC<StackProps> = memo(({
       {children}
     </div>
   );
-});
+};
 
 Stack.displayName = 'Stack';
 

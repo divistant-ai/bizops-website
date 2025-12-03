@@ -1,5 +1,5 @@
-import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 import { DemoContent } from '@/components/pages/DemoContent';
+import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 
 export const metadata = genMeta({
   title: 'Book a Demo | BizOps Enterprise ERP',

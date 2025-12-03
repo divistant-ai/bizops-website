@@ -1,9 +1,8 @@
 'use client';
 
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { Quote, AlertTriangle, CheckCircle2 } from 'lucide-react';
-import { Typography } from '@/components/ui';
-import { Grid } from '@/components/ui';
+import { AlertTriangle, CheckCircle2, Quote } from 'lucide-react';
+import { Grid, Typography } from '@/components/ui';
 import Stack from '@/components/ui/Stack';
 
 type CustomerStory = {
@@ -33,12 +32,12 @@ export function CustomerStoryCard({ story, idx }: CustomerStoryCardProps) {
   }
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="group relative bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+      className="group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-lg transition-all duration-500 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900"
       onMouseMove={handleMouseMove}
     >
       <motion.div
@@ -53,27 +52,27 @@ export function CustomerStoryCard({ story, idx }: CustomerStoryCardProps) {
           `,
         }}
       />
-      
-      <div className="relative h-full flex flex-col lg:flex-row gap-4">
+
+      <div className="relative flex h-full flex-col gap-4 lg:flex-row">
         {/* LEFT: Impact & Metrics (Dark Side) */}
-        <div className="lg:w-[400px] bg-slate-900 text-white p-10 flex flex-col justify-between relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20">
-            <div className="absolute -top-20 -left-20 w-60 h-60 bg-blue-500 rounded-full blur-[80px]"></div>
-            <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-indigo-500 rounded-full blur-[80px]"></div>
+        <div className="relative flex flex-col justify-between overflow-hidden bg-slate-900 p-10 text-white lg:w-[400px]">
+          <div className="absolute top-0 left-0 h-full w-full overflow-hidden opacity-20">
+            <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-blue-500 blur-[80px]"></div>
+            <div className="absolute -right-20 -bottom-20 h-60 w-60 rounded-full bg-indigo-500 blur-[80px]"></div>
           </div>
 
           <div className="relative z-10">
-            <div className="w-16 h-16 bg-white text-slate-900 rounded-2xl flex items-center justify-center font-bold text-xl shadow-lg mb-8">
+            <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-xl font-bold text-slate-900 shadow-lg">
               {story.logo}
             </div>
             <Typography variant="h3" as="h3" className="font-bold">{story.client}</Typography>
-            <Typography variant="body" className="text-slate-400 tracking-wider">{story.industry}</Typography>
-            
-            <Stack direction="vertical" gap={6} className="pt-8 border-t border-white/10">
+            <Typography variant="body" className="tracking-wider text-slate-400">{story.industry}</Typography>
+
+            <Stack direction="vertical" gap={6} className="border-t border-white/10 pt-8">
               {story.metrics.map((m, i) => (
                 <div key={i}>
-                  <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-1 leading-tight">{m.value}</div>
-                  <div className="text-sm text-slate-400 font-medium">{m.label}</div>
+                  <div className="mb-1 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-4xl leading-tight font-bold text-transparent">{m.value}</div>
+                  <div className="text-sm font-medium text-slate-400">{m.label}</div>
                 </div>
               ))}
             </Stack>
@@ -81,29 +80,37 @@ export function CustomerStoryCard({ story, idx }: CustomerStoryCardProps) {
         </div>
 
         {/* RIGHT: The Story (Light Side) */}
-        <div className="flex-1 p-10 lg:p-14 flex flex-col gap-4">
+        <div className="flex flex-1 flex-col gap-4 p-10 lg:p-14">
           <div className="mb-8">
-            <Typography variant="h2" as="h2" className="font-bold text-slate-900 dark:text-white leading-tight">"{story.title}"</Typography>
-            
-            <div className="flex gap-4 mb-8">
-              <Quote className="w-10 h-10 text-blue-200 dark:text-blue-900 flex-shrink-0" />
-              <Typography variant="body" className="text-slate-600 dark:text-slate-300 leading-relaxed">{story.desc}</Typography>
+            <Typography variant="h2" as="h2" className="leading-tight font-bold text-slate-900 dark:text-white">
+              "
+              {story.title}
+              "
+            </Typography>
+
+            <div className="mb-8 flex gap-4">
+              <Quote className="h-10 w-10 flex-shrink-0 text-blue-200 dark:text-blue-900" />
+              <Typography variant="body" className="leading-relaxed text-slate-600 dark:text-slate-300">{story.desc}</Typography>
             </div>
           </div>
 
           {/* Transformation Grid */}
           <Grid cols={2} gap={6} className="mt-auto">
-            <div className="bg-red-50 dark:bg-red-900/10 p-5 rounded-xl border border-red-100 dark:border-red-900/20">
-              <div className="flex items-center gap-2 mb-2 text-red-700 dark:text-red-400 font-bold text-xs uppercase tracking-wider">
-                <AlertTriangle className="w-4 h-4" /> Before BizOps
+            <div className="rounded-xl border border-red-100 bg-red-50 p-5 dark:border-red-900/20 dark:bg-red-900/10">
+              <div className="mb-2 flex items-center gap-2 text-xs font-bold tracking-wider text-red-700 uppercase dark:text-red-400">
+                <AlertTriangle className="h-4 w-4" />
+                {' '}
+                Before BizOps
               </div>
-              <Typography variant="small" className="text-slate-700 dark:text-slate-300 leading-relaxed">{story.chaos}</Typography>
+              <Typography variant="small" className="leading-relaxed text-slate-700 dark:text-slate-300">{story.chaos}</Typography>
             </div>
-            <div className="bg-green-50 dark:bg-green-900/10 p-5 rounded-xl border border-green-100 dark:border-green-900/20">
-              <div className="flex items-center gap-2 mb-2 text-green-700 dark:text-green-400 font-bold text-xs uppercase tracking-wider">
-                <CheckCircle2 className="w-4 h-4" /> After BizOps
+            <div className="rounded-xl border border-green-100 bg-green-50 p-5 dark:border-green-900/20 dark:bg-green-900/10">
+              <div className="mb-2 flex items-center gap-2 text-xs font-bold tracking-wider text-green-700 uppercase dark:text-green-400">
+                <CheckCircle2 className="h-4 w-4" />
+                {' '}
+                After BizOps
               </div>
-              <Typography variant="small" className="text-slate-700 dark:text-slate-300 leading-relaxed">{story.solution}</Typography>
+              <Typography variant="small" className="leading-relaxed text-slate-700 dark:text-slate-300">{story.solution}</Typography>
             </div>
           </Grid>
         </div>
@@ -111,4 +118,3 @@ export function CustomerStoryCard({ story, idx }: CustomerStoryCardProps) {
     </motion.div>
   );
 }
-

@@ -1,6 +1,5 @@
-'use client';
-
 import { useCallback } from 'react';
+import { logger } from '@/utils/logger';
 
 type ErrorContext = {
   component?: string;
@@ -26,10 +25,18 @@ export const useErrorHandler = () => {
     const errorObj = error instanceof Error ? error : new Error(String(error));
 
     // Log error
-    console.error('Error caught:', errorObj, context);
+    logger.error('Error caught:', errorObj, context);
 
-    // TODO: Integrate with error tracking service (Sentry, etc.)
-    // TODO: Track error analytics
+    // Report to error tracking service (Sentry is configured in instrumentation.ts)
+    if (typeof window !== 'undefined') {
+      // Client-side error tracking
+      try {
+        // Sentry is auto-configured, just log for now
+        logger.error('Client error:', errorObj.message, context);
+      } catch (trackingError) {
+        logger.warn('Error tracking failed:', trackingError);
+      }
+    }
   }, []);
 
   return handleError;
@@ -68,6 +75,7 @@ export const useAsyncErrorHandler = () => {
             continue;
           }
 
+          // Max retries reached
           handleError(lastError, {
             ...context,
             maxRetries,

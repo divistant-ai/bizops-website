@@ -36,10 +36,8 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
-  // Transform data (serialize icons, handle mapping)
-  // Note: servicesData already has 'methodology', 'benefits', 'deliverables' which match the updated GenericLandingPage props.
-  // We just need to ensure icons are serialized.
+  // Transform data on server
   const data = transformContent(rawData);
 
-  return <GenericLandingPage data={data} />;
+  return <GenericLandingPage data={data as any} />;
 }

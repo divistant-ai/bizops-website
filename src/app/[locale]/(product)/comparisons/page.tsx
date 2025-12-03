@@ -1,5 +1,5 @@
-import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 import ComparisonsContent from '@/components/pages/ComparisonsContent';
+import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 
 export const metadata = genMeta({
   title: 'Architecture Comparison | BizOps',

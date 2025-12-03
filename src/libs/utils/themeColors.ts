@@ -1,5 +1,6 @@
 // Color themes for UI components (Badges, Cards, Highlights)
 // Compatible with Tailwind CSS classes
+// Supports both light and dark modes
 
 export const COLOR_THEMES: Record<string, {
   primary: string; // Text color

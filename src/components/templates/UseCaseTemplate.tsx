@@ -1,15 +1,15 @@
 'use client';
 
 import type { UseCase } from '@/data/useCasesContent';
-
-type UseCaseWithTransformedIcon = Omit<UseCase, 'icon'> & {
-  icon: React.ReactNode;
-};
 import { CheckCircle2, Layers, Lightbulb, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
 import { Badge, Button } from '@/components/ui';
 import { FadeIn, FadeInStagger } from '@/components/ui/FadeIn';
+
+type UseCaseWithTransformedIcon = Omit<UseCase, 'icon'> & {
+  icon: React.ReactNode;
+};
 type UseCaseTemplateProps = {
   data: UseCaseWithTransformedIcon;
 };

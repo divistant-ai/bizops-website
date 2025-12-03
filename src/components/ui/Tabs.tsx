@@ -85,14 +85,15 @@ const Tabs: React.FC<TabsProps> = memo(({
     }
   };
 
+  // Design System: Ensure proper color contrast for all tab variants (light & dark mode)
   const variantStyles = {
     default: {
-      list: 'border-b border-slate-200 dark:border-slate-800',
+      list: 'border-b border-slate-300 dark:border-slate-700',
       button: (isActive: boolean) => twMerge(
         'px-6 py-3 font-medium transition-colors border-b-2',
         isActive
-          ? 'border-primary-600 text-primary-600 dark:text-primary-400'
-          : 'border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-700',
+          ? 'border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400'
+          : 'border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-600',
       ),
     },
     pills: {
@@ -109,7 +110,7 @@ const Tabs: React.FC<TabsProps> = memo(({
       button: (isActive: boolean) => twMerge(
         'pb-3 font-medium transition-colors border-b-2',
         isActive
-          ? 'border-primary-600 text-primary-600 dark:text-primary-400'
+          ? 'border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400'
           : 'border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white',
       ),
     },

@@ -1,7 +1,7 @@
 'use client';
 
-import { Button } from '@/components/ui';
 import type React from 'react';
+import { Button } from '@/components/ui';
 
 type ScrollToSectionButtonProps = React.ComponentProps<typeof Button> & {
   sectionId: string;
@@ -18,4 +18,3 @@ export function ScrollToSectionButton({ sectionId, children, ...props }: ScrollT
     </Button>
   );
 }
-

@@ -3,7 +3,7 @@
 import { CheckCircle2, Globe, MapPin, Search } from 'lucide-react';
 import { useState } from 'react';
 import { Container, Section } from '@/components/layout';
-import { Badge } from '@/components/ui';
+import { Badge, OptimizedImage } from '@/components/ui';
 import { FadeIn, FadeInStagger } from '@/components/ui/FadeIn';
 import { partnerDirectoryData } from '@/data/partnerDirectoryContent';
 
@@ -78,8 +78,14 @@ export default function PartnerDirectoryPage() {
                       <div className="flex items-center gap-4">
                         {/* Logo Placeholder */}
                         <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100">
-                          {/* Use next/image in real implementation if domains configured */}
-                          <img src={partner.logo} alt={partner.name} className="h-full w-full object-cover" />
+                          <OptimizedImage
+                            src={partner.logo}
+                            alt={partner.name}
+                            width={64}
+                            height={64}
+                            className="h-full w-full object-cover"
+                            loading="lazy"
+                          />
                         </div>
                         <div>
                           <h3 className="line-clamp-1 font-bold text-neutral-900">{partner.name}</h3>

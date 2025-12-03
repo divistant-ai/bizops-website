@@ -71,8 +71,8 @@ const Pagination: React.FC<PaginationProps> = ({
           className={`
                     h-10 w-10 rounded-xl text-sm font-bold shadow-sm transition-all
                     ${currentPage === page
-          ? 'scale-110 bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-          : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800'}
+          ? 'scale-110 bg-slate-900 text-white'
+          : 'border border-slate-300 bg-white text-slate-600 hover:bg-slate-50'}
                 `}
         >
           {page}
@@ -86,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="rounded-xl border border-slate-200 bg-white p-2 text-slate-600 shadow-sm transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+        className="rounded-xl border border-slate-300 bg-white p-2 text-slate-600 shadow-sm transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Previous Page"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -99,7 +99,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="rounded-xl border border-slate-200 bg-white p-2 text-slate-600 shadow-sm transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+        className="rounded-xl border border-slate-300 bg-white p-2 text-slate-600 shadow-sm transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
         aria-label="Next Page"
       >
         <ChevronRight className="h-5 w-5" />

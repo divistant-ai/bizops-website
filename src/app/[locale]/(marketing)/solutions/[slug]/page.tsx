@@ -32,6 +32,7 @@ export default async function IndustryPage(props: { params: Promise<{ slug: stri
     notFound();
   }
 
+  // Transform data on server
   const data = transformContent(rawData);
 
   return <GenericLandingPage data={data as any} />;

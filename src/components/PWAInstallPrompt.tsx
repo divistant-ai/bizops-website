@@ -14,7 +14,9 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ onDismiss }) => {
   const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') {
+      return;
+    }
 
     // Check if install prompt is available
     const checkAvailability = () => {
@@ -74,8 +76,10 @@ const PWAInstallPrompt: React.FC<PWAInstallPromptProps> = ({ onDismiss }) => {
 
   // Check if user dismissed recently
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     try {
       const dismissed = localStorage.getItem('pwa_install_dismissed');
       if (dismissed) {

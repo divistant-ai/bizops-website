@@ -1,67 +1,58 @@
 'use client';
 
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import React, { useRef } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { SPRING_TRANSITION } from '../../libs/utils/animation';
+import type { ButtonHTMLAttributes } from 'react';
+import { motion } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
-// 1. Bouncy Button (Scale & Tap)
-export const BouncyButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({ children, className, ...props }) => {
+type BouncyButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const BouncyButton = ({ 
+  ref, 
+  children, 
+  className = '', 
+  onAnimationStart, 
+  onAnimationEnd,
+  onDrag,
+  onDragStart,
+  onDragEnd,
+  ...props 
+}: BouncyButtonProps & { ref?: React.RefObject<HTMLButtonElement | null> }) => {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return (
+      <button
+        ref={ref}
+        className={`inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+        onAnimationStart={onAnimationStart}
+        onAnimationEnd={onAnimationEnd}
+        onDrag={onDrag}
+        onDragStart={onDragStart}
+        onDragEnd={onDragEnd}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
+      ref={ref}
+      className={`inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+      whileHover={{
+        scale: 1.05,
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+      }}
       whileTap={{ scale: 0.95 }}
-      transition={SPRING_TRANSITION}
-      className={twMerge('px-6 py-3 bg-primary-600 text-white rounded-lg font-bold shadow-lg', className)}
-      {...props as any}
+      {...props}
     >
       {children}
     </motion.button>
   );
 };
 
-// 2. Magnetic Button (Advanced)
-export const MagneticButton: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  // Motion values for raw mouse position
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  // Smooth springs for the "magnetic" lag effect
-  const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) {
-      return;
-    }
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-
-    // Calculate distance from center
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-
-    // Move the button slightly towards the cursor (divide by factor to limit range)
-    x.set((clientX - centerX) / 3);
-    y.set((clientY - centerY) / 3);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x: springX, y: springY }} // Apply physics
-      className={`inline-block cursor-pointer ${className}`}
-    >
-      {children}
-    </motion.div>
-  );
-};
+BouncyButton.displayName = 'BouncyButton';

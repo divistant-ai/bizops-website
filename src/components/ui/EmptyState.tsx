@@ -1,3 +1,5 @@
+'use client';
+
 import type { LucideIcon } from 'lucide-react';
 import { AlertCircle, FileX, Inbox, Search } from 'lucide-react';
 
@@ -41,10 +43,10 @@ const EmptyState: React.FC<EmptyStateProps> = memo(({
       <div className={twMerge('w-16 h-16', iconColor, 'mb-4 flex items-center justify-center')}>
         <Icon className="h-full w-full" strokeWidth={1.5} />
       </div>
-      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
+      <h3 className="mb-2 text-xl font-semibold text-slate-900">
         {title}
       </h3>
-      <p className="mb-6 max-w-md leading-relaxed text-slate-600 dark:text-slate-400">
+      <p className="mb-6 max-w-md leading-relaxed text-slate-600">
         {description}
       </p>
       {actionLabel && onAction && (

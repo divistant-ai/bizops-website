@@ -81,45 +81,40 @@ type IntegrationConfig = {
  */
 export const getIntegrationConfig = (): IntegrationConfig => {
   const env = (key: string): string | undefined => {
-    try {
-      // @ts-ignore
-      return (import.meta as any).env[key] as string | undefined;
-    } catch {
-      return undefined;
-    }
+    return process.env[key] as string | undefined;
   };
 
   return {
-    ga4: env('VITE_GA4_MEASUREMENT_ID'),
-    gtm: env('VITE_GTM_CONTAINER_ID'),
-    mixpanel: env('VITE_MIXPANEL_TOKEN'),
-    amplitude: env('VITE_AMPLITUDE_API_KEY'),
-    segment: env('VITE_SEGMENT_WRITE_KEY'),
-    heap: env('VITE_HEAP_APP_ID'),
-    hotjar: env('VITE_HOTJAR_ID'),
-    clarity: env('VITE_CLARITY_PROJECT_ID'),
-    metaPixel: env('VITE_META_PIXEL_ID'),
-    linkedIn: env('VITE_LINKEDIN_PARTNER_ID'),
-    twitter: env('VITE_TWITTER_PIXEL_ID'),
-    tiktok: env('VITE_TIKTOK_PIXEL_ID'),
-    reddit: env('VITE_REDDIT_PIXEL_ID'),
-    intercom: env('VITE_INTERCOM_APP_ID'),
-    crisp: env('VITE_CRISP_WEBSITE_ID'),
-    tawk: env('VITE_TAWK_PROPERTY_ID') && env('VITE_TAWK_WIDGET_ID')
-      ? { propertyId: env('VITE_TAWK_PROPERTY_ID')!, widgetId: env('VITE_TAWK_WIDGET_ID')! }
+    ga4: env('NEXT_PUBLIC_GA4_MEASUREMENT_ID'),
+    gtm: env('NEXT_PUBLIC_GTM_CONTAINER_ID'),
+    mixpanel: env('NEXT_PUBLIC_MIXPANEL_TOKEN'),
+    amplitude: env('NEXT_PUBLIC_AMPLITUDE_API_KEY'),
+    segment: env('NEXT_PUBLIC_SEGMENT_WRITE_KEY'),
+    heap: env('NEXT_PUBLIC_HEAP_APP_ID'),
+    hotjar: env('NEXT_PUBLIC_HOTJAR_ID'),
+    clarity: env('NEXT_PUBLIC_CLARITY_PROJECT_ID'),
+    metaPixel: env('NEXT_PUBLIC_META_PIXEL_ID'),
+    linkedIn: env('NEXT_PUBLIC_LINKEDIN_PARTNER_ID'),
+    twitter: env('NEXT_PUBLIC_TWITTER_PIXEL_ID'),
+    tiktok: env('NEXT_PUBLIC_TIKTOK_PIXEL_ID'),
+    reddit: env('NEXT_PUBLIC_REDDIT_PIXEL_ID'),
+    intercom: env('NEXT_PUBLIC_INTERCOM_APP_ID'),
+    crisp: env('NEXT_PUBLIC_CRISP_WEBSITE_ID'),
+    tawk: env('NEXT_PUBLIC_TAWK_PROPERTY_ID') && env('NEXT_PUBLIC_TAWK_WIDGET_ID')
+      ? { propertyId: env('NEXT_PUBLIC_TAWK_PROPERTY_ID')!, widgetId: env('NEXT_PUBLIC_TAWK_WIDGET_ID')! }
       : undefined,
-    drift: env('VITE_DRIFT_APP_ID'),
-    zendesk: env('VITE_ZENDESK_KEY'),
-    logrocket: env('VITE_LOGROCKET_APP_ID'),
-    datadog: env('VITE_DATADOG_APPLICATION_ID') && env('VITE_DATADOG_CLIENT_TOKEN')
+    drift: env('NEXT_PUBLIC_DRIFT_APP_ID'),
+    zendesk: env('NEXT_PUBLIC_ZENDESK_KEY'),
+    logrocket: env('NEXT_PUBLIC_LOGROCKET_APP_ID'),
+    datadog: env('NEXT_PUBLIC_DATADOG_APPLICATION_ID') && env('NEXT_PUBLIC_DATADOG_CLIENT_TOKEN')
       ? {
-          applicationId: env('VITE_DATADOG_APPLICATION_ID')!,
-          clientToken: env('VITE_DATADOG_CLIENT_TOKEN')!,
-          site: env('VITE_DATADOG_SITE') || 'datadoghq.com',
+          applicationId: env('NEXT_PUBLIC_DATADOG_APPLICATION_ID')!,
+          clientToken: env('NEXT_PUBLIC_DATADOG_CLIENT_TOKEN')!,
+          site: env('NEXT_PUBLIC_DATADOG_SITE') || 'datadoghq.com',
         }
       : undefined,
-    googleSiteVerification: env('VITE_GOOGLE_SITE_VERIFICATION'),
-    bingSiteVerification: env('VITE_BING_SITE_VERIFICATION'),
+    googleSiteVerification: env('NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION'),
+    bingSiteVerification: env('NEXT_PUBLIC_BING_SITE_VERIFICATION'),
   };
 };
 
@@ -443,7 +438,7 @@ export const initDatadog = (config: { applicationId: string; clientToken: string
         applicationId: config.applicationId,
         site: config.site,
         service: 'bizops-website',
-        env: (import.meta as any).env.MODE,
+        env: process.env.NODE_ENV || 'development',
         version: '1.0.0',
         sessionSampleRate: 100,
         sessionReplaySampleRate: 20,
@@ -468,7 +463,7 @@ export const initAllIntegrations = (): void => {
   const envConfig = getEnvConfig();
 
   // Only initialize in production or when explicitly enabled
-  if (!envConfig.isProduction && !(import.meta as any).env.VITE_ENABLE_INTEGRATIONS) {
+  if (!envConfig.isProduction && !process.env.NEXT_PUBLIC_ENABLE_INTEGRATIONS) {
     logger.info('🔧 Integrations disabled in development mode');
     return;
   }

@@ -1,37 +1,122 @@
 @import 'tailwindcss';
 
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  :root {
+    /* Base - Clean White */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%; /* Zinc-950 equivalent for sharper text */
+
+    /* Card - Slightly elevated white */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Primary - Deep Royal Blue (Premium Tech Feel) */
+    --primary: 221.2 83.2% 53.3%; /* #2563EB (Blue-600) - Stronger, more confident blue */
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Sophisticated Gray */
+    --secondary: 240 4.8% 95.9%; /* Zinc-100 */
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Muted - Subtle Gray */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* Accent - Soft Highlight */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border/Input - Crisp & Subtle */
+    --border: 240 5.9% 90%; /* Zinc-200 */
+    --input: 240 5.9% 90%;
+    --ring: 221.2 83.2% 53.3%; /* Match Primary */
+
+    /* Radius - Modern & Friendly */
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Base - Rich Deep Black (Not washed out gray) */
+    --background: 240 10% 3.9%; /* #09090b (Zinc-950) - Deep, premium dark */
+    --foreground: 0 0% 98%;
+
+    /* Card - Subtle elevation from background */
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover */
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Vibrant Blue for Dark Mode */
+    --primary: 217.2 91.2% 59.8%; /* #3b82f6 (Blue-500) - Slightly lighter for dark bg */
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    /* Secondary */
+    --secondary: 240 3.7% 15.9%; /* Zinc-800 */
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted */
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Accent */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Destructive */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border - Low contrast for elegance */
+    --border: 240 3.7% 15.9%; /* Zinc-800 */
+    --input: 240 3.7% 15.9%;
+    --ring: 217.2 91.2% 59.8%;
+  }
 }
 
-body {
-  font-family:
-    'Inter var',
-    'Inter',
-    'Plus Jakarta Sans',
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
 
-/* Typography improvements */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Plus Jakarta Sans', 'Inter var', 'Inter', sans-serif;
-  letter-spacing: -0.02em;
-}
-
-/* Premium focus states */
-*:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 2px white,
-    0 0 0 4px #0ea5e9;
+  /* Modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* slate-300 */
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: #334155; /* slate-700 */
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8; /* slate-400 */
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #475569; /* slate-600 */
+  }
 }

@@ -1,6 +1,7 @@
 'use client';
 
-import { ChevronDown, Download, MousePointer, Phone } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronDown, MousePointer, X } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { usePathname } from '@/libs/I18nNavigation';
@@ -23,220 +24,479 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
   const location = usePathname();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMobilePlatformOpen(false);
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMobileSolutionsOpen(false);
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMobileServicesOpen(false);
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMobileResourcesOpen(false);
-    // eslint-disable-next-line react-hooks-extra/no-direct-set-state-in-use-effect
     setMobileCompanyOpen(false);
   }, [location]);
 
-  if (!isOpen) {
-    return null;
-  }
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const AccordionItem = ({
+    title,
+    isOpen,
+    onToggle,
+    children,
+  }: {
+    title: string;
+    isOpen: boolean;
+    onToggle: () => void;
+    children: React.ReactNode;
+  }) => (
+    <div className="overflow-hidden rounded-xl border border-slate-100 dark:border-slate-800/50">
+      <button
+        onClick={onToggle}
+        className="flex w-full items-center justify-between bg-slate-50/50 px-4 py-4 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+        aria-expanded={isOpen}
+      >
+        {title}
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'text-primary-500 rotate-180' : 'text-slate-400'}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden bg-white dark:bg-slate-950"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 
   return (
-    <div className="animate-fade-in-up fixed top-20 left-0 z-40 h-[calc(100vh-80px)] w-full overflow-y-auto overscroll-contain border-t border-slate-100 bg-white lg:hidden dark:border-slate-800 dark:bg-slate-900">
-      <div className="flex flex-col space-y-2 p-4 pb-20">
-        {/* Mobile Platform Accordion */}
-        <div>
-          <button
-            onClick={() => setMobilePlatformOpen(!mobilePlatformOpen)}
-            className="flex w-full items-center justify-between border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            aria-expanded={mobilePlatformOpen}
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm lg:hidden"
+          />
+
+          {/* Menu Drawer */}
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white shadow-2xl lg:hidden dark:bg-slate-950"
           >
-            Platform
-            <ChevronDown className={`h-4 w-4 transition-transform ${mobilePlatformOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {mobilePlatformOpen && (
-            <div className="mb-2 space-y-2 rounded-lg bg-slate-50/50 py-2 pl-4 dark:bg-slate-800/50">
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Core Modules</div>
-              {platformContent.modules?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+              <span className="text-lg font-bold text-slate-900 dark:text-white">Menu</span>
+              <button
+                onClick={onClose}
+                className="rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
 
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Capabilities</div>
-              {platformContent.capabilities?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
+            <div className="flex flex-col space-y-2 p-6 pb-24">
+              {/* Platform Accordion */}
+              <AccordionItem
+                title="Platform"
+                isOpen={mobilePlatformOpen}
+                onToggle={() => setMobilePlatformOpen(!mobilePlatformOpen)}
+              >
+                <div className="space-y-6 p-4">
+                  {/* Core Modules */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Core Modules
+                    </div>
+                    <div className="space-y-2">
+                      {platformContent.modules?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
 
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Technology</div>
-              {platformContent.technology?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
+                  {/* Capabilities */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Capabilities
+                    </div>
+                    <div className="space-y-2">
+                      {platformContent.capabilities?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
 
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="space-y-2 pt-2">
-                <Link href="/tour" onClick={onClose} className="text-primary-600 dark:text-primary-400 flex items-center gap-2 py-2 text-sm font-semibold">
-                  <span className="bg-primary-50 dark:bg-primary-900/20 flex h-6 w-6 items-center justify-center rounded"><MousePointer className="h-3.5 w-3.5" /></span>
-                  {' '}
-                  Interactive Tour
+                  {/* Technology */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Technology
+                    </div>
+                    <div className="space-y-2">
+                      {platformContent.technology?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Interactive Tour */}
+                  <div className="pt-2">
+                    <Link
+                      href="/product-tour"
+                      onClick={onClose}
+                      className="bg-primary-50 text-primary-700 hover:bg-primary-100 dark:bg-primary-900/20 dark:text-primary-400 dark:hover:bg-primary-900/30 flex w-full items-center justify-center gap-2 rounded-lg py-3 text-sm font-bold transition-colors"
+                    >
+                      <MousePointer className="h-4 w-4" />
+                      Interactive Tour
+                    </Link>
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* Solutions Accordion */}
+              <AccordionItem
+                title="Solutions"
+                isOpen={mobileSolutionsOpen}
+                onToggle={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+              >
+                <div className="space-y-6 p-4">
+                  {/* By Industry */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      By Industry
+                    </div>
+                    <div className="space-y-2">
+                      {solutionsContent.industry?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* By Role */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      By Role
+                    </div>
+                    <div className="space-y-2">
+                      {solutionsContent.role?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* Services Accordion */}
+              <AccordionItem
+                title="Services"
+                isOpen={mobileServicesOpen}
+                onToggle={() => setMobileServicesOpen(!mobileServicesOpen)}
+              >
+                <div className="p-4">
+                  <div className="space-y-2">
+                    {servicesItems.map(item => (
+                      <Link
+                        key={item.to}
+                        href={item.to}
+                        onClick={onClose}
+                        className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                      >
+                        <item.icon className="h-4 w-4 text-slate-400" />
+                        <div className="flex flex-col">
+                          <span>{item.label}</span>
+                          {item.desc && (
+                            <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* Resources Accordion */}
+              <AccordionItem
+                title="Resources"
+                isOpen={mobileResourcesOpen}
+                onToggle={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+              >
+                <div className="space-y-6 p-4">
+                  {/* Insights & News */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Insights & News
+                    </div>
+                    <div className="space-y-2">
+                      {resourcesContent.insights?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Customer Tools */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Customer Tools
+                    </div>
+                    <div className="space-y-2">
+                      {resourcesContent['customer-tools']?.items.slice(0, 5).map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                      <Link
+                        href="/tools"
+                        onClick={onClose}
+                        className="text-primary-600 hover:bg-primary-50 dark:text-primary-400 dark:hover:bg-primary-900/20 flex items-center gap-3 rounded-lg p-2 text-sm font-medium transition-colors"
+                      >
+                        View All Tools →
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Strategic Tools */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Strategic Tools
+                    </div>
+                    <div className="space-y-2">
+                      {resourcesContent['strategic-tools']?.items.slice(0, 4).map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Support */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Support
+                    </div>
+                    <div className="space-y-2">
+                      {resourcesContent.support?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* Company Accordion */}
+              <AccordionItem
+                title="Company"
+                isOpen={mobileCompanyOpen}
+                onToggle={() => setMobileCompanyOpen(!mobileCompanyOpen)}
+              >
+                <div className="space-y-6 p-4">
+                  {/* Our Story */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Our Story
+                    </div>
+                    <div className="space-y-2">
+                      {companyContent.story?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Ecosystem */}
+                  <div>
+                    <div className="mb-3 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+                      Ecosystem
+                    </div>
+                    <div className="space-y-2">
+                      {companyContent.ecosystem?.items.map(item => (
+                        <Link
+                          key={item.to}
+                          href={item.to}
+                          onClick={onClose}
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                        >
+                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <div className="flex flex-col">
+                            <span>{item.label}</span>
+                            {item.desc && (
+                              <span className="text-xs text-slate-400 dark:text-slate-500">{item.desc}</span>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </AccordionItem>
+
+              {/* Direct Links */}
+              <Link
+                href="/pricing"
+                onClick={onClose}
+                className="flex w-full items-center justify-between rounded-xl border border-slate-100 bg-slate-50/50 px-4 py-4 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-800/50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+              >
+                Pricing
+              </Link>
+
+              {/* Mobile Login & CTA */}
+              <div className="mt-6 space-y-3 border-t border-slate-200 pt-6 dark:border-slate-800">
+                <Link
+                  href="/login"
+                  onClick={onClose}
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+                >
+                  Login
                 </Link>
-                <Link href="/download" onClick={onClose} className="flex items-center gap-2 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">
-                  <span className="flex h-6 w-6 items-center justify-center rounded bg-slate-100 dark:bg-slate-800"><Download className="h-3.5 w-3.5" /></span>
-                  {' '}
-                  Download Apps
-                </Link>
+                <Button fullWidth size="lg" onClick={onDemoClick} className="rounded-xl">
+                  Book a Demo
+                </Button>
               </div>
             </div>
-          )}
-        </div>
-
-        {/* Mobile Solutions Accordion */}
-        <div>
-          <button
-            onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-            className="flex w-full items-center justify-between border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            aria-expanded={mobileSolutionsOpen}
-          >
-            Solutions
-            <ChevronDown className={`h-4 w-4 transition-transform ${mobileSolutionsOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {mobileSolutionsOpen && (
-            <div className="mb-2 space-y-2 rounded-lg bg-slate-50/50 py-2 pl-4 dark:bg-slate-800/50">
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">By Industry</div>
-              {solutionsContent.industry?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">By Role</div>
-              {solutionsContent.role?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Mobile Services Accordion */}
-        <div>
-          <button
-            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-            className="flex w-full items-center justify-between border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            aria-expanded={mobileServicesOpen}
-          >
-            Services
-            <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {mobileServicesOpen && (
-            <div className="mb-2 space-y-2 rounded-lg bg-slate-50/50 py-2 pl-4 dark:bg-slate-800/50">
-              {servicesItems.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <Link href="/pricing" onClick={onClose} className="block border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200">
-          Pricing
-        </Link>
-
-        {/* Mobile Resources Accordion */}
-        <div>
-          <button
-            onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-            className="flex w-full items-center justify-between border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            aria-expanded={mobileResourcesOpen}
-          >
-            Resources
-            <ChevronDown className={`h-4 w-4 transition-transform ${mobileResourcesOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {mobileResourcesOpen && (
-            <div className="mb-2 space-y-2 rounded-lg bg-slate-50/50 py-2 pl-4 dark:bg-slate-800/50">
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Insights & News</div>
-              {resourcesContent.insights?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Tools & Utilities</div>
-              {resourcesContent.tools?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Support Center</div>
-              {resourcesContent.support?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <Link href="/resources" onClick={onClose} className="text-primary-600 dark:text-primary-400 flex items-center gap-2 py-2 text-sm font-semibold">
-                View All Resources
-              </Link>
-            </div>
-          )}
-        </div>
-
-        {/* Mobile Company Accordion */}
-        <div>
-          <button
-            onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
-            className="flex w-full items-center justify-between border-b border-slate-50 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            aria-expanded={mobileCompanyOpen}
-          >
-            Company
-            <ChevronDown className={`h-4 w-4 transition-transform ${mobileCompanyOpen ? 'rotate-180' : ''}`} />
-          </button>
-          {mobileCompanyOpen && (
-            <div className="mb-2 space-y-2 rounded-lg bg-slate-50/50 py-2 pl-4 dark:bg-slate-800/50">
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Our Story</div>
-              {companyContent.story?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <div className="py-2 text-xs font-bold tracking-wider text-slate-400 uppercase">Ecosystem</div>
-              {companyContent.ecosystem?.items.map(item => (
-                <Link key={item.to} href={item.to} onClick={onClose} className="block py-2 text-sm text-slate-600 dark:text-slate-300">
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-              <Link href="/contact" onClick={onClose} className="flex items-center gap-2 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                <span className="flex h-6 w-6 items-center justify-center rounded bg-slate-100 dark:bg-slate-800"><Phone className="h-3.5 w-3.5" /></span>
-                {' '}
-                Contact Us
-              </Link>
-            </div>
-          )}
-        </div>
-
-        <Link href="/login" onClick={onClose} className="mt-2 block border-t border-slate-100 py-3 text-base font-medium text-slate-700 dark:border-slate-800 dark:text-slate-200">
-          Login
-        </Link>
-        <div className="block pt-2">
-          <Button fullWidth onClick={onDemoClick}>Book a Demo</Button>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 };
 

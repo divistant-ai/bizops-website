@@ -1,21 +1,34 @@
 'use client';
 
-import { useState } from 'react';
-import { 
-  Smartphone, Briefcase, Package, UserCheck, 
-  MousePointer, Check, ArrowRight, Loader2, 
-  ChevronRight, DollarSign, BarChart3, Zap, 
-  ShieldCheck, Globe, RefreshCw, Send, Users,
-  FileText, Bell, Plus
+import {
+  ArrowRight,
+  BarChart3,
+  Bell,
+  Briefcase,
+  Check,
+  ChevronRight,
+  DollarSign,
+  FileText,
+  Globe,
+  Loader2,
+  MousePointer,
+  Package,
+  Plus,
+  RefreshCw,
+  Send,
+  ShieldCheck,
+  Smartphone,
+  UserCheck,
+  Users,
+  Zap,
 } from 'lucide-react';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
-import { Typography } from '@/components/ui';
+import { useState } from 'react';
 import Container from '@/components/layout/Container';
-import { Grid } from '@/components/ui';
-import Stack from '@/components/ui/Stack';
-import { CardSlider } from '@/components/ui';
+import { CardSlider, Grid, Typography } from '@/components/ui';
 import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import Stack from '@/components/ui/Stack';
 
 type ScenarioType = 'sales' | 'manager' | 'warehouse' | 'employee' | 'finance' | 'ceo';
 
@@ -31,66 +44,66 @@ type ScenarioDef = {
 };
 
 const scenarios: ScenarioDef[] = [
-  { 
-    id: 'sales', 
-    label: 'Salesman', 
+  {
+    id: 'sales',
+    label: 'Salesman',
     role: 'Field Sales',
-    icon: Smartphone, 
+    icon: Smartphone,
     device: 'mobile',
     title: 'Closing Deal di Lapangan',
     desc: 'Buat penawaran harga (Quotation) saat meeting dengan klien hanya dalam 3 ketukan.',
-    color: 'text-blue-400'
+    color: 'text-blue-400',
   },
-  { 
-    id: 'manager', 
-    label: 'Manager', 
+  {
+    id: 'manager',
+    label: 'Manager',
     role: 'General Manager',
-    icon: Briefcase, 
+    icon: Briefcase,
     device: 'desktop',
     title: 'Approval Jarak Jauh',
     desc: 'Review dan setujui permintaan pembelian (PO) yang masuk dari tim procurement.',
-    color: 'text-purple-400'
+    color: 'text-purple-400',
   },
-  { 
-    id: 'warehouse', 
-    label: 'Staff Gudang', 
+  {
+    id: 'warehouse',
+    label: 'Staff Gudang',
     role: 'Warehouse Keeper',
-    icon: Package, 
+    icon: Package,
     device: 'mobile',
     title: 'Terima Barang Masuk',
     desc: 'Scan barcode barang yang datang dari supplier untuk update stok otomatis.',
-    color: 'text-amber-400'
+    color: 'text-amber-400',
   },
-  { 
-    id: 'employee', 
-    label: 'Karyawan', 
+  {
+    id: 'employee',
+    label: 'Karyawan',
     role: 'Staff',
-    icon: UserCheck, 
+    icon: UserCheck,
     device: 'mobile',
     title: 'Absensi & Cuti',
     desc: 'Clock-in kehadiran dengan Face ID dan ajukan cuti sakit mendadak.',
-    color: 'text-pink-400'
+    color: 'text-pink-400',
   },
-  { 
-    id: 'finance', 
-    label: 'Finance', 
+  {
+    id: 'finance',
+    label: 'Finance',
     role: 'Accountant',
-    icon: DollarSign, 
+    icon: DollarSign,
     device: 'desktop',
     title: 'Auto-Reconciliation',
     desc: 'Cocokkan mutasi bank dengan invoice penjualan secara otomatis tanpa input manual.',
-    color: 'text-emerald-400'
+    color: 'text-emerald-400',
   },
-  { 
-    id: 'ceo', 
-    label: 'CEO / Owner', 
+  {
+    id: 'ceo',
+    label: 'CEO / Owner',
     role: 'Chief Executive',
-    icon: BarChart3, 
+    icon: BarChart3,
     device: 'mobile',
     title: 'Executive Dashboard',
     desc: 'Pantau profitabilitas, cashflow, dan performa tim sales real-time dari genggaman.',
-    color: 'text-indigo-400'
-  }
+    color: 'text-indigo-400',
+  },
 ];
 
 export default function ProductTourContent() {
@@ -101,7 +114,9 @@ export default function ProductTourContent() {
   const currentScenario = scenarios.find(s => s.id === activeId) || scenarios[0];
 
   const switchScenario = (id: ScenarioType) => {
-    if (id === activeId) return;
+    if (id === activeId) {
+      return;
+    }
     setIsLoading(true);
     setActiveId(id);
     setStep(0);
@@ -121,49 +136,54 @@ export default function ProductTourContent() {
   };
 
   return (
-    <div className="pt-20 bg-[#0B1120] text-white min-h-screen relative overflow-x-hidden font-sans">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#0B1120] pt-20 font-sans text-white">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-20"></div>
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"></div>
+      <div className="bg-primary-500/5 pointer-events-none absolute top-0 left-0 h-[600px] w-[600px] rounded-full blur-[120px]"></div>
+      <div className="pointer-events-none absolute right-0 bottom-0 h-[600px] w-[600px] rounded-full bg-blue-500/5 blur-[120px]"></div>
 
       {/* MAIN INTERFACE CONTAINER */}
-      <Container size="7xl" className="relative z-10 min-h-[calc(100vh-5rem)] flex flex-col justify-center py-8 lg:py-0">
-        
+      <Container size="7xl" className="relative z-10 flex min-h-[calc(100vh-5rem)] flex-col justify-center py-8 lg:py-0">
+
         <Grid cols={12} gap={12} className="items-center">
-          
+
           {/* LEFT PANEL: CONTROLS */}
           <Stack direction="vertical" gap={8} className="lg:col-span-4">
-            
+
             {/* Header Title */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-primary-300 text-[10px] font-bold uppercase tracking-wider mb-4 ring-1 ring-white/5">
-                <MousePointer className="w-3 h-3 animate-bounce" /> Interactive Demo
+              <div className="text-primary-300 mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold tracking-wider uppercase ring-1 ring-white/5 backdrop-blur-xl">
+                <MousePointer className="h-3 w-3 animate-bounce" />
+                {' '}
+                Interactive Demo
               </div>
-              <Typography variant="h1" as="h1" className="font-extrabold leading-tight tracking-tight">Pilih Peran,<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-blue-400">Rasakan Bedanya.</span></Typography>
-              <Typography variant="small" className="text-slate-400 leading-relaxed">Simulasi hands-on bagaimana BizOps mempermudah pekerjaan setiap departemen.</Typography>
+              <Typography variant="h1" as="h1" className="leading-tight font-extrabold tracking-tight">
+                Pilih Peran,
+                <br />
+                <span className="from-primary-400 bg-gradient-to-r to-blue-400 bg-clip-text text-transparent">Rasakan Bedanya.</span>
+              </Typography>
+              <Typography variant="small" className="leading-relaxed text-slate-400">Simulasi hands-on bagaimana BizOps mempermudah pekerjaan setiap departemen.</Typography>
             </div>
 
             {/* Mobile Scenario Selector */}
-            <div className="lg:hidden w-full overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
-              <div className="flex gap-3 min-w-max">
-                {scenarios.map((sc) => (
+            <div className="scrollbar-hide -mx-4 w-full overflow-x-auto px-4 pb-4 lg:hidden">
+              <div className="flex min-w-max gap-3">
+                {scenarios.map(sc => (
                   <button
                     key={sc.id}
                     onClick={() => switchScenario(sc.id)}
-                    className={`group relative px-4 py-3 rounded-xl border flex items-center gap-3 transition-all duration-300 text-left min-w-[200px] ${
-                      activeId === sc.id 
-                        ? 'bg-white/10 border-primary-500/50 shadow-lg shadow-primary-900/20 ring-1 ring-primary-500/50' 
-                        : 'bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10 text-slate-400 hover:text-white'
+                    className={`group relative flex min-w-[200px] items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all duration-300 ${
+                      activeId === sc.id
+                        ? 'border-primary-500/50 shadow-primary-900/20 ring-primary-500/50 bg-white/10 shadow-lg ring-1'
+                        : 'border-transparent bg-white/5 text-slate-400 hover:border-white/10 hover:bg-white/10 hover:text-white'
                     }`}
                   >
-                    <div className={`p-2 rounded-lg transition-colors shrink-0 ${activeId === sc.id ? 'bg-primary-500 text-white shadow-md' : 'bg-slate-800 text-slate-400 group-hover:text-white'}`}>
-                      <sc.icon className="w-5 h-5" />
+                    <div className={`shrink-0 rounded-lg p-2 transition-colors ${activeId === sc.id ? 'bg-primary-500 text-white shadow-md' : 'bg-slate-800 text-slate-400 group-hover:text-white'}`}>
+                      <sc.icon className="h-5 w-5" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className={`text-sm font-bold truncate ${activeId === sc.id ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>{sc.label}</div>
-                      <div className="text-[10px] text-slate-500 group-hover:text-slate-400 truncate">{sc.role}</div>
+                    <div className="min-w-0 flex-1">
+                      <div className={`truncate text-sm font-bold ${activeId === sc.id ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>{sc.label}</div>
+                      <div className="truncate text-[10px] text-slate-500 group-hover:text-slate-400">{sc.role}</div>
                     </div>
                   </button>
                 ))}
@@ -172,73 +192,79 @@ export default function ProductTourContent() {
 
             {/* Desktop Vertical Scenario Menu */}
             <Stack direction="vertical" gap={2} className="hidden lg:flex">
-              <Typography variant="small" className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 px-2">Select Scenario</Typography>
-              {scenarios.map((sc) => (
+              <Typography variant="small" className="mb-1 px-2 text-xs font-bold tracking-wider text-slate-500 uppercase">Select Scenario</Typography>
+              {scenarios.map(sc => (
                 <button
                   key={sc.id}
                   onClick={() => switchScenario(sc.id)}
-                  className={`group relative px-4 py-3 rounded-xl border flex items-center gap-4 transition-all duration-300 text-left ${
-                    activeId === sc.id 
-                      ? 'bg-white/10 border-primary-500/50 shadow-lg shadow-primary-900/20 ring-1 ring-primary-500/50 translate-x-2' 
-                      : 'bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10 text-slate-400 hover:text-white hover:translate-x-1'
+                  className={`group relative flex items-center gap-4 rounded-xl border px-4 py-3 text-left transition-all duration-300 ${
+                    activeId === sc.id
+                      ? 'border-primary-500/50 shadow-primary-900/20 ring-primary-500/50 translate-x-2 bg-white/10 shadow-lg ring-1'
+                      : 'border-transparent bg-white/5 text-slate-400 hover:translate-x-1 hover:border-white/10 hover:bg-white/10 hover:text-white'
                   }`}
                 >
-                  <div className={`p-2 rounded-lg transition-colors ${activeId === sc.id ? 'bg-primary-500 text-white shadow-md' : 'bg-slate-800 text-slate-400 group-hover:text-white'}`}>
-                    <sc.icon className="w-5 h-5" />
+                  <div className={`rounded-lg p-2 transition-colors ${activeId === sc.id ? 'bg-primary-500 text-white shadow-md' : 'bg-slate-800 text-slate-400 group-hover:text-white'}`}>
+                    <sc.icon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
                     <div className={`text-sm font-bold ${activeId === sc.id ? 'text-white' : 'text-slate-300 group-hover:text-white'}`}>{sc.label}</div>
                     <div className="text-[10px] text-slate-500 group-hover:text-slate-400">{sc.role}</div>
                   </div>
-                  {activeId === sc.id && <ChevronRight className="w-4 h-4 text-primary-400 animate-pulse" />}
+                  {activeId === sc.id && <ChevronRight className="text-primary-400 h-4 w-4 animate-pulse" />}
                 </button>
               ))}
             </Stack>
 
             {/* Active Scenario Info Card */}
-            <div className="p-5 bg-slate-900/50 border border-slate-800 rounded-2xl backdrop-blur-sm hidden lg:block">
-              <div className={`text-xs font-bold uppercase tracking-widest mb-2 ${currentScenario!.color} flex items-center gap-2`}>
-                <span className="w-2 h-2 rounded-full bg-current animate-pulse"></span>
+            <div className="hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur-sm lg:block">
+              <div className={`mb-2 text-xs font-bold tracking-widest uppercase ${currentScenario!.color} flex items-center gap-2`}>
+                <span className="h-2 w-2 animate-pulse rounded-full bg-current"></span>
                 Current Mission
               </div>
               <Typography variant="h3" as="h3" className="font-bold text-white">{currentScenario!.title}</Typography>
-              <Typography variant="small" className="text-slate-400 leading-relaxed">{currentScenario!.desc}</Typography>
+              <Typography variant="small" className="leading-relaxed text-slate-400">{currentScenario!.desc}</Typography>
             </div>
 
           </Stack>
 
           {/* RIGHT PANEL: MAIN STAGE */}
-          <div className="lg:col-span-8 relative min-h-[600px] flex flex-col items-center lg:block lg:pt-8 w-full">
-             
+          <div className="relative flex min-h-[600px] w-full flex-col items-center lg:col-span-8 lg:block lg:pt-8">
+
             {/* Mobile Info */}
-            <div className="block lg:hidden mb-4 text-center w-full px-4 relative z-20">
-              <Typography variant="h2" as="h2" className="font-bold text-white leading-tight">{currentScenario!.title}</Typography>
-              <Typography variant="small" className="text-slate-400 leading-snug">{currentScenario!.desc}</Typography>
+            <div className="relative z-20 mb-4 block w-full px-4 text-center lg:hidden">
+              <Typography variant="h2" as="h2" className="leading-tight font-bold text-white">{currentScenario!.title}</Typography>
+              <Typography variant="small" className="leading-snug text-slate-400">{currentScenario!.desc}</Typography>
             </div>
 
             {/* Loading Overlay */}
             {isLoading && (
-              <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#0B1120]/90 backdrop-blur-sm rounded-3xl transition-opacity duration-300">
-                <Loader2 className="w-12 h-12 text-primary-500 animate-spin mb-4" />
-                <span className="text-primary-200 font-medium tracking-wider text-sm animate-pulse">LOADING {currentScenario!.label.toUpperCase()}...</span>
+              <div className="absolute inset-0 z-50 flex flex-col items-center justify-center rounded-3xl bg-[#0B1120]/90 backdrop-blur-sm transition-opacity duration-300">
+                <Loader2 className="text-primary-500 mb-4 h-12 w-12 animate-spin" />
+                <span className="text-primary-200 animate-pulse text-sm font-medium tracking-wider">
+                  LOADING
+                  {currentScenario!.label.toUpperCase()}
+                  ...
+                </span>
               </div>
             )}
 
             {/* Device Frame */}
-            <div className="w-full flex justify-center transform transition-all duration-500">
-              {currentScenario!.device === 'mobile' ? (
-                <div className="transform scale-[0.85] sm:scale-95 md:scale-100 lg:scale-90 xl:scale-100 origin-top md:origin-center">
-                  <MobileFrame>
-                    <ScenarioContent id={activeId} step={step} onNext={nextStep} onReset={resetScenario} />
-                  </MobileFrame>
-                </div>
-              ) : (
-                <div className="w-full transform scale-[0.55] sm:scale-[0.75] md:scale-90 lg:scale-90 xl:scale-100 origin-top md:origin-center -mt-4 md:-mt-0">
-                  <DesktopFrame role={currentScenario!.role}>
-                    <ScenarioContent id={activeId} step={step} onNext={nextStep} onReset={resetScenario} />
-                  </DesktopFrame>
-                </div>
-              )}
+            <div className="flex w-full transform justify-center transition-all duration-500">
+              {currentScenario!.device === 'mobile'
+                ? (
+                    <div className="origin-top scale-[0.85] transform sm:scale-95 md:origin-center md:scale-100 lg:scale-90 xl:scale-100">
+                      <MobileFrame>
+                        <ScenarioContent id={activeId} step={step} onNext={nextStep} onReset={resetScenario} />
+                      </MobileFrame>
+                    </div>
+                  )
+                : (
+                    <div className="-mt-4 w-full origin-top scale-[0.55] transform sm:scale-[0.75] md:-mt-0 md:origin-center md:scale-90 lg:scale-90 xl:scale-100">
+                      <DesktopFrame role={currentScenario!.role}>
+                        <ScenarioContent id={activeId} step={step} onNext={nextStep} onReset={resetScenario} />
+                      </DesktopFrame>
+                    </div>
+                  )}
             </div>
 
           </div>
@@ -247,33 +273,33 @@ export default function ProductTourContent() {
       </Container>
 
       {/* SUPPORTING SECTIONS */}
-      
+
       {/* Benefits */}
-      <section className="py-16 md:py-24 bg-slate-950/50 border-t border-slate-900 relative overflow-hidden">
+      <section className="relative overflow-hidden border-t border-slate-900 bg-slate-950/50 py-16 md:py-24">
         <Container size="7xl" className="relative z-10">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="mb-12 text-center md:mb-16">
             <Typography variant="h2" as="h2">Mengapa Kami Buat Simulasi Ini?</Typography>
             <Typography variant="body" className="text-slate-400">Kami percaya pada transparansi. Anda berhak tahu persis apa yang Anda beli sebelum mengeluarkan biaya sepeser pun.</Typography>
           </div>
-          
+
           <CardSlider desktopClassName="md:grid md:grid-cols-3 md:gap-8" mobileItemWidth="w-[85vw] sm:w-[350px]">
-            <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-primary-500/30 transition-colors h-full">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 ring-1 ring-blue-500/30">
-                <Zap className="w-6 h-6 text-blue-400" />
+            <div className="hover:border-primary-500/30 h-full rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 ring-1 ring-blue-500/30">
+                <Zap className="h-6 w-6 text-blue-400" />
               </div>
               <Typography variant="h3" as="h3">Zero-Setup Experience</Typography>
               <Typography variant="small" className="text-slate-400">Tidak perlu menunggu tim IT melakukan instalasi server. Cukup klik dan rasakan pengalamannya langsung di browser.</Typography>
             </div>
-            <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-purple-500/30 transition-colors h-full">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5 ring-1 ring-purple-500/30">
-                <ShieldCheck className="w-6 h-6 text-purple-400" />
+            <div className="h-full rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors hover:border-purple-500/30">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 ring-1 ring-purple-500/30">
+                <ShieldCheck className="h-6 w-6 text-purple-400" />
               </div>
               <Typography variant="h3" as="h3">Realistic Workflows</Typography>
               <Typography variant="small" className="text-slate-400">Skenario yang Anda jalankan adalah 100% alur kerja asli yang digunakan oleh klien-klien enterprise kami setiap hari.</Typography>
             </div>
-            <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-colors h-full">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5 ring-1 ring-emerald-500/30">
-                <Globe className="w-6 h-6 text-emerald-400" />
+            <div className="h-full rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors hover:border-emerald-500/30">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 ring-1 ring-emerald-500/30">
+                <Globe className="h-6 w-6 text-emerald-400" />
               </div>
               <Typography variant="h3" as="h3">Unified Ecosystem</Typography>
               <Typography variant="small" className="text-slate-400">Lihat bagaimana data dari Sales (Mobile) langsung terhubung ke Finance (Web) dan Gudang tanpa jeda.</Typography>
@@ -283,22 +309,27 @@ export default function ProductTourContent() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary-900/10"></div>
+      <section className="relative overflow-hidden py-24">
+        <div className="bg-primary-900/10 absolute inset-0"></div>
         <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-20"></div>
-        
-        <Container size="7xl" className="text-center relative z-10">
-          <Badge variant="outline" className="mb-6 border-primary-500/30 text-primary-300 bg-primary-500/10">Ready for the real thing?</Badge>
-          <Typography variant="h2" as="h2" className="font-extrabold text-white tracking-tight">Bawa Efisiensi Ini ke <span className="text-primary-400">Bisnis Anda.</span></Typography>
+
+        <Container size="7xl" className="relative z-10 text-center">
+          <Badge variant="outline" className="border-primary-500/30 text-primary-300 bg-primary-500/10 mb-6">Ready for the real thing?</Badge>
+          <Typography variant="h2" as="h2" className="font-extrabold tracking-tight text-white">
+            Bawa Efisiensi Ini ke
+            <span className="text-primary-400">Bisnis Anda.</span>
+          </Typography>
           <Typography variant="body" className="text-slate-400">Coba full version dengan data perusahaan Anda sendiri. Gratis 14 hari, tanpa komitmen.</Typography>
-          <Stack direction="vertical" gap={4} className="justify-center mt-8">
+          <Stack direction="vertical" gap={4} className="mt-8 justify-center">
             <Link href="/demo">
-              <Button size="lg" className="px-10 text-lg font-bold bg-primary-600 hover:bg-primary-500 border-none shadow-[0_0_40px_rgba(14,165,233,0.3)] w-full sm:w-auto group">
-                Mulai Trial Gratis <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="bg-primary-600 hover:bg-primary-500 group w-full border-none px-10 text-lg font-bold shadow-[0_0_40px_rgba(14,165,233,0.3)] sm:w-auto">
+                Mulai Trial Gratis
+                {' '}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link href="/tools/pricing-calculator">
-              <Button variant="outline" size="lg" className="px-10 text-lg border-slate-700 hover:bg-slate-800 text-white w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full border-slate-700 px-10 text-lg text-white hover:bg-slate-800 sm:w-auto">
                 Cek Estimasi Harga
               </Button>
             </Link>
@@ -311,76 +342,90 @@ export default function ProductTourContent() {
 }
 
 // Mobile Frame Component
-const MobileFrame: React.FC<{children: React.ReactNode}> = ({ children }) => (
-  <div className="relative mx-auto border-slate-800 bg-slate-950 border-[12px] md:border-[14px] rounded-[2.5rem] md:rounded-[3rem] h-[650px] md:h-[720px] w-[320px] md:w-[360px] shadow-2xl flex flex-col overflow-hidden ring-1 ring-slate-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
-    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none z-30"></div>
-    <div className="h-[32px] w-[3px] bg-slate-700 absolute -left-[15px] md:-left-[17px] top-[80px] rounded-l-lg"></div>
-    <div className="h-[46px] w-[3px] bg-slate-700 absolute -left-[15px] md:-left-[17px] top-[140px] rounded-l-lg"></div>
-    <div className="h-[64px] w-[3px] bg-slate-700 absolute -right-[15px] md:-right-[17px] top-[160px] rounded-r-lg"></div>
-    <div className="rounded-[2rem] overflow-hidden w-full h-full bg-slate-50 dark:bg-slate-950 relative flex flex-col">
-      <div className="h-10 bg-slate-950 flex justify-between items-center px-6 text-[10px] text-white select-none z-20 shrink-0">
+const MobileFrame: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="relative mx-auto flex h-[650px] w-[320px] transform flex-col overflow-hidden rounded-[2.5rem] border-[12px] border-slate-800 bg-slate-950 shadow-2xl ring-1 ring-slate-700/50 transition-transform duration-500 hover:scale-[1.02] md:h-[720px] md:w-[360px] md:rounded-[3rem] md:border-[14px]">
+    <div className="pointer-events-none absolute top-0 right-0 z-30 h-full w-1/2 bg-gradient-to-l from-white/5 to-transparent"></div>
+    <div className="absolute top-[80px] -left-[15px] h-[32px] w-[3px] rounded-l-lg bg-slate-700 md:-left-[17px]"></div>
+    <div className="absolute top-[140px] -left-[15px] h-[46px] w-[3px] rounded-l-lg bg-slate-700 md:-left-[17px]"></div>
+    <div className="absolute top-[160px] -right-[15px] h-[64px] w-[3px] rounded-r-lg bg-slate-700 md:-right-[17px]"></div>
+    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-[2rem] bg-slate-50 dark:bg-slate-950">
+      <div className="z-20 flex h-10 shrink-0 items-center justify-between bg-slate-950 px-6 text-[10px] text-white select-none">
         <span>9:41</span>
-        <div className="w-20 h-5 bg-black rounded-b-2xl absolute left-1/2 -translate-x-1/2 top-0"></div>
+        <div className="absolute top-0 left-1/2 h-5 w-20 -translate-x-1/2 rounded-b-2xl bg-black"></div>
         <div className="flex gap-1.5">
           <span className="text-xs">📶</span>
-          <div className="w-5 h-2.5 bg-white rounded"></div>
+          <div className="h-2.5 w-5 rounded bg-white"></div>
         </div>
       </div>
       {children}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-slate-400/50 rounded-full z-20 backdrop-blur-sm"></div>
+      <div className="absolute bottom-2 left-1/2 z-20 h-1 w-1/3 -translate-x-1/2 rounded-full bg-slate-400/50 backdrop-blur-sm"></div>
     </div>
   </div>
 );
 
 // Desktop Frame Component
-const DesktopFrame: React.FC<{children: React.ReactNode, role: string}> = ({ children, role }) => (
-  <div className="w-full aspect-[16/10] bg-slate-900 rounded-xl md:rounded-2xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col ring-4 ring-slate-900/50 relative transform transition-transform duration-500 hover:scale-[1.01]">
-    <div className="h-8 md:h-10 bg-slate-800 border-b border-slate-700 flex items-center px-4 select-none">
+const DesktopFrame: React.FC<{ children: React.ReactNode; role: string }> = ({ children, role }) => (
+  <div className="relative flex aspect-[16/10] w-full transform flex-col overflow-hidden rounded-xl border border-slate-700 bg-slate-900 shadow-2xl ring-4 ring-slate-900/50 transition-transform duration-500 hover:scale-[1.01] md:rounded-2xl">
+    <div className="flex h-8 items-center border-b border-slate-700 bg-slate-800 px-4 select-none md:h-10">
       <div className="flex gap-1.5 md:gap-2">
-        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ff5f56]"></div>
-        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#ffbd2e]"></div>
-        <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#27c93f]"></div>
+        <div className="h-2.5 w-2.5 rounded-full bg-[#ff5f56] md:h-3 md:w-3"></div>
+        <div className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e] md:h-3 md:w-3"></div>
+        <div className="h-2.5 w-2.5 rounded-full bg-[#27c93f] md:h-3 md:w-3"></div>
       </div>
-      <div className="ml-4 flex-1 bg-slate-900/80 rounded-md h-5 md:h-6 flex items-center px-3 text-[10px] md:text-xs text-slate-400 border border-slate-800/50 shadow-inner overflow-hidden whitespace-nowrap">
-        <span className="text-slate-500 mr-1">https://</span>app.bizops.id/desk
+      <div className="ml-4 flex h-5 flex-1 items-center overflow-hidden rounded-md border border-slate-800/50 bg-slate-900/80 px-3 text-[10px] whitespace-nowrap text-slate-400 shadow-inner md:h-6 md:text-xs">
+        <span className="mr-1 text-slate-500">https://</span>
+        app.bizops.id/desk
       </div>
     </div>
-    <div className="flex-1 flex overflow-hidden bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-white">
-      <div className="w-48 md:w-64 bg-slate-900 border-r border-slate-800 flex flex-col p-3 md:p-4 hidden sm:flex shrink-0">
-        <div className="flex items-center gap-3 mb-6 md:mb-8 text-white font-bold text-base md:text-lg px-2">
-          <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center text-xs md:text-sm shadow-lg shadow-primary-900/50">B</div>
+    <div className="flex flex-1 overflow-hidden bg-slate-50 text-slate-900 dark:bg-[#0B1120] dark:text-white">
+      <div className="flex hidden w-48 shrink-0 flex-col border-r border-slate-800 bg-slate-900 p-3 sm:flex md:w-64 md:p-4">
+        <div className="mb-6 flex items-center gap-3 px-2 text-base font-bold text-white md:mb-8 md:text-lg">
+          <div className="from-primary-600 to-primary-700 shadow-primary-900/50 flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br text-xs shadow-lg md:h-8 md:w-8 md:text-sm">B</div>
           <span className="tracking-tight">BizOps</span>
         </div>
         <Stack direction="vertical" gap={1}>
-          <div className="px-3 py-2 md:py-2.5 bg-primary-600/10 text-primary-400 rounded-lg text-xs md:text-sm font-medium flex items-center gap-3 border border-primary-500/10">
-            <BarChart3 className="w-3.5 h-3.5 md:w-4 md:h-4" /> Dashboard
+          <div className="bg-primary-600/10 text-primary-400 border-primary-500/10 flex items-center gap-3 rounded-lg border px-3 py-2 text-xs font-medium md:py-2.5 md:text-sm">
+            <BarChart3 className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            {' '}
+            Dashboard
           </div>
-          <div className="px-3 py-2 md:py-2.5 text-slate-400 hover:bg-slate-800 hover:text-slate-200 rounded-lg text-xs md:text-sm font-medium flex items-center gap-3 transition-colors cursor-pointer">
-            <Bell className="w-3.5 h-3.5 md:w-4 md:h-4" /> Inbox <span className="ml-auto bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-md font-bold shadow-md shadow-red-500/20">3</span>
+          <div className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-xs font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-slate-200 md:py-2.5 md:text-sm">
+            <Bell className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            {' '}
+            Inbox
+            <span className="ml-auto rounded-md bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white shadow-md shadow-red-500/20">3</span>
           </div>
-          <div className="px-3 py-2 md:py-2.5 text-slate-400 hover:bg-slate-800 hover:text-slate-200 rounded-lg text-xs md:text-sm font-medium flex items-center gap-3 transition-colors cursor-pointer">
-            <FileText className="w-3.5 h-3.5 md:w-4 md:h-4" /> Reports
+          <div className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-xs font-medium text-slate-400 transition-colors hover:bg-slate-800 hover:text-slate-200 md:py-2.5 md:text-sm">
+            <FileText className="h-3.5 w-3.5 md:h-4 md:w-4" />
+            {' '}
+            Reports
           </div>
         </Stack>
-        <div className="mt-auto flex items-center gap-3 pt-4 border-t border-slate-800/50">
-          <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-xs text-white font-bold shadow-md border border-white/10">
+        <div className="mt-auto flex items-center gap-3 border-t border-slate-800/50 pt-4">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-indigo-500 to-purple-600 text-xs font-bold text-white shadow-md md:h-9 md:w-9">
             {role.charAt(0)}
           </div>
           <div className="flex-1 overflow-hidden">
-            <div className="text-xs font-bold text-white truncate">{role}</div>
-            <div className="text-[10px] text-emerald-400 flex items-center gap-1">
-              <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div> Online
+            <div className="truncate text-xs font-bold text-white">{role}</div>
+            <div className="flex items-center gap-1 text-[10px] text-emerald-400">
+              <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"></div>
+              {' '}
+              Online
             </div>
           </div>
         </div>
       </div>
-      <div className="flex-1 flex flex-col relative overflow-hidden bg-slate-900">
-        <div className="h-12 md:h-16 border-b border-slate-800 flex items-center justify-between px-4 md:px-6 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60 z-10">
-          <div className="text-xs md:text-sm font-medium text-slate-400 flex items-center gap-2">
-            <span className="text-slate-500">Workspace</span> <ChevronRight className="w-3 h-3"/> <span className="text-white">Desk</span>
+      <div className="relative flex flex-1 flex-col overflow-hidden bg-slate-900">
+        <div className="z-10 flex h-12 items-center justify-between border-b border-slate-800 bg-slate-900/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60 md:h-16 md:px-6">
+          <div className="flex items-center gap-2 text-xs font-medium text-slate-400 md:text-sm">
+            <span className="text-slate-500">Workspace</span>
+            {' '}
+            <ChevronRight className="h-3 w-3" />
+            {' '}
+            <span className="text-white">Desk</span>
           </div>
         </div>
-        <div className="flex-1 relative p-4 md:p-8 overflow-y-auto bg-[#0B1120] bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px]">
+        <div className="relative flex-1 overflow-y-auto bg-[#0B1120] bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] p-4 md:p-8">
           {children}
         </div>
       </div>
@@ -398,18 +443,20 @@ const ScenarioContent: React.FC<{
   // Success screen (shared)
   if (step === 3) {
     return (
-      <div className="h-full w-full flex flex-col items-center justify-center text-center p-6">
-        <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-green-400/20 to-emerald-600/20 rounded-full flex items-center justify-center mb-6 ring-1 ring-green-500/30 animate-bounce-slow">
-          <Check className="w-10 h-10 md:w-12 md:h-12 text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
+      <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center">
+        <div className="animate-bounce-slow mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-400/20 to-emerald-600/20 ring-1 ring-green-500/30 md:h-24 md:w-24">
+          <Check className="h-10 w-10 text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)] md:h-12 md:w-12" />
         </div>
         <Typography variant="h3" as="h3">Task Completed!</Typography>
-        <Typography variant="small" className="text-slate-400 leading-relaxed">Bayangkan efisiensi ini dikalikan dengan ribuan transaksi.</Typography>
-        <Stack direction="vertical" gap={3} className="w-full max-w-xs mt-6">
+        <Typography variant="small" className="leading-relaxed text-slate-400">Bayangkan efisiensi ini dikalikan dengan ribuan transaksi.</Typography>
+        <Stack direction="vertical" gap={3} className="mt-6 w-full max-w-xs">
           <Link href="/demo" className="w-full">
-            <Button size="md" fullWidth className="shadow-xl shadow-primary-500/20 bg-primary-600 hover:bg-primary-500 border-none h-12 text-base">Mulai Trial Gratis</Button>
+            <Button size="md" fullWidth className="shadow-primary-500/20 bg-primary-600 hover:bg-primary-500 h-12 border-none text-base shadow-xl">Mulai Trial Gratis</Button>
           </Link>
-          <button onClick={onReset} className="text-sm text-slate-500 hover:text-white transition-colors flex items-center justify-center gap-2 py-2 group">
-            <RefreshCw className="w-3 h-3 group-hover:rotate-180 transition-transform duration-500" /> Ulangi Simulasi
+          <button onClick={onReset} className="group flex items-center justify-center gap-2 py-2 text-sm text-slate-500 transition-colors hover:text-white">
+            <RefreshCw className="h-3 w-3 transition-transform duration-500 group-hover:rotate-180" />
+            {' '}
+            Ulangi Simulasi
           </button>
         </Stack>
       </div>
@@ -420,34 +467,39 @@ const ScenarioContent: React.FC<{
   if (id === 'sales') {
     if (step === 0) {
       return (
-        <div className="h-full flex flex-col bg-slate-950">
-          <div className="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900 sticky top-0 z-10">
-            <div className="font-bold text-lg text-white">Quotations</div>
-            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center active:scale-90 transition-transform"><Plus className="w-5 h-5 text-primary-500"/></div>
+        <div className="flex h-full flex-col bg-slate-950">
+          <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900 p-4">
+            <div className="text-lg font-bold text-white">Quotations</div>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-800 transition-transform active:scale-90"><Plus className="text-primary-500 h-5 w-5" /></div>
           </div>
-          <Stack direction="vertical" gap={4} className="flex-1 p-4 overflow-y-auto">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-5 rounded-2xl shadow-lg mb-4 text-white relative overflow-hidden">
-              <div className="text-xs text-blue-200 font-bold uppercase tracking-wider mb-1">Sales Target (Oct)</div>
-              <div className="flex justify-between items-end">
+          <Stack direction="vertical" gap={4} className="flex-1 overflow-y-auto p-4">
+            <div className="relative mb-4 overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-5 text-white shadow-lg">
+              <div className="mb-1 text-xs font-bold tracking-wider text-blue-200 uppercase">Sales Target (Oct)</div>
+              <div className="flex items-end justify-between">
                 <div className="text-3xl font-bold">85%</div>
                 <div className="text-sm text-blue-100">IDR 850jt</div>
               </div>
-              <div className="h-1.5 w-full bg-black/20 mt-3 rounded-full overflow-hidden backdrop-blur-sm">
-                <div className="h-full w-[85%] bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+              <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-black/20 backdrop-blur-sm">
+                <div className="h-full w-[85%] rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
               </div>
             </div>
-            <div className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider px-1">Recent Drafts</div>
-            {[1, 2].map((i) => (
-              <div key={i} className="p-4 rounded-2xl border border-slate-800 bg-slate-900/50 flex justify-between items-center hover:bg-slate-800 transition-colors">
+            <div className="mb-2 px-1 text-xs font-bold tracking-wider text-slate-500 uppercase">Recent Drafts</div>
+            {[1, 2].map(i => (
+              <div key={i} className="flex items-center justify-between rounded-2xl border border-slate-800 bg-slate-900/50 p-4 transition-colors hover:bg-slate-800">
                 <div>
                   <div className="font-bold text-slate-200">PT Sumber Makmur</div>
-                  <div className="text-xs text-slate-500 mt-1">QT-2023-00{i} • IDR 25.000.000</div>
+                  <div className="mt-1 text-xs text-slate-500">
+                    QT-2023-00
+                    {i}
+                    {' '}
+                    • IDR 25.000.000
+                  </div>
                 </div>
                 <Badge variant="outline" size="sm" className="border-slate-700 text-slate-400">Draft</Badge>
               </div>
             ))}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-20 w-full max-w-[300px] px-4">
-              <Button size="md" onClick={onNext} className="w-full rounded-xl h-12 shadow-xl shadow-primary-500/30 animate-pulse bg-primary-600 hover:bg-primary-500 text-white font-bold border-none">
+            <div className="fixed bottom-8 left-1/2 z-20 w-full max-w-[300px] -translate-x-1/2 px-4">
+              <Button size="md" onClick={onNext} className="shadow-primary-500/30 bg-primary-600 hover:bg-primary-500 h-12 w-full animate-pulse rounded-xl border-none font-bold text-white shadow-xl">
                 + Buat Penawaran Baru
               </Button>
             </div>
@@ -457,19 +509,19 @@ const ScenarioContent: React.FC<{
     }
     if (step === 1) {
       return (
-        <div className="h-full flex flex-col bg-slate-950">
+        <div className="flex h-full flex-col bg-slate-950">
           <Stack direction="vertical" gap={5} className="flex-1 p-4">
             <Stack direction="vertical" gap={2}>
               <Typography variant="small" className="text-xs font-bold text-slate-500 uppercase">Customer</Typography>
-              <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-sm font-medium text-white flex justify-between items-center shadow-sm">
+              <div className="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-900 p-4 text-sm font-medium text-white shadow-sm">
                 PT Mitra Abadi Teknik
-                <div className="w-5 h-5 bg-green-500/20 rounded-full flex items-center justify-center"><Check className="w-3 h-3 text-green-500" /></div>
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20"><Check className="h-3 w-3 text-green-500" /></div>
               </div>
             </Stack>
             <Stack direction="vertical" gap={2}>
               <Typography variant="small" className="text-xs font-bold text-slate-500 uppercase">Items</Typography>
-              <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 shadow-sm">
-                <div className="flex justify-between text-sm mb-1 text-white font-medium">
+              <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 shadow-sm">
+                <div className="mb-1 flex justify-between text-sm font-medium text-white">
                   <span>MacBook Pro M3</span>
                   <span>x 5</span>
                 </div>
@@ -477,22 +529,22 @@ const ScenarioContent: React.FC<{
               </div>
             </Stack>
             <div className="mt-auto">
-              <div className="p-5 bg-slate-800/50 rounded-xl border border-slate-800 mb-4">
-                <div className="flex justify-between text-sm text-slate-400 mb-2">
+              <div className="mb-4 rounded-xl border border-slate-800 bg-slate-800/50 p-5">
+                <div className="mb-2 flex justify-between text-sm text-slate-400">
                   <span>Subtotal</span>
                   <span>Rp 125.000.000</span>
                 </div>
-                <div className="flex justify-between text-sm text-slate-400 mb-4">
+                <div className="mb-4 flex justify-between text-sm text-slate-400">
                   <span>Tax (11%)</span>
                   <span>Rp 13.750.000</span>
                 </div>
-                <div className="h-px bg-slate-700 my-3"></div>
+                <div className="my-3 h-px bg-slate-700"></div>
                 <div className="flex justify-between text-lg font-bold text-white">
                   <span>Total</span>
                   <span className="text-emerald-400">Rp 138.750.000</span>
                 </div>
               </div>
-              <Button size="md" fullWidth onClick={onNext} className="h-12 text-base font-bold bg-primary-600 hover:bg-primary-500 border-none shadow-lg shadow-primary-900/50">Simpan & Kirim</Button>
+              <Button size="md" fullWidth onClick={onNext} className="bg-primary-600 hover:bg-primary-500 shadow-primary-900/50 h-12 border-none text-base font-bold shadow-lg">Simpan & Kirim</Button>
             </div>
           </Stack>
         </div>
@@ -500,22 +552,26 @@ const ScenarioContent: React.FC<{
     }
     if (step === 2) {
       return (
-        <div className="h-full flex flex-col bg-slate-950">
-          <Stack direction="vertical" gap={6} className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-            <div className="w-20 h-20 bg-slate-900 rounded-3xl border border-slate-800 flex items-center justify-center shadow-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-primary-500/10 blur-xl"></div>
-              <FileText className="w-10 h-10 text-primary-500 relative z-10" />
+        <div className="flex h-full flex-col bg-slate-950">
+          <Stack direction="vertical" gap={6} className="flex flex-1 flex-col items-center justify-center p-6 text-center">
+            <div className="group relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
+              <div className="bg-primary-500/10 absolute inset-0 blur-xl"></div>
+              <FileText className="text-primary-500 relative z-10 h-10 w-10" />
             </div>
             <div>
               <Typography variant="h3" as="h3">Quotation Created!</Typography>
               <Typography variant="small" className="text-slate-500">QT-2023-088 siap dikirim.</Typography>
             </div>
             <Stack direction="vertical" gap={3} className="w-full">
-              <button onClick={onNext} className="w-full p-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-transform active:scale-95 shadow-lg shadow-green-900/20">
-                <Send className="w-5 h-5" /> Kirim via WhatsApp
+              <button onClick={onNext} className="flex w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] p-4 font-bold text-white shadow-lg shadow-green-900/20 transition-transform hover:bg-[#20bd5a] active:scale-95">
+                <Send className="h-5 w-5" />
+                {' '}
+                Kirim via WhatsApp
               </button>
-              <button onClick={onNext} className="w-full p-4 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-slate-300 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors">
-                <Users className="w-5 h-5" /> Kirim Email
+              <button onClick={onNext} className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-700 bg-slate-800 p-4 font-bold text-slate-300 transition-colors hover:bg-slate-700">
+                <Users className="h-5 w-5" />
+                {' '}
+                Kirim Email
               </button>
             </Stack>
           </Stack>
@@ -526,20 +582,24 @@ const ScenarioContent: React.FC<{
 
   // Simplified scenarios for other roles
   return (
-    <div className="h-full flex flex-col items-center justify-center text-center p-6">
+    <div className="flex h-full flex-col items-center justify-center p-6 text-center">
       <div className="mb-6">
         <Typography variant="h3" as="h3" className="mb-2">{id === 'manager' ? 'Approval Dashboard' : id === 'finance' ? 'Bank Reconciliation' : id === 'ceo' ? 'Executive Dashboard' : id === 'warehouse' ? 'Warehouse Scanner' : 'HR Dashboard'}</Typography>
-        <Typography variant="small" className="text-slate-400">Step {step + 1} of 3</Typography>
+        <Typography variant="small" className="text-slate-400">
+          Step
+          {step + 1}
+          {' '}
+          of 3
+        </Typography>
       </div>
-      <div className="w-32 h-32 bg-slate-800 rounded-2xl flex items-center justify-center mb-6">
-        {id === 'manager' && <Briefcase className="w-16 h-16 text-purple-400" />}
-        {id === 'finance' && <DollarSign className="w-16 h-16 text-emerald-400" />}
-        {id === 'ceo' && <BarChart3 className="w-16 h-16 text-indigo-400" />}
-        {id === 'warehouse' && <Package className="w-16 h-16 text-amber-400" />}
-        {id === 'employee' && <UserCheck className="w-16 h-16 text-pink-400" />}
+      <div className="mb-6 flex h-32 w-32 items-center justify-center rounded-2xl bg-slate-800">
+        {id === 'manager' && <Briefcase className="h-16 w-16 text-purple-400" />}
+        {id === 'finance' && <DollarSign className="h-16 w-16 text-emerald-400" />}
+        {id === 'ceo' && <BarChart3 className="h-16 w-16 text-indigo-400" />}
+        {id === 'warehouse' && <Package className="h-16 w-16 text-amber-400" />}
+        {id === 'employee' && <UserCheck className="h-16 w-16 text-pink-400" />}
       </div>
       <Button onClick={onNext} size="lg" className="bg-primary-600 hover:bg-primary-500">Continue Scenario</Button>
     </div>
   );
 };
-

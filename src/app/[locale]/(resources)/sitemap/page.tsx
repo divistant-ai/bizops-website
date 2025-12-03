@@ -1,8 +1,7 @@
+import { BookOpen, Briefcase, Code, Globe, HelpCircle, Layers, Shield, Users, Wrench } from 'lucide-react';
 import Link from 'next/link';
-import { Layers, Briefcase, BookOpen, Shield, Users, Wrench, Globe, HelpCircle, Code } from 'lucide-react';
-import { Typography } from '@/components/ui';
 import Container from '@/components/layout/Container';
-import { Grid } from '@/components/ui';
+import { Grid, Typography } from '@/components/ui';
 import { generateMetadata as genMeta } from '@/libs/utils/metadata';
 
 export const metadata = genMeta({
@@ -150,9 +149,9 @@ export default function SitemapPage() {
   ];
 
   return (
-    <div className="pt-24 pb-24 bg-white dark:bg-slate-950 min-h-screen transition-colors">
+    <div className="min-h-screen bg-white pt-24 pb-24 transition-colors dark:bg-slate-950">
       <Container className="px-4 md:px-6 lg:px-8" size="7xl">
-        <div className="text-center mb-16">
+        <div className="mb-16 text-center">
           <Typography variant="h1" as="h1">Sitemap</Typography>
           <Typography variant="body" className="text-slate-600 dark:text-slate-400">
             Jelajahi seluruh halaman dan fitur yang tersedia di ekosistem BizOps.
@@ -161,16 +160,16 @@ export default function SitemapPage() {
 
         <Grid cols={3} gap={8}>
           {sitemapData.map((section, idx) => (
-            <div key={idx} className="border border-slate-100 dark:border-slate-800 rounded-2xl p-6 hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all duration-300 bg-white dark:bg-slate-900">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${section.color}`}>
-                <section.icon className="w-5 h-5" />
+            <div key={idx} className="rounded-2xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-slate-900/50">
+              <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${section.color}`}>
+                <section.icon className="h-5 w-5" />
               </div>
-              <Typography variant="h2" as="h2" className="font-bold text-slate-900 dark:text-white mb-4">{section.title}</Typography>
+              <Typography variant="h2" as="h2" className="mb-4 font-bold text-slate-900 dark:text-white">{section.title}</Typography>
               <ul className="space-y-2.5">
                 {section.links.map((link, lIdx) => (
                   <li key={lIdx}>
-                    <Link href={link.href} className="text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:underline transition-colors flex items-center gap-2 group">
-                      <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-primary-500 transition-colors"></span>
+                    <Link href={link.href} className="hover:text-primary-600 dark:hover:text-primary-400 group flex items-center gap-2 text-sm text-slate-600 transition-colors hover:underline dark:text-slate-400">
+                      <span className="group-hover:bg-primary-500 h-1 w-1 rounded-full bg-slate-300 transition-colors dark:bg-slate-700"></span>
                       {link.label}
                     </Link>
                   </li>

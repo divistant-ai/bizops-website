@@ -19,7 +19,7 @@ export const SkeletonText: React.FC<{ lines?: number; className?: string }> = me
 SkeletonText.displayName = 'SkeletonText';
 
 export const SkeletonCard: React.FC = memo(() => (
-  <div className="rounded-2xl border border-slate-100 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
     <Skeleton className="mb-6 h-48 w-full rounded-xl" />
     <Skeleton className="mb-4 h-6 w-3/4" />
     <SkeletonText lines={2} />

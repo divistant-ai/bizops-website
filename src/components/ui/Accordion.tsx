@@ -24,14 +24,14 @@ const Accordion: React.FC<AccordionProps> = ({ question, answer, className }) =>
         <Typography variant="h3" as="h3" className="text-lg font-bold text-slate-900 dark:text-white">{question}</Typography>
         <div className={twMerge(
           'p-2 rounded-full transition-colors',
-          isOpen ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-300',
+          isOpen ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400',
         )}
         >
           {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         </div>
       </button>
       {isOpen && (
-        <div className="border-t border-slate-100 px-6 pt-4 pb-6 leading-relaxed text-slate-600 dark:border-slate-800/50 dark:text-slate-300 dark:text-slate-400">
+        <div className="border-t border-slate-200 px-6 pt-4 pb-6 leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400">
           {answer}
         </div>
       )}

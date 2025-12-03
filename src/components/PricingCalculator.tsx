@@ -693,7 +693,19 @@ const PricingCalculator: React.FC = () => {
                       { id: 'fnb', name: 'Food & Beverage', icon: Info },
                       { id: 'other', name: 'Other', icon: MoreHorizontal },
                     ].map(ind => (
-                      <div key={ind.id} onClick={() => updateAssessment('industry', ind.id)} className={`flex cursor-pointer flex-col items-center gap-2 rounded-lg border p-2.5 transition-all ${assessment.industry === ind.id ? 'bg-primary-500/20 border-primary-500' : 'border-transparent bg-white/5 hover:bg-white/5'}`}>
+                      <div
+                        key={ind.id}
+                        onClick={() => updateAssessment('industry', ind.id)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault(); updateAssessment('industry', ind.id);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={assessment.industry === ind.id}
+                        className={`flex cursor-pointer flex-col items-center gap-2 rounded-lg border p-2.5 transition-all ${assessment.industry === ind.id ? 'bg-primary-500/20 border-primary-500' : 'border-transparent bg-white/5 hover:bg-white/5'}`}
+                      >
                         <ind.icon className={`h-4 w-4 ${assessment.industry === ind.id ? 'text-primary-400' : 'text-slate-500'}`} />
                         <span className={`text-xs font-medium ${assessment.industry === ind.id ? 'text-white' : 'text-slate-400'} text-center leading-tight`}>{ind.name}</span>
                       </div>
@@ -735,7 +747,18 @@ const PricingCalculator: React.FC = () => {
                   </div>
                 </div>
 
-                <div onClick={() => updateAssessment('hasMultiCompany', !assessment.hasMultiCompany)} className={`flex cursor-pointer items-center justify-between rounded-xl border px-5 py-4 transition-colors ${assessment.hasMultiCompany ? 'border-indigo-500 bg-indigo-500/10' : 'border-white/10 bg-white/5 hover:bg-white/5'}`}>
+                <div
+                  onClick={() => updateAssessment('hasMultiCompany', !assessment.hasMultiCompany)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault(); updateAssessment('hasMultiCompany', !assessment.hasMultiCompany);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={assessment.hasMultiCompany}
+                  className={`flex cursor-pointer items-center justify-between rounded-xl border px-5 py-4 transition-colors ${assessment.hasMultiCompany ? 'border-indigo-500 bg-indigo-500/10' : 'border-white/10 bg-white/5 hover:bg-white/5'}`}
+                >
                   <div className="flex items-center gap-3">
                     <Globe2 className={`h-5 w-5 ${assessment.hasMultiCompany ? 'text-indigo-500' : 'text-slate-500'}`} />
                     <div>
@@ -768,7 +791,19 @@ const PricingCalculator: React.FC = () => {
                       { key: 'needsProcurement', label: 'Procurement', desc: 'PO, PR, Supplier Portal', icon: ShoppingCart },
                       { key: 'needsHRM', label: 'HRM & Payroll', desc: 'Absensi, Cuti, Gaji, PPh21', icon: Users },
                     ].map(m => (
-                      <div key={m.key} onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])} className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'bg-primary-500/20 border-primary-500' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}>
+                      <div
+                        key={m.key}
+                        onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault(); updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData]);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={!!assessment[m.key as keyof AssessmentData]}
+                        className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'bg-primary-500/20 border-primary-500' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}
+                      >
                         <div className="flex items-center gap-2">
                           <m.icon className={`h-4 w-4 ${assessment[m.key as keyof AssessmentData] ? 'text-primary-400' : 'text-slate-500'}`} />
                           <span className={`text-sm font-medium ${assessment[m.key as keyof AssessmentData] ? 'text-white' : 'text-slate-400'}`}>{m.label}</span>
@@ -793,7 +828,19 @@ const PricingCalculator: React.FC = () => {
                       { key: 'needsPOS', label: 'Point of Sales', desc: 'Kasir Retail / F&B', icon: Store },
                       { key: 'needsEcommerce', label: 'E-Commerce', desc: 'Webstore & Payment Gateway', icon: Globe },
                     ].map(m => (
-                      <div key={m.key} onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])} className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'border-blue-500 bg-blue-500/20' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}>
+                      <div
+                        key={m.key}
+                        onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault(); updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData]);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={!!assessment[m.key as keyof AssessmentData]}
+                        className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'border-blue-500 bg-blue-500/20' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}
+                      >
                         <div className="flex items-center gap-2">
                           <m.icon className={`h-4 w-4 ${assessment[m.key as keyof AssessmentData] ? 'text-blue-400' : 'text-slate-500'}`} />
                           <span className={`text-sm font-medium ${assessment[m.key as keyof AssessmentData] ? 'text-white' : 'text-slate-400'}`}>{m.label}</span>
@@ -816,7 +863,19 @@ const PricingCalculator: React.FC = () => {
                       { key: 'needsDMS', label: 'Document Management', desc: 'Digital Archive & Versioning', icon: FileCheck },
                       { key: 'needsBI', label: 'Business Intelligence', desc: 'Advanced Dashboard', icon: PieChart },
                     ].map(m => (
-                      <div key={m.key} onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])} className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'border-purple-500 bg-purple-500/20' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}>
+                      <div
+                        key={m.key}
+                        onClick={() => updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData])}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault(); updateAssessment(m.key as keyof AssessmentData, !assessment[m.key as keyof AssessmentData]);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={!!assessment[m.key as keyof AssessmentData]}
+                        className={`flex min-h-[80px] cursor-pointer flex-col justify-center gap-1 rounded-xl border p-3 transition-all ${assessment[m.key as keyof AssessmentData] ? 'border-purple-500 bg-purple-500/20' : 'border-white/5 bg-white/5 hover:bg-white/10'}`}
+                      >
                         <div className="flex items-center gap-2">
                           <m.icon className={`h-4 w-4 ${assessment[m.key as keyof AssessmentData] ? 'text-purple-400' : 'text-slate-500'}`} />
                           <span className={`text-sm font-medium ${assessment[m.key as keyof AssessmentData] ? 'text-white' : 'text-slate-400'}`}>{m.label}</span>
@@ -853,7 +912,18 @@ const PricingCalculator: React.FC = () => {
                       </button>
                     ))}
                   </div>
-                  <div className="mt-4 border-t border-white/5 pt-4" onClick={() => updateAssessment('hasLegacySystem', !assessment.hasLegacySystem)}>
+                  <div
+                    className="mt-4 border-t border-white/5 pt-4"
+                    onClick={() => updateAssessment('hasLegacySystem', !assessment.hasLegacySystem)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault(); updateAssessment('hasLegacySystem', !assessment.hasLegacySystem);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={assessment.hasLegacySystem}
+                  >
                     <div className="flex cursor-pointer items-center gap-2">
                       <div className={`flex h-4 w-4 items-center justify-center rounded border ${assessment.hasLegacySystem ? 'border-amber-500 bg-amber-500' : 'border-slate-500'}`}>
                         {assessment.hasLegacySystem && <Check className="h-3 w-3 text-black" />}
@@ -896,7 +966,18 @@ const PricingCalculator: React.FC = () => {
                   </div>
                   <input type="range" max="20" value={assessment.customReports} onChange={e => updateAssessment('customReports', Number.parseInt(e.target.value))} className="h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-700 accent-purple-500" />
                 </div>
-                <div onClick={() => updateAssessment('needsCustomModule', !assessment.needsCustomModule)} className={`flex cursor-pointer items-center justify-between rounded-2xl border p-5 transition-all ${assessment.needsCustomModule ? 'border-purple-500 bg-purple-500/20' : 'border-white/10 bg-white/5 hover:bg-white/10'}`}>
+                <div
+                  onClick={() => updateAssessment('needsCustomModule', !assessment.needsCustomModule)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault(); updateAssessment('needsCustomModule', !assessment.needsCustomModule);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={assessment.needsCustomModule}
+                  className={`flex cursor-pointer items-center justify-between rounded-2xl border p-5 transition-all ${assessment.needsCustomModule ? 'border-purple-500 bg-purple-500/20' : 'border-white/10 bg-white/5 hover:bg-white/10'}`}
+                >
                   <div className="flex items-center gap-4">
                     <div className={`rounded-lg p-2 ${assessment.needsCustomModule ? 'bg-purple-500 text-white' : 'bg-slate-800 text-slate-400'}`}><AppWindow className="h-5 w-5" /></div>
                     <div>

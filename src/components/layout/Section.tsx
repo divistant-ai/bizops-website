@@ -1,6 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
+/**
+ * Section component for page sections
+ * Server Component - no client-side interactivity needed
+ */
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
@@ -10,7 +14,7 @@ type SectionProps = {
   dark?: boolean;
 };
 
-const Section: React.FC<SectionProps> = memo(({
+const Section: React.FC<SectionProps> = ({
   children,
   className = '',
   id,
@@ -18,7 +22,12 @@ const Section: React.FC<SectionProps> = memo(({
   noPadding = false,
   dark = false,
 }) => {
-  const bgClass = dark ? 'bg-slate-900 text-white' : 'bg-white dark:bg-slate-950 text-slate-900 dark:text-white';
+  // Design System: Ensure proper color contrast for light & dark mode
+  // Dark prop sections: bg-slate-900 with text-white
+  // Light sections: bg-white with text-slate-900 (respects dark mode)
+  const bgClass = dark
+    ? 'bg-slate-900 text-white'
+    : 'bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50';
   const paddingClass = noPadding ? '' : 'py-16 md:py-20 lg:py-24';
 
   return (
@@ -28,7 +37,7 @@ const Section: React.FC<SectionProps> = memo(({
       </div>
     </section>
   );
-});
+};
 
 Section.displayName = 'Section';
 
