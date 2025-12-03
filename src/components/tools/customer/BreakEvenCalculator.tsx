@@ -138,10 +138,10 @@ export default function BreakEvenCalculator() {
             <Target className="h-4 w-4" />
             Customer Tool
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
             Kalkulator Break Even Point (BEP)
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Hitung kapan bisnis Anda mulai menghasilkan profit. Ketahui target penjualan minimal!
           </p>
         </div>
@@ -151,11 +151,11 @@ export default function BreakEvenCalculator() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <Card className="p-6">
-              <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Input Data Bisnis</h2>
+              <h2 className="mb-6 text-xl font-bold text-slate-900 dark:text-white">Input Data Bisnis</h2>
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="fixed-costs" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="fixed-costs" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Biaya Tetap (Fixed Costs)
                   </label>
                   <div className="relative">
@@ -181,7 +181,7 @@ export default function BreakEvenCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="variable-cost" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="variable-cost" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Biaya Variabel per Unit
                   </label>
                   <div className="relative">
@@ -207,7 +207,7 @@ export default function BreakEvenCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="selling-price" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="selling-price" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Harga Jual per Unit
                   </label>
                   <div className="relative">
@@ -231,7 +231,7 @@ export default function BreakEvenCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="monthly-sales" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="monthly-sales" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Estimasi Penjualan Bulanan (unit)
                   </label>
                   <input
@@ -278,7 +278,7 @@ export default function BreakEvenCalculator() {
             <Card className="border-l-4 border-orange-500 bg-orange-50 p-4">
               <div className="flex gap-2">
                 <Info className="h-5 w-5 flex-shrink-0 text-orange-600" />
-                <div className="text-xs text-gray-700 dark:text-slate-300">
+                <div className="text-xs text-slate-700 dark:text-slate-300">
                   <p className="mb-1 font-semibold">Apa itu Break Even Point?</p>
                   <p>
                     BEP adalah titik dimana total pendapatan sama dengan total biaya.
@@ -321,7 +321,7 @@ export default function BreakEvenCalculator() {
                     </Card>
 
                     <Card className="p-6">
-                      <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white">
                         <BarChart3 className="h-5 w-5 text-orange-600" />
                         Analisis Contribution Margin
                       </h3>
@@ -329,43 +329,43 @@ export default function BreakEvenCalculator() {
                       <div className="space-y-4">
                         <div className="rounded-lg bg-gradient-to-r from-orange-50 to-red-50 p-4">
                           <div className="mb-2 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700 dark:text-slate-300">Contribution Margin</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Contribution Margin</span>
                             <span className="text-2xl font-bold text-orange-600">
                               {formatCurrency(result.contributionMargin)}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-600 dark:text-slate-400">
+                          <p className="text-xs text-slate-600 dark:text-slate-400">
                             Profit per unit sebelum biaya tetap
                           </p>
                         </div>
 
                         <div className="rounded-lg bg-gradient-to-r from-red-50 to-orange-50 p-4">
                           <div className="mb-2 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700 dark:text-slate-300">CM Ratio</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">CM Ratio</span>
                             <span className="text-2xl font-bold text-red-600">
                               {result.contributionMarginRatio.toFixed(2)}
                               %
                             </span>
                           </div>
-                          <p className="text-xs text-gray-600 dark:text-slate-400">
+                          <p className="text-xs text-slate-600 dark:text-slate-400">
                             Persentase contribution margin dari harga jual
                           </p>
                         </div>
 
                         <div className="space-y-2 border-t pt-4 text-sm">
                           <div className="flex justify-between">
-                            <span className="text-gray-600 dark:text-slate-400">Harga Jual</span>
+                            <span className="text-slate-600 dark:text-slate-400">Harga Jual</span>
                             <span className="font-medium">{formatCurrency(result.sellingPricePerUnit)}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-gray-600 dark:text-slate-400">Biaya Variabel</span>
+                            <span className="text-slate-600 dark:text-slate-400">Biaya Variabel</span>
                             <span className="font-medium text-red-600">
                               -
                               {formatCurrency(result.variableCostPerUnit)}
                             </span>
                           </div>
                           <div className="flex justify-between border-t pt-2">
-                            <span className="font-medium text-gray-900 dark:text-white">Contribution Margin</span>
+                            <span className="font-medium text-slate-900 dark:text-white">Contribution Margin</span>
                             <span className="font-bold text-green-600">
                               {formatCurrency(result.contributionMargin)}
                             </span>
@@ -382,7 +382,7 @@ export default function BreakEvenCalculator() {
                     </Card>
 
                     <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
-                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">Proyeksi Profit</h4>
+                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-white">Proyeksi Profit</h4>
                       <div className="space-y-2 text-sm">
                         {[1.2, 1.5, 2].map((multiplier) => {
                           const units = Math.ceil(result.breakEvenUnits * multiplier);
@@ -392,7 +392,7 @@ export default function BreakEvenCalculator() {
 
                           return (
                             <div key={multiplier} className="flex items-center justify-between rounded-lg bg-white p-3">
-                              <span className="text-gray-700 dark:text-slate-300">
+                              <span className="text-slate-700 dark:text-slate-300">
                                 {units.toLocaleString('id-ID')}
                                 {' '}
                                 unit
@@ -428,10 +428,10 @@ export default function BreakEvenCalculator() {
                 <TrendingUp className="h-6 w-6 text-orange-600" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
                   Real-time Financial Planning & Analysis
                 </h3>
-                <p className="mb-4 text-gray-600 dark:text-slate-400">
+                <p className="mb-4 text-slate-600 dark:text-slate-400">
                   Hitung BEP manual setiap kali ada perubahan? BizOps otomatis menghitung BEP,
                   proyeksi profit, dan financial forecasting secara real-time.
                 </p>
@@ -451,7 +451,7 @@ export default function BreakEvenCalculator() {
         <Card className="mt-8 border-l-4 border-orange-500 bg-orange-50 p-6">
           <div className="flex gap-3">
             <AlertCircle className="h-5 w-5 flex-shrink-0 text-orange-600" />
-            <div className="text-sm text-gray-700 dark:text-slate-300">
+            <div className="text-sm text-slate-700 dark:text-slate-300">
               <p className="mb-2 font-semibold">Tips Menggunakan BEP:</p>
               <ul className="list-inside list-disc space-y-1">
                 <li>Semakin rendah BEP, semakin cepat bisnis menghasilkan profit</li>

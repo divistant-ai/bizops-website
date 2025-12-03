@@ -25,33 +25,33 @@ type ModulePageProps = {
   }>;
 };
 
-// FAQ Component
+// Elegant FAQ Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-slate-200 last:border-0">
+    <div className="rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex w-full items-center justify-between py-6 text-left focus:outline-none"
+        className="group flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-50 focus:outline-none dark:hover:bg-slate-800/50"
       >
-        <span className="text-primary-600 group-hover:text-primary-600 text-lg font-bold text-slate-900 transition-colors">
+        <span className="pr-4 text-sm font-semibold text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400 md:text-base">
           {question}
         </span>
         <div
-          className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
-            isOpen ? 'bg-primary-600 rotate-180 text-white' : 'bg-slate-100 text-slate-500'
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
+            isOpen ? 'rotate-180 bg-blue-600 text-white dark:bg-blue-500' : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
           }`}
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4" />
         </div>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'mb-6 max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-hidden transition-all duration-200 ease-in-out ${
+          isOpen ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <p className="leading-relaxed text-slate-600">{answer}</p>
+        <p className="px-4 pb-4 text-xs leading-relaxed text-slate-600 dark:text-slate-400 md:text-sm">{answer}</p>
       </div>
     </div>
   );
@@ -87,138 +87,123 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
   }).filter(m => m.title); // Filter out invalid ones
 
   return (
-    <div className="flex flex-col bg-white">
-      {/* 1. PREMIUM HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-white/5 bg-[#0B1120] pt-24 pb-16 lg:pt-48 lg:pb-40">
-        {/* Premium Background Effects */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:24px_24px]"></div>
-        <div className="bg-primary-500/20 pointer-events-none absolute top-0 left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full mix-blend-screen blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-
-        <Container size="7xl" className="relative z-10 text-center">
-          {/* Breadcrumbs */}
+    <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
+      {/* 1. COMPACT PREMIUM HERO */}
+      <section className="relative overflow-hidden border-b border-slate-200 bg-white pb-12 pt-24 dark:border-slate-800 dark:bg-slate-950 lg:pb-16 lg:pt-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+        
+        <Container size="5xl" className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-8 flex items-center justify-center gap-2 overflow-x-auto text-xs font-medium tracking-wide whitespace-nowrap text-slate-300 uppercase md:mb-10 md:text-sm"
+            className="mb-8 flex items-center justify-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400"
           >
-            <Link href="/" className="transition-colors hover:text-white">
-              Home
-            </Link>
-            <ChevronRight className="h-3 w-3 text-slate-500" />
-            <Link href="/platform" className="transition-colors hover:text-white">
-              Platform
-            </Link>
-            <ChevronRight className="h-3 w-3 text-slate-500" />
-            <span className="text-primary-400">{data.title}</span>
+            <Link href="/platform" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">Platform</Link>
+            <ChevronRight className="h-3 w-3" />
+            <span className="text-blue-600 dark:text-blue-400">{data.title}</span>
           </motion.div>
 
-          {/* Icon - Visual Anchor */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-            className="group relative mb-6 inline-flex items-center justify-center rounded-2xl border border-white/10 bg-slate-900/50 p-4 shadow-2xl backdrop-blur-xl md:mb-8 md:p-5"
-          >
-            <div className="from-primary-500/20 absolute inset-0 rounded-2xl bg-gradient-to-br to-blue-500/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
-            <Icon className="text-primary-400 relative z-10 h-12 w-12 md:h-16 md:w-16" />
-          </motion.div>
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="mb-6 inline-flex items-center justify-center"
+            >
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-600/20 ring-4 ring-blue-50 dark:ring-blue-900/20">
+                <Icon className="h-8 w-8 text-white" />
+              </div>
+            </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl"
-          >
-            {data.title}
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white md:text-4xl lg:text-5xl"
+            >
+              {data.title}
+            </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-primary-300 mx-auto mb-8 max-w-3xl text-xl font-medium md:text-2xl"
-          >
-            {data.subtitle}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mb-8 text-lg font-medium text-blue-600 dark:text-blue-400"
+            >
+              {data.subtitle}
+            </motion.p>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mx-auto mb-12 max-w-4xl text-lg leading-relaxed text-slate-300"
-          >
-            {data.description}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg"
+            >
+              {data.description}
+            </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col justify-center gap-4 sm:flex-row"
-          >
-            <BouncyLink href="/demo" className="shadow-primary-500/30 h-14 px-8 text-lg shadow-xl">
-              {data.cta?.buttonLabel || 'Lihat Demo'}
-            </BouncyLink>
-            <BouncyLink href="/contact" className="h-14 bg-white px-8 text-lg text-slate-900 hover:bg-slate-100">
-              Hubungi Sales
-            </BouncyLink>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col justify-center gap-3 sm:flex-row"
+            >
+              <BouncyLink href="/demo" className="flex h-11 items-center justify-center rounded-xl bg-blue-600 px-6 font-semibold text-white shadow-lg shadow-blue-600/20 hover:bg-blue-700">
+                {data.cta?.buttonLabel || 'Lihat Demo'}
+              </BouncyLink>
+              <BouncyLink href="/contact" className="flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-6 font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800">
+                Hubungi Sales
+              </BouncyLink>
+            </motion.div>
+          </div>
         </Container>
       </section>
 
-      {/* 2. METRICS SECTION */}
+      {/* 2. COMPACT METRICS */}
       {data.metrics && data.metrics.length > 0 && (
-        <Section className="border-b border-slate-200 bg-slate-50">
-          <Container size="7xl">
-            <Grid cols={1} mdCols={3} gap={8}>
+        <Section className="border-b border-slate-200 bg-white py-12 dark:border-slate-800 dark:bg-slate-950">
+          <Container size="5xl">
+            <div className="grid gap-6 sm:grid-cols-3">
               {data.metrics.map((metric: { value: string; label: string }, idx: number) => (
                 <FadeIn key={idx} delay={0.1 * idx}>
-                  <div className="text-center">
-                    <div className="text-primary-600 mb-2 text-5xl font-black md:text-6xl">
+                  <div className="rounded-xl border border-slate-100 bg-slate-50/50 p-6 text-center transition-colors hover:border-slate-200 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-slate-700">
+                    <div className="mb-1 text-3xl font-bold text-blue-600 dark:text-blue-400 md:text-4xl">
                       <CounterUp to={Number.parseInt(metric.value.replace(/\D/g, '')) || 0} label={metric.label} suffix={metric.value.replace(/\d/g, '')} />
                     </div>
-                    <div className="text-lg font-medium text-slate-600">{metric.label}</div>
+                    <div className="text-sm font-medium text-slate-600 dark:text-slate-400">{metric.label}</div>
                   </div>
                 </FadeIn>
               ))}
-            </Grid>
+            </div>
           </Container>
         </Section>
       )}
 
-      {/* 3. FEATURES GRID */}
-      <Section>
-        <Container size="7xl">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl">Fitur Unggulan</h2>
-            <p className="text-lg text-slate-600">
-              Setiap fitur dirancang untuk menyelesaikan masalah nyata yang Anda hadapi setiap hari.
+      {/* 3. ELEGANT FEATURES GRID */}
+      <Section className="py-20 lg:py-24">
+        <Container size="6xl">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Fitur Unggulan</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400">
+              Dirancang untuk produktivitas dan kemudahan penggunaan.
             </p>
           </div>
 
           <FadeInStagger>
-            <Grid cols={1} mdCols={2} lgCols={3} gap={6}>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {data.features?.map((feature: { title: string; desc: string; icon?: React.ComponentType<{ className?: string }> }, idx: number) => {
                 const FeatureIcon = feature.icon || Check;
                 return (
                   <FadeIn key={idx} className="h-full">
-                    <Card className="hover:border-primary-500 h-full border-slate-200 bg-white p-8 transition-all hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
-                      <div className="bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 mb-6 inline-flex rounded-2xl p-3">
-                        <FeatureIcon className="h-8 w-8" />
+                    <div className="group h-full rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-none">
+                      <div className="mb-4 inline-flex rounded-lg bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                        <FeatureIcon className="h-6 w-6" />
                       </div>
-                      <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">{feature.title}</h3>
-                      <p className="leading-relaxed text-slate-600 dark:text-slate-400">{feature.desc}</p>
-                    </Card>
+                      <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{feature.title}</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">{feature.desc}</p>
+                    </div>
                   </FadeIn>
                 );
               })}
-            </Grid>
+            </div>
           </FadeInStagger>
         </Container>
       </Section>

@@ -166,10 +166,10 @@ export default function MarginMarkupCalculator() {
             <Calculator className="h-4 w-4" />
             Customer Tool
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
             Kalkulator Margin & Markup
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Hitung harga jual optimal dengan margin atau markup yang tepat. Pahami perbedaannya!
           </p>
         </div>

@@ -623,19 +623,19 @@ export default function MaturityAssessment() {
               {/* User Details Grid */}
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 rounded-xl border border-white/5 bg-slate-950/50 p-4 text-sm text-slate-300 print:border-gray-200 print:bg-gray-50 print:text-gray-800">
                 <div className="flex items-center gap-2">
-                  <Building2 className="text-primary-400 size-4 print:text-gray-600" />
+                  <Building2 className="text-primary-400 size-4 print:text-slate-600" />
                   <span className="font-semibold">{leadForm.company}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users className="text-primary-400 size-4 print:text-gray-600" />
+                  <Users className="text-primary-400 size-4 print:text-slate-600" />
                   <span>{leadForm.name}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Briefcase className="text-primary-400 size-4 print:text-gray-600" />
+                  <Briefcase className="text-primary-400 size-4 print:text-slate-600" />
                   <span>{leadForm.role || 'N/A'}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Calendar className="text-primary-400 size-4 print:text-gray-600" />
+                  <Calendar className="text-primary-400 size-4 print:text-slate-600" />
                   <span>{assessmentDate}</span>
                 </div>
               </div>
@@ -701,7 +701,7 @@ export default function MaturityAssessment() {
                 <h3 className="mb-3 text-sm font-bold tracking-widest text-slate-400 uppercase print:text-black">
                   Executive Summary
                 </h3>
-                <p className="mb-4 text-sm leading-relaxed text-slate-300 print:text-gray-700">
+                <p className="mb-4 text-sm leading-relaxed text-slate-300 print:text-slate-700">
                   Perusahaan Anda berada pada tahap
                   {' '}
                   <strong>{results.maturityLevel.title}</strong>
@@ -811,7 +811,7 @@ export default function MaturityAssessment() {
                           </span>
                         </div>
                         <p className="mb-3 text-lg font-bold text-white print:text-black">{rec.title}</p>
-                        <p className="mb-5 text-sm leading-relaxed text-slate-400 print:text-gray-700">
+                        <p className="mb-5 text-sm leading-relaxed text-slate-400 print:text-slate-700">
                           {rec.advice}
                         </p>
                         <div className="flex flex-wrap gap-2">

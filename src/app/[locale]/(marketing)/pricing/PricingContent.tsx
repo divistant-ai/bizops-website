@@ -69,7 +69,7 @@ const PricingContent = () => {
           </h1>
 
           <FadeIn delay={0.3}>
-            <p className="mx-auto mb-12 max-w-3xl text-xl text-slate-600">
+            <p className="mx-auto mb-12 max-w-3xl text-xl text-slate-600 dark:text-slate-400">
               Transparansi penuh. Tanpa biaya tersembunyi. Pilih paket yang sesuai dengan fase bisnis Anda hari ini.
             </p>
           </FadeIn>
@@ -77,22 +77,22 @@ const PricingContent = () => {
           {/* Enhanced Toggle */}
           <FadeIn delay={0.4}>
             <div className="mb-12 flex justify-center">
-              <div className="relative inline-flex rounded-full border border-slate-200 bg-slate-100 p-1.5">
+              <div className="relative inline-flex rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-1.5">
                 <div
-                  className={`absolute top-1.5 bottom-1.5 rounded-full border border-slate-200 bg-white shadow-sm transition-all duration-300 ease-out ${annual ? 'left-[50%] w-[calc(50%-6px)]' : 'left-1.5 w-[calc(50%-6px)]'}`}
+                  className={`absolute top-1.5 bottom-1.5 rounded-full border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 shadow-sm transition-all duration-300 ease-out ${annual ? 'left-[50%] w-[calc(50%-6px)]' : 'left-1.5 w-[calc(50%-6px)]'}`}
                 />
                 <button
                   onClick={() => setAnnual(false)}
-                  className={`relative z-10 rounded-full px-8 py-2.5 text-sm font-bold transition-colors duration-300 ${!annual ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
+                  className={`relative z-10 rounded-full px-8 py-2.5 text-sm font-bold transition-colors duration-300 ${!annual ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
                 >
                   Bulanan
                 </button>
                 <button
                   onClick={() => setAnnual(true)}
-                  className={`relative z-10 flex items-center gap-2 rounded-full px-8 py-2.5 text-sm font-bold transition-colors duration-300 ${annual ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
+                  className={`relative z-10 flex items-center gap-2 rounded-full px-8 py-2.5 text-sm font-bold transition-colors duration-300 ${annual ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
                 >
                   Tahunan
-                  <span className="rounded-full border border-green-200 bg-green-100 px-2 py-0.5 text-[10px] font-extrabold tracking-wider text-green-700 uppercase">
+                  <span className="rounded-full border border-green-200 dark:border-green-800 bg-green-100 dark:bg-green-950 px-2 py-0.5 text-[10px] font-extrabold tracking-wider text-green-700 dark:text-green-400 uppercase">
                     SAVE 20%
                   </span>
                 </button>
@@ -109,41 +109,41 @@ const PricingContent = () => {
             <CardSlider desktopClassName="md:grid md:grid-cols-3 md:gap-8 md:items-start" mobileItemWidth="w-[85vw] sm:w-[350px]" className="pb-12">
 
               {/* Plan 1: Business */}
-              <div className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl">
+              <div className="group flex h-full flex-col rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-xl">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900">Business</h3>
-                  <p className="mt-2 text-sm text-slate-500">Pondasi digital yang kuat untuk startup & bisnis berkembang.</p>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Business</h3>
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Pondasi digital yang kuat untuk startup & bisnis berkembang.</p>
                 </div>
 
                 <div className="mb-8">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-sm font-semibold text-slate-500">IDR</span>
-                    <span className="text-5xl leading-tight font-extrabold tracking-tight text-slate-900">
+                    <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">IDR</span>
+                    <span className="text-5xl leading-tight font-extrabold tracking-tight text-slate-900 dark:text-white">
                       {annual ? '2.5' : '3'}
                     </span>
-                    <span className="text-xl font-bold text-slate-900">Jt</span>
+                    <span className="text-xl font-bold text-slate-900 dark:text-white">Jt</span>
                   </div>
                   <div className="mt-3 flex items-center justify-between text-sm">
-                    <span className="text-slate-500">/ bulan</span>
-                    {annual && <span className="rounded bg-green-50 px-2 py-0.5 font-medium text-green-600">Hemat 6 Jt/thn</span>}
+                    <span className="text-slate-500 dark:text-slate-400">/ bulan</span>
+                    {annual && <span className="rounded bg-green-50 dark:bg-green-950 px-2 py-0.5 font-medium text-green-600 dark:text-green-400">Hemat 6 Jt/thn</span>}
                   </div>
-                  <p className="mt-2 text-sm text-slate-400">{annual ? 'Ditagih Rp 30 Jt per tahun' : 'Ditagih bulanan, bisa cancel kapan saja'}</p>
+                  <p className="mt-2 text-sm text-slate-400 dark:text-slate-500">{annual ? 'Ditagih Rp 30 Jt per tahun' : 'Ditagih bulanan, bisa cancel kapan saja'}</p>
                 </div>
 
                 <div className="mb-8">
                   <Link href="/demo?plan=business" className="block w-full">
-                    <Button size="md" fullWidth variant="outline" className="h-12 w-full border-slate-300 font-bold text-slate-700 hover:bg-slate-50">
+                    <Button size="md" fullWidth variant="outline" className="h-12 w-full border-slate-300 dark:border-slate-600 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">
                       Mulai Trial Gratis
                     </Button>
                   </Link>
                 </div>
 
-                <div className="flex-grow space-y-4 border-t border-slate-100 pt-8">
-                  <p className="text-sm font-medium tracking-wider text-slate-400">Fitur Utama:</p>
+                <div className="flex-grow space-y-4 border-t border-slate-100 dark:border-slate-800 pt-8">
+                  <p className="text-sm font-medium tracking-wider text-slate-400 dark:text-slate-500">Fitur Utama:</p>
                   {['50 Recommended Users', 'Core ERP (HR, Finance, Sales)', 'Mobile App (Basic)', 'Shared Cloud Hosting', 'Email Support (48h SLA)'].map((f, i) => (
-                    <div key={i} className="flex gap-3 text-sm text-slate-700">
+                    <div key={i} className="flex gap-3 text-sm text-slate-700 dark:text-slate-300">
                       <div className="mt-0.5 min-w-[18px]">
-                        <Check className="h-4.5 w-4.5 text-slate-400 transition-colors group-hover:text-blue-600" />
+                        <Check className="h-4.5 w-4.5 text-slate-400 dark:text-slate-500 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                       </div>
                       <span>{f}</span>
                     </div>
@@ -152,48 +152,48 @@ const PricingContent = () => {
               </div>
 
               {/* Plan 2: Growth (Popular) */}
-              <div className="relative z-10 flex h-full flex-col rounded-3xl border-2 border-blue-600 bg-white p-8 shadow-2xl shadow-blue-900/10 md:origin-top md:scale-105">
+              <div className="relative z-10 flex h-full flex-col rounded-3xl border-2 border-blue-600 dark:border-blue-500 bg-white dark:bg-slate-900 p-8 shadow-2xl shadow-blue-900/10 dark:shadow-blue-500/20 md:origin-top md:scale-105">
                 <div className="absolute -top-5 right-0 left-0 flex justify-center">
-                  <div className="flex items-center gap-1 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-bold tracking-wide text-white uppercase shadow-lg">
+                  <div className="flex items-center gap-1 rounded-full bg-blue-600 dark:bg-blue-500 px-4 py-1.5 text-xs font-bold tracking-wide text-white uppercase shadow-lg">
                     <Zap className="h-3.5 w-3.5 fill-current" />
                     Most Popular
                   </div>
                 </div>
 
                 <div className="mt-2 mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900">Growth</h3>
-                  <p className="mt-2 text-sm text-slate-500">Solusi All-in-One untuk scaling tanpa batasan fitur.</p>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Growth</h3>
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Solusi All-in-One untuk scaling tanpa batasan fitur.</p>
                 </div>
 
-                <div className="mb-8 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                <div className="mb-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 p-4">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-sm font-semibold text-slate-500">IDR</span>
-                    <span className="text-5xl leading-tight font-extrabold tracking-tight text-slate-900">
+                    <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">IDR</span>
+                    <span className="text-5xl leading-tight font-extrabold tracking-tight text-slate-900 dark:text-white">
                       {annual ? '7.5' : '9'}
                     </span>
-                    <span className="text-xl font-bold text-slate-900">Jt</span>
+                    <span className="text-xl font-bold text-slate-900 dark:text-white">Jt</span>
                   </div>
                   <div className="mt-3 flex items-center justify-between text-sm">
-                    <span className="text-slate-500">/ bulan</span>
-                    {annual && <span className="rounded border border-blue-200 bg-blue-100 px-2 py-0.5 font-medium text-blue-700">Hemat 18 Jt/thn</span>}
+                    <span className="text-slate-500 dark:text-slate-400">/ bulan</span>
+                    {annual && <span className="rounded border border-blue-200 dark:border-blue-800 bg-blue-100 dark:bg-blue-950 px-2 py-0.5 font-medium text-blue-700 dark:text-blue-400">Hemat 18 Jt/thn</span>}
                   </div>
                 </div>
 
                 <div className="mb-8">
                   <Link href="/demo?plan=growth" className="block w-full">
-                    <Button fullWidth variant="primary" size="lg" className="w-full bg-blue-600 text-lg text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 hover:shadow-blue-500/40">
+                    <Button fullWidth variant="primary" size="lg" className="w-full bg-blue-600 dark:bg-blue-500 text-lg text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-blue-500/40">
                       Pilih Paket Growth
                     </Button>
                   </Link>
                 </div>
 
-                <div className="flex-grow space-y-4 border-t border-slate-100 pt-8">
-                  <p className="text-sm font-medium tracking-wider text-blue-600">Semua di Business, plus:</p>
+                <div className="flex-grow space-y-4 border-t border-slate-100 dark:border-slate-800 pt-8">
+                  <p className="text-sm font-medium tracking-wider text-blue-600 dark:text-blue-400">Semua di Business, plus:</p>
                   {['200 Recommended Users', 'Manufacturing, Asset & Project', 'Advanced Mobile App (GPS)', 'Dedicated VPS Performance', 'Priority Chat Support (12h SLA)', 'Assisted Implementation'].map((f, i) => (
-                    <div key={i} className="flex gap-3 text-sm font-medium text-slate-700">
+                    <div key={i} className="flex gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
                       <div className="mt-0.5 min-w-[18px]">
-                        <div className="rounded-full bg-blue-100 p-0.5">
-                          <Check className="h-3.5 w-3.5 text-blue-600" />
+                        <div className="rounded-full bg-blue-100 dark:bg-blue-950 p-0.5">
+                          <Check className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                         </div>
                       </div>
                       <span>{f}</span>
@@ -203,44 +203,44 @@ const PricingContent = () => {
               </div>
 
               {/* Plan 3: Enterprise */}
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/80 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-xl">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/50 dark:hover:border-amber-600/50 hover:shadow-xl">
                 {/* Subtle Texture */}
-                <div className="pointer-events-none absolute top-0 right-0 h-32 w-32 rounded-full bg-amber-500/10 blur-[60px]" />
+                <div className="pointer-events-none absolute top-0 right-0 h-32 w-32 rounded-full bg-amber-500/10 dark:bg-amber-500/20 blur-[60px]" />
 
                 <div className="relative z-10 mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                     Enterprise
-                    <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 align-middle text-[10px] font-bold tracking-wider text-amber-700 uppercase">Custom</span>
+                    <span className="ml-2 rounded-full bg-amber-100 dark:bg-amber-950 px-2 py-0.5 align-middle text-[10px] font-bold tracking-wider text-amber-700 dark:text-amber-400 uppercase">Custom</span>
                   </h3>
-                  <p className="mt-2 text-sm text-slate-500">Infrastruktur dedicated & kontrol penuh untuk korporasi.</p>
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Infrastruktur dedicated & kontrol penuh untuk korporasi.</p>
                 </div>
 
                 <div className="relative z-10 mb-8">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl leading-tight font-extrabold tracking-tight text-slate-900">
+                    <span className="text-4xl leading-tight font-extrabold tracking-tight text-slate-900 dark:text-white">
                       Custom
                     </span>
                   </div>
-                  <div className="mt-3 text-sm text-slate-500">
+                  <div className="mt-3 text-sm text-slate-500 dark:text-slate-400">
                     Sesuai Kebutuhan
                   </div>
-                  <p className="mt-2 text-sm text-slate-400">Negosiasi kontrak tahunan & SLA</p>
+                  <p className="mt-2 text-sm text-slate-400 dark:text-slate-500">Negosiasi kontrak tahunan & SLA</p>
                 </div>
 
                 <div className="relative z-10 mb-8">
                   <Link href="/contact" className="block w-full">
-                    <Button size="md" fullWidth variant="outline" className="h-12 w-full border-slate-300 font-bold text-slate-700 transition-all hover:border-amber-500 hover:bg-amber-50 hover:text-amber-700">
+                    <Button size="md" fullWidth variant="outline" className="h-12 w-full border-slate-300 dark:border-slate-600 font-bold text-slate-700 dark:text-slate-200 transition-all hover:border-amber-500 dark:hover:border-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950 hover:text-amber-700 dark:hover:text-amber-400">
                       Hubungi Sales Team
                     </Button>
                   </Link>
                 </div>
 
-                <div className="relative z-10 flex-grow space-y-4 border-t border-slate-100 pt-8">
-                  <p className="text-sm font-medium tracking-wider text-slate-500">Enterprise Exclusive:</p>
+                <div className="relative z-10 flex-grow space-y-4 border-t border-slate-100 dark:border-slate-800 pt-8">
+                  <p className="text-sm font-medium tracking-wider text-slate-500 dark:text-slate-400">Enterprise Exclusive:</p>
                   {['Unlimited Users Capacity', 'Private / On-Premise Server', 'Custom Module Development', 'Full Database Access', 'Whitelabel Mobile App', 'Dedicated Account Manager'].map((f, i) => (
-                    <div key={i} className="flex gap-3 text-sm text-slate-700">
+                    <div key={i} className="flex gap-3 text-sm text-slate-700 dark:text-slate-300">
                       <div className="mt-0.5 min-w-[18px]">
-                        <Check className="h-4.5 w-4.5 text-amber-500" />
+                        <Check className="h-4.5 w-4.5 text-amber-500 dark:text-amber-400" />
                       </div>
                       <span>{f}</span>
                     </div>
@@ -296,21 +296,21 @@ const PricingContent = () => {
           {/* --- TRUST SIGNALS GRID --- */}
           <div className="mb-32">
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold text-slate-900">Standar Keamanan Enterprise</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Standar Keamanan Enterprise</h2>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {[
-                { icon: Shield, title: 'Secure Payment', desc: 'Midtrans & Xendit Gateway', color: 'text-green-500' },
-                { icon: Lock, title: 'Data Encryption', desc: 'AES-256 & TLS 1.3 Standards', color: 'text-blue-500' },
-                { icon: Server, title: '99.9% Uptime SLA', desc: 'Redundant Cloud Infrastructure', color: 'text-purple-500' },
-                { icon: RefreshCw, title: '14-Day Guarantee', desc: 'Money Back Policy', color: 'text-amber-500' },
+                { icon: Shield, title: 'Secure Payment', desc: 'Midtrans & Xendit Gateway', color: 'text-green-500 dark:text-green-400' },
+                { icon: Lock, title: 'Data Encryption', desc: 'AES-256 & TLS 1.3 Standards', color: 'text-blue-500 dark:text-blue-400' },
+                { icon: Server, title: '99.9% Uptime SLA', desc: 'Redundant Cloud Infrastructure', color: 'text-purple-500 dark:text-purple-400' },
+                { icon: RefreshCw, title: '14-Day Guarantee', desc: 'Money Back Policy', color: 'text-amber-500 dark:text-amber-400' },
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center transition-colors hover:border-slate-300">
-                  <div className={`mb-4 rounded-xl bg-white p-3 shadow-sm ${item.color}`}>
+                <div key={i} className="flex flex-col items-center gap-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 text-center transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-lg">
+                  <div className={`mb-4 rounded-xl bg-slate-50 dark:bg-slate-800 p-3 shadow-sm ${item.color}`}>
                     <item.icon className="h-8 w-8" />
                   </div>
-                  <h4 className="text-lg font-bold text-slate-900">{item.title}</h4>
-                  <p className="text-sm text-slate-500">{item.desc}</p>
+                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">{item.title}</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -326,20 +326,20 @@ const PricingContent = () => {
             <div className="lg:col-span-5">
               <div className="sticky top-24 space-y-6">
                 <div>
-                  <h2 className="mb-2 text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
-                  <p className="text-lg text-slate-600">Jawaban untuk pertanyaan umum seputar lisensi, pembayaran, dan teknis implementasi.</p>
+                  <h2 className="mb-2 text-3xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+                  <p className="text-lg text-slate-600 dark:text-slate-400">Jawaban untuk pertanyaan umum seputar lisensi, pembayaran, dan teknis implementasi.</p>
                 </div>
 
-                <div className="rounded-3xl border border-slate-100 bg-slate-50 p-8">
-                  <h4 className="mb-1 text-xl font-bold text-slate-900">Masih ada pertanyaan?</h4>
-                  <p className="mb-6 text-sm text-slate-500">Tim konsultan kami siap membantu Anda.</p>
+                <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-8">
+                  <h4 className="mb-1 text-xl font-bold text-slate-900 dark:text-white">Masih ada pertanyaan?</h4>
+                  <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">Tim konsultan kami siap membantu Anda.</p>
                   <div className="space-y-3">
-                    <a href="mailto:sales@bizops.id" className="flex items-center gap-3 text-slate-700 transition-colors hover:text-blue-600">
-                      <div className="rounded-lg bg-white p-2 shadow-sm"><MessageSquare className="h-5 w-5" /></div>
+                    <a href="mailto:sales@bizops.id" className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                      <div className="rounded-lg bg-white dark:bg-slate-800 p-2 shadow-sm"><MessageSquare className="h-5 w-5" /></div>
                       <span className="font-medium">sales@bizops.id</span>
                     </a>
-                    <a href="tel:+622139702834" className="flex items-center gap-3 text-slate-700 transition-colors hover:text-blue-600">
-                      <div className="rounded-lg bg-white p-2 shadow-sm"><Phone className="h-5 w-5" /></div>
+                    <a href="tel:+622139702834" className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+                      <div className="rounded-lg bg-white dark:bg-slate-800 p-2 shadow-sm"><Phone className="h-5 w-5" /></div>
                       <span className="font-medium">+62 21 39702834</span>
                     </a>
                   </div>

@@ -3,6 +3,7 @@
 import { Bell, Calendar, FileText, Info, Radio, Settings, X } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
+import { getIconButtonClasses, navbarStyles } from './navbar/navbarStyles';
 import Button from './ui/Button';
 
 type Notification = {
@@ -127,10 +128,10 @@ const NotificationCenter: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="hover:text-primary-600 relative rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 focus:outline-none dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+        className={`${getIconButtonClasses()} hover:text-primary-600 relative dark:hover:bg-slate-800`}
         aria-label="Notifications"
       >
-        <Bell className="h-5 w-5" />
+        <Bell className={navbarStyles.iconSize.medium} />
         {unreadCount > 0 && (
           <span className="absolute top-1.5 right-1.5 h-2 w-2 animate-pulse rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-950"></span>
         )}

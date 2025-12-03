@@ -176,10 +176,10 @@ export default function TurnoverCostCalculator() {
             <Users className="h-4 w-4" />
             Consultant/Sales Tool
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
             Kalkulator Biaya Turnover Karyawan
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Hitung total biaya yang hilang akibat turnover karyawan. Identifikasi ROI dari retention strategy!
           </p>
         </div>
@@ -189,11 +189,11 @@ export default function TurnoverCostCalculator() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <Card className="p-6">
-              <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Input Data Perusahaan</h2>
+              <h2 className="mb-6 text-xl font-bold text-slate-900 dark:text-white">Input Data Perusahaan</h2>
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="total-employees" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="total-employees" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Total Karyawan
                   </label>
                   <input
@@ -210,7 +210,7 @@ export default function TurnoverCostCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="employees-left" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="employees-left" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Karyawan Keluar (per Tahun)
                   </label>
                   <input
@@ -231,7 +231,7 @@ export default function TurnoverCostCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="avg-salary" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="avg-salary" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Rata-rata Gaji per Bulan
                   </label>
                   <div className="relative">
@@ -255,7 +255,7 @@ export default function TurnoverCostCalculator() {
                 </div>
 
                 <div>
-                  <label htmlFor="avg-tenure" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="avg-tenure" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Rata-rata Masa Kerja (tahun)
                   </label>
                   <input
@@ -302,7 +302,7 @@ export default function TurnoverCostCalculator() {
             <Card className="border-l-4 border-rose-500 bg-rose-50 p-4">
               <div className="flex gap-2">
                 <Info className="h-5 w-5 flex-shrink-0 text-rose-600" />
-                <div className="text-xs text-gray-700 dark:text-slate-300">
+                <div className="text-xs text-slate-700 dark:text-slate-300">
                   <p className="mb-1 font-semibold">Komponen Biaya Turnover:</p>
                   <ul className="space-y-0.5">
                     <li>
@@ -343,7 +343,7 @@ export default function TurnoverCostCalculator() {
                     </Card>
 
                     <Card className="p-6">
-                      <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-white">
+                      <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white">
                         <DollarSign className="h-5 w-5 text-rose-600" />
                         Breakdown Biaya
                       </h3>
@@ -351,22 +351,22 @@ export default function TurnoverCostCalculator() {
                       <div className="space-y-4">
                         <div>
                           <div className="mb-2 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700 dark:text-slate-300">Direct Costs</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Direct Costs</span>
                             <span className="text-lg font-bold text-rose-600">
                               {formatCurrency(result.directCosts.total)}
                             </span>
                           </div>
                           <div className="space-y-2 rounded-lg bg-rose-50 p-3 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Recruitment</span>
+                              <span className="text-slate-600 dark:text-slate-400">Recruitment</span>
                               <span className="font-medium">{formatCurrency(result.directCosts.recruitment)}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Training & Onboarding</span>
+                              <span className="text-slate-600 dark:text-slate-400">Training & Onboarding</span>
                               <span className="font-medium">{formatCurrency(result.directCosts.training)}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Separation Costs</span>
+                              <span className="text-slate-600 dark:text-slate-400">Separation Costs</span>
                               <span className="font-medium">{formatCurrency(result.directCosts.separation)}</span>
                             </div>
                           </div>
@@ -374,22 +374,22 @@ export default function TurnoverCostCalculator() {
 
                         <div>
                           <div className="mb-2 flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-700 dark:text-slate-300">Indirect Costs</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Indirect Costs</span>
                             <span className="text-lg font-bold text-orange-600">
                               {formatCurrency(result.indirectCosts.total)}
                             </span>
                           </div>
                           <div className="space-y-2 rounded-lg bg-orange-50 p-3 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Productivity Loss</span>
+                              <span className="text-slate-600 dark:text-slate-400">Productivity Loss</span>
                               <span className="font-medium">{formatCurrency(result.indirectCosts.productivityLoss)}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Knowledge Loss</span>
+                              <span className="text-slate-600 dark:text-slate-400">Knowledge Loss</span>
                               <span className="font-medium">{formatCurrency(result.indirectCosts.knowledgeLoss)}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-slate-400">Morale Impact</span>
+                              <span className="text-slate-600 dark:text-slate-400">Morale Impact</span>
                               <span className="font-medium">{formatCurrency(result.indirectCosts.moraleLoss)}</span>
                             </div>
                           </div>
@@ -405,15 +405,15 @@ export default function TurnoverCostCalculator() {
                     </Card>
 
                     <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
-                      <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">ROI Retention Strategy</h4>
-                      <p className="mb-3 text-sm text-gray-700 dark:text-slate-300">
+                      <h4 className="mb-3 font-semibold text-slate-900 dark:text-white">ROI Retention Strategy</h4>
+                      <p className="mb-3 text-sm text-slate-700 dark:text-slate-300">
                         Jika turnover rate dikurangi 50%, potensi savings:
                       </p>
                       <div className="text-center">
                         <p className="text-3xl font-bold text-green-600">
                           {formatCurrency(result.annualTurnoverCost * 0.5)}
                         </p>
-                        <p className="mt-1 text-xs text-gray-600 dark:text-slate-400">per tahun</p>
+                        <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">per tahun</p>
                       </div>
                     </Card>
 
@@ -434,7 +434,7 @@ export default function TurnoverCostCalculator() {
                               : 'text-red-600'
                         }`}
                         />
-                        <div className="text-sm text-gray-700 dark:text-slate-300">
+                        <div className="text-sm text-slate-700 dark:text-slate-300">
                           <p className="font-semibold">
                             {result.turnoverRate < 10
                               ? 'Turnover Rate Baik'
@@ -474,10 +474,10 @@ export default function TurnoverCostCalculator() {
                 <TrendingUp className="h-6 w-6 text-rose-600" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
                   Reduce Turnover dengan Data-Driven Insights
                 </h3>
-                <p className="mb-4 text-gray-600 dark:text-slate-400">
+                <p className="mb-4 text-slate-600 dark:text-slate-400">
                   BizOps membantu identify early warning signs, predict turnover risk,
                   dan provide actionable insights untuk improve employee retention.
                 </p>
@@ -497,7 +497,7 @@ export default function TurnoverCostCalculator() {
         <Card className="mt-8 border-l-4 border-rose-500 bg-rose-50 p-6">
           <div className="flex gap-3">
             <AlertTriangle className="h-5 w-5 flex-shrink-0 text-rose-600" />
-            <div className="text-sm text-gray-700 dark:text-slate-300">
+            <div className="text-sm text-slate-700 dark:text-slate-300">
               <p className="mb-2 font-semibold">Strategi Menurunkan Turnover:</p>
               <ul className="list-inside list-disc space-y-1">
                 <li>Competitive compensation & benefits</li>

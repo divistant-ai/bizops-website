@@ -19,9 +19,9 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
   const icon = data.icon;
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       {/* Hero */}
-      <Section className="relative overflow-hidden bg-neutral-900 pt-32 pb-20 text-white">
+      <Section className="relative overflow-hidden bg-slate-900 pt-32 pb-20 text-white">
         {/* Background Decoration */}
         <div className="bg-primary-900/20 pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full blur-[100px]"></div>
         <div className="pointer-events-none absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-blue-900/20 blur-[80px]"></div>
@@ -36,7 +36,7 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
             Case Study
           </h2>
           <h1 className="mb-6 text-4xl leading-tight font-extrabold md:text-6xl">{data.title}</h1>
-          <p className="mx-auto max-w-2xl text-2xl leading-relaxed font-light text-neutral-300">
+          <p className="mx-auto max-w-2xl text-2xl leading-relaxed font-light text-slate-300 dark:text-slate-400">
             {data.subtitle}
           </p>
         </Container>
@@ -49,12 +49,12 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
             <div className="grid gap-8 md:grid-cols-2">
               {/* Challenge Card */}
               <FadeIn>
-                <div className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-10 shadow-xl">
+                <div className="flex h-full flex-col rounded-3xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 shadow-xl">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600">
                     <TrendingUp className="h-6 w-6 rotate-180" />
                   </div>
-                  <h3 className="mb-4 text-2xl font-bold text-neutral-900">The Challenge</h3>
-                  <p className="flex-grow text-lg leading-relaxed text-neutral-600">
+                  <h3 className="mb-4 text-2xl font-bold text-slate-900 dark:text-white">The Challenge</h3>
+                  <p className="flex-grow text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                     "
                     {data.challenge}
                     "
@@ -64,12 +64,12 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
 
               {/* Solution Card */}
               <FadeIn>
-                <div className="flex h-full flex-col rounded-3xl border border-neutral-800 bg-neutral-900 p-10 text-white shadow-xl">
+                <div className="flex h-full flex-col rounded-3xl border border-slate-800 dark:border-slate-700 bg-slate-900 dark:bg-slate-800 p-10 text-white shadow-xl">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
                     <Lightbulb className="h-6 w-6" />
                   </div>
                   <h3 className="mb-4 text-2xl font-bold">The BizOps Solution</h3>
-                  <p className="flex-grow text-lg leading-relaxed text-neutral-300">
+                  <p className="flex-grow text-lg leading-relaxed text-slate-300 dark:text-slate-400">
                     {data.solution}
                   </p>
                 </div>
@@ -80,21 +80,21 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
       </Section>
 
       {/* Results Section */}
-      <Section className="border-y border-neutral-200 bg-white">
+      <Section className="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
         <Container size="5xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-neutral-900">Impact & Results</h2>
-            <p className="text-lg text-neutral-600">Dampak nyata implementasi sistem terhadap operasional bisnis.</p>
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Impact & Results</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400">Dampak nyata implementasi sistem terhadap operasional bisnis.</p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
             {data.results.map((result, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="hover:border-primary-200 h-full rounded-2xl border border-neutral-200 bg-neutral-50 p-6 text-center transition-colors">
+                <div className="hover:border-primary-200 dark:hover:border-primary-700 h-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6 text-center transition-colors">
                   <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
                     <CheckCircle2 className="h-5 w-5" />
                   </div>
-                  <p className="text-lg font-medium text-neutral-800">{result}</p>
+                  <p className="text-lg font-medium text-slate-800 dark:text-slate-300">{result}</p>
                 </div>
               </FadeIn>
             ))}
@@ -103,9 +103,9 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
       </Section>
 
       {/* Tech Stack */}
-      <Section className="bg-neutral-50">
+      <Section className="bg-slate-50 dark:bg-slate-950">
         <Container size="4xl" className="text-center">
-          <h3 className="mb-8 flex items-center justify-center gap-2 text-xl font-bold text-neutral-900">
+          <h3 className="mb-8 flex items-center justify-center gap-2 text-xl font-bold text-slate-900 dark:text-white">
             <Layers className="h-5 w-5 text-neutral-500" />
             {' '}
             Technology Stack Used

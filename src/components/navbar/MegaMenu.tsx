@@ -48,10 +48,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
   const activeContent = content[activeTab];
 
   return (
-    <div className="invisible absolute top-full left-1/2 z-50 mt-2 w-screen max-w-7xl -translate-x-1/2 transform rounded-b-xl border-t border-slate-200 bg-white opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:border-slate-800 dark:bg-slate-950">
-      <div className="mx-auto flex max-w-7xl">
+    <>
+      {/* Backdrop */}
+      <div className="invisible fixed inset-0 top-[64px] z-[90] bg-slate-900/20 backdrop-blur-sm opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:top-[80px]" />
+      
+      {/* Mega Menu Content */}
+      <div className="invisible fixed top-[64px] left-0 right-0 z-[100] opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:top-[80px]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex rounded-xl border border-slate-200 bg-white shadow-2xl overflow-hidden dark:border-slate-800 dark:bg-slate-950">
         {/* Sidebar (Tabs) */}
-        <div className={`${type === 'platform' ? 'w-64' : 'w-60'} flex-shrink-0 rounded-bl-xl border-r border-slate-200 bg-slate-50 py-6 dark:border-slate-800 dark:bg-slate-900`}>
+        <div className="w-64 flex-shrink-0 border-r border-slate-200 bg-slate-50 py-6 dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-3 px-4 text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
             {type === 'platform' && 'Platform Overview'}
             {type === 'solutions' && 'Find Solutions'}
@@ -62,17 +68,20 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
             <button
               key={tab.id}
               onMouseEnter={() => setActiveTab(tab.id)}
-              className={`flex w-full items-center justify-between border-l-4 px-4 py-3 text-left text-sm font-medium transition-all ${
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex w-full items-center justify-between border-l-4 px-5 py-3.5 text-left text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset ${
                 activeTab === tab.id
                   ? 'border-primary-600 text-primary-600 dark:border-primary-400 dark:text-primary-400 bg-white shadow-sm dark:bg-slate-950'
                   : 'border-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white'
               }`}
+              aria-selected={activeTab === tab.id}
+              role="tab"
             >
               <div className="flex items-center gap-3">
-                <tab.icon className={`h-4 w-4 ${activeTab === tab.id ? 'text-primary-600 dark:text-primary-400' : 'text-slate-400 dark:text-slate-500'}`} />
+                <tab.icon className={`h-5 w-5 ${activeTab === tab.id ? 'text-primary-600 dark:text-primary-400' : 'text-slate-400 dark:text-slate-500'}`} />
                 {tab.label}
               </div>
-              {activeTab === tab.id && <ChevronRight className="text-primary-600 dark:text-primary-400 h-3 w-3" />}
+              {activeTab === tab.id && <ChevronRight className="text-primary-600 dark:text-primary-400 h-4 w-4" />}
             </button>
           ))}
 
@@ -112,19 +121,19 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
         </div>
 
         {/* Content Area */}
-        <div className="min-h-[350px] flex-1 p-8">
+        <div className="min-h-[350px] flex-1 p-7">
           {activeContent && (
             <>
               <div className="mb-6">
-                <h3 className="mb-1 text-xl font-bold text-slate-900 dark:text-white">
+                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
                   {activeContent.title}
                 </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-sm text-slate-600 dark:text-slate-400">
                   {activeContent.description}
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                 {activeContent.items.map((item, idx) => {
                   const bgColor = item.bg || 'bg-slate-100 dark:bg-slate-800 group-hover/item:bg-white dark:group-hover/item:bg-slate-700 shadow-sm';
                   const iconColor = item.color || 'text-slate-600 dark:text-slate-400';
@@ -134,16 +143,16 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
                       key={idx}
                       href={item.to}
                       onClick={onClose}
-                      className="group/item -ml-2 flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-slate-50 dark:hover:bg-slate-900"
+                      className="group/item -ml-2 flex items-start gap-3 rounded-xl p-3 transition-all duration-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:hover:bg-slate-900"
                     >
-                      <div className={`mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg transition-all ${bgColor}`}>
+                      <div className={`mt-0.5 flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg transition-all duration-200 ${bgColor}`}>
                         <item.icon className={`h-5 w-5 ${iconColor}`} />
                       </div>
                       <div>
-                        <div className="group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 text-sm font-bold text-slate-900 transition-colors dark:text-white">
+                        <div className="group-hover/item:text-primary-600 dark:group-hover/item:text-primary-400 text-sm font-bold text-slate-900 transition-colors duration-200 dark:text-white">
                           {item.label}
                         </div>
-                        <div className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                        <div className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
                           {item.desc}
                         </div>
                       </div>
@@ -152,7 +161,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
                 })}
               </div>
 
-              <div className="mt-8 flex justify-end border-t border-slate-200 pt-6 dark:border-slate-800">
+              <div className="mt-6 flex justify-end border-t border-slate-200 pt-5 dark:border-slate-800">
                 <Link
                   href={
                     type === 'platform'
@@ -177,8 +186,10 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ type, onClose }) => {
             </>
           )}
         </div>
+        </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

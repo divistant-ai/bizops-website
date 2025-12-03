@@ -17,14 +17,14 @@ export default function SolutionsContent() {
   // Color mapping for industries - Design System: Light backgrounds with dark text
   const getColor = (id: string) => {
     const map: Record<string, string> = {
-      construction: 'bg-amber-50 text-amber-700',
-      retail: 'bg-emerald-50 text-emerald-700',
-      outsourcing: 'bg-blue-50 text-blue-700',
-      consulting: 'bg-purple-50 text-purple-700',
-      manufacturing: 'bg-rose-50 text-rose-700',
-      enterprise: 'bg-slate-100 text-slate-700',
+      construction: 'bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-400',
+      retail: 'bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400',
+      outsourcing: 'bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400',
+      consulting: 'bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-400',
+      manufacturing: 'bg-rose-50 dark:bg-rose-950 text-rose-700 dark:text-rose-400',
+      enterprise: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300',
     };
-    return map[id] || 'bg-slate-50 text-slate-700';
+    return map[id] || 'bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300';
   };
 
   return (
@@ -72,10 +72,10 @@ export default function SolutionsContent() {
       <Section className="relative overflow-hidden !bg-white py-16 md:py-24">
         <Container size="7xl">
           <FadeIn className="mx-auto mb-12 max-w-3xl text-center md:mb-20">
-            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
               Solusi Spesifik Industri
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-slate-600 dark:text-slate-400">
               Kami tidak percaya pada "Satu Ukuran untuk Semua". Lihat bagaimana BizOps menangani nuansa unik—dari perhitungan Kurva-S Konstruksi hingga manajemen expiry date Ritel.
             </p>
           </FadeIn>

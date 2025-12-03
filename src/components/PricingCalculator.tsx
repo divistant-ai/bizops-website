@@ -1740,7 +1740,7 @@ const PricingCalculator: React.FC = () => {
           <div className="text-right">
             <h2 className="mb-2 text-3xl font-bold">BizOps</h2>
             <p className="text-base font-bold">PT Divistant Teknologi Indonesia</p>
-            <p className="mt-1 ml-auto max-w-[250px] text-sm text-gray-600">
+            <p className="mt-1 ml-auto max-w-[250px] text-sm text-slate-600">
               Eco-S Sahid Sudirman Residence
               {' '}
               <br />
@@ -1760,8 +1760,8 @@ const PricingCalculator: React.FC = () => {
                 {' '}
                 {contactInfo.lastName}
               </p>
-              <p className="text-base text-gray-600">{contactInfo.email}</p>
-              <p className="text-base text-gray-600">{contactInfo.phone}</p>
+              <p className="text-base text-slate-600">{contactInfo.email}</p>
+              <p className="text-base text-slate-600">{contactInfo.phone}</p>
             </div>
           </div>
           <div className="text-right">
@@ -1791,7 +1791,7 @@ const PricingCalculator: React.FC = () => {
                   {' '}
                   Package
                 </span>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-slate-600">
                   Billing Cycle:
                   {billingCycle === 'yearly' ? 'Yearly (-20%)' : 'Monthly'}
                 </span>
@@ -1811,7 +1811,7 @@ const PricingCalculator: React.FC = () => {
                 <tr key={id}>
                   <td className="py-4">
                     <span className="block font-medium">{item.name}</span>
-                    <span className="text-xs text-gray-600">
+                    <span className="text-xs text-slate-600">
                       Qty:
                       {qty}
                       {' '}
@@ -1831,7 +1831,7 @@ const PricingCalculator: React.FC = () => {
             </tr>
             {appliedDiscount && (
               <tr>
-                <td className="pt-2 text-sm text-gray-600 italic">
+                <td className="pt-2 text-sm text-slate-600 italic">
                   Includes discount
                   {appliedDiscount.percent}
                   % (
@@ -1850,7 +1850,7 @@ const PricingCalculator: React.FC = () => {
         <div className="grid grid-cols-2 gap-16 border-t border-gray-200 pt-8">
           <div>
             <h4 className="mb-2 text-sm font-bold">Payment Terms</h4>
-            <ul className="list-disc space-y-1 pl-4 text-xs text-gray-600">
+            <ul className="list-disc space-y-1 pl-4 text-xs text-slate-600">
               <li>Payment is due within 14 days of invoice date.</li>
               <li>Bank transfer to BCA 1234567890 a/n PT Divistant Teknologi Indonesia.</li>
               <li>Please include invoice number in transfer description.</li>

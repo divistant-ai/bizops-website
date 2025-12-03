@@ -36,17 +36,17 @@ const EmptyState: React.FC<EmptyStateProps> = memo(({
   className = '',
 }) => {
   const Icon = icon || defaultIcons[type];
-  const iconColor = type === 'error' ? 'text-red-500' : 'text-slate-400';
+  const iconColor = type === 'error' ? 'text-red-500 dark:text-red-400' : 'text-slate-400 dark:text-slate-600';
 
   return (
     <div className={twMerge('flex flex-col items-center justify-center py-16 px-4 text-center', className)}>
       <div className={twMerge('w-16 h-16', iconColor, 'mb-4 flex items-center justify-center')}>
         <Icon className="h-full w-full" strokeWidth={1.5} />
       </div>
-      <h3 className="mb-2 text-xl font-semibold text-slate-900">
+      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
         {title}
       </h3>
-      <p className="mb-6 max-w-md leading-relaxed text-slate-600">
+      <p className="mb-6 max-w-md leading-relaxed text-slate-600 dark:text-slate-400">
         {description}
       </p>
       {actionLabel && onAction && (

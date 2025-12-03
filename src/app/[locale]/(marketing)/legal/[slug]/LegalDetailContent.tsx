@@ -136,7 +136,7 @@ export default function LegalDetailContent({ slug, data }: LegalDetailContentPro
           <div className="grid gap-8 lg:grid-cols-[250px_1fr]">
             {/* Sidebar Navigation */}
             <AnimatePresence>
-              {(isMobileNavOpen || window.innerWidth >= 1024) && (
+              {(isMobileNavOpen || (typeof window !== 'undefined' && window.innerWidth >= 1024)) && (
                 <motion.aside
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

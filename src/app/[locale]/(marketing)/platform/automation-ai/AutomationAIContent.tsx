@@ -1,321 +1,319 @@
 'use client';
 
 import { ArrowRight, BrainCircuit, GitMerge, ScanLine, ShieldAlert, Zap } from 'lucide-react';
+import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { Badge, Card, Grid } from '@/components/ui';
+import { Badge, Button, Card, Grid } from '@/components/ui';
 import { BouncyLink } from '@/components/ui/BouncyLink';
-import { FadeIn } from '@/components/ui/FadeIn';
+import { FadeIn, FadeInStagger } from '@/components/ui/FadeIn';
 
 export default function AutomationAIContent() {
   return (
-    <div className="flex flex-col bg-white">
-      {/* Hero */}
-      <Section className="bg-slate-900 pt-32 pb-20 text-white">
-        <Container size="4xl" className="text-center">
+    <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
+      {/* Hero Section - Premium Dark */}
+      <div className="relative overflow-hidden bg-slate-900 py-20 text-white dark:bg-slate-950 lg:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.15),transparent_50%)]"></div>
+        <Container size="7xl" className="relative z-10 text-center">
           <FadeIn delay={0.1}>
-            <div className="mb-6 inline-flex rounded-2xl bg-slate-800 p-3">
-              <Zap className="text-primary-400 h-8 w-8" />
+            <div className="mb-6 inline-flex rounded-2xl bg-slate-800/50 p-3 ring-1 ring-slate-700">
+              <Zap className="h-8 w-8 text-indigo-400" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="mb-6 text-3xl leading-tight font-bold md:text-4xl lg:text-5xl">
-              Biarkan Sistem yang Bekerja,
-              <br />
-              Bukan Anda.
+            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+              Biarkan Sistem yang Bekerja, <br />
+              <span className="text-indigo-400">Bukan Anda.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-slate-300">
-              Kurangi pekerjaan manual yang repetitif dan membosankan hingga 80%. BizOps dilengkapi dengan mesin
-              Otomatisasi (
-              <em>Workflow Builder</em>
-              ) dan Kecerdasan Buatan (
-              <em>Applied AI</em>
-              ) yang praktis untuk
-              membuat bisnis Anda berjalan secara autopilot.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-300 md:text-xl">
+              Kurangi pekerjaan manual yang repetitif hingga 80%. BizOps dilengkapi dengan <em className="text-indigo-300">Workflow Builder</em> dan <em className="text-indigo-300">Applied AI</em> yang praktis.
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
-            <BouncyLink href="/demo" className="h-14 bg-white px-8 text-lg text-slate-900 hover:bg-slate-100">
+            <BouncyLink href="/demo" className="inline-flex h-12 items-center justify-center rounded-xl bg-white px-8 font-semibold text-slate-900 shadow-lg hover:bg-slate-50">
               Lihat Demo Otomatisasi
             </BouncyLink>
           </FadeIn>
         </Container>
-      </Section>
+      </div>
 
-      {/* Workflow Automation */}
-      <Section>
+      {/* Workflow Automation Grid */}
+      <Section className="py-20 lg:py-24">
         <Container size="7xl">
-          <Grid cols={1} lgCols={2} gap={16} className="items-center">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <FadeIn delay={0.1}>
-              <div>
-                <h2 className="mb-6 text-2xl leading-tight font-bold text-slate-900 md:text-3xl lg:text-4xl">
+              <div className="flex h-full flex-col justify-center">
+                <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
                   Workflow Automation (No-Code Logic)
                 </h2>
                 <div className="space-y-8">
-                  <div className="flex gap-4">
-                    <div className="mt-1 h-fit rounded-lg bg-blue-50 p-2">
-                      <GitMerge className="h-6 w-6 text-blue-600" />
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                      <GitMerge className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-lg font-bold text-slate-900">Visual Builder</h3>
-                      <p className="text-sm text-slate-600">
-                        Antarmuka
-                        {' '}
-                        <em>drag-and-drop</em>
-                        {' '}
-                        intuitif untuk membuat aturan logika "Jika X maka Y" tanpa
-                        perlu menulis satu baris kode pun.
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Visual Builder</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        Antarmuka <em>drag-and-drop</em> intuitif untuk membuat aturan logika "Jika X maka Y" tanpa perlu coding.
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="mt-1 h-fit rounded-lg bg-purple-50 p-2">
-                      <ArrowRight className="h-6 w-6 text-purple-600" />
+                  
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+                      <ArrowRight className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-lg font-bold text-slate-900">Scenario Example</h3>
-                      <p className="text-sm text-slate-600">
-                        "Jika Stok Barang &lt; 10 unit, otomatis buat
-                        {' '}
-                        <em>Purchase Request</em>
-                        {' '}
-                        ke Vendor A, kirim
-                        email PO PDF ke vendor, dan kirim notifikasi WhatsApp ke Manajer Gudang."
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Scenario Example</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        "Jika Stok Barang &lt; 10 unit, otomatis buat <em>Purchase Request</em> ke Vendor A, kirim email PO, dan notifikasi WA ke Manajer Gudang."
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <div className="mt-1 h-fit rounded-lg bg-green-50 p-2">
-                      <Zap className="h-6 w-6 text-green-600" />
+
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+                      <Zap className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-lg font-bold text-slate-900">Auto-Assignment</h3>
-                      <p className="text-sm text-slate-600">
-                        Distribusi tugas otomatis berdasarkan aturan. Misal: "Setiap Lead baru yang berasal dari
-                        wilayah Jakarta Selatan otomatis di-
-                        <em>assign</em>
-                        {' '}
-                        ke Salesman Budi."
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Auto-Assignment</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        Distribusi tugas otomatis. Misal: "Setiap Lead baru dari Jakarta Selatan otomatis di-assign ke Salesman Budi."
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </FadeIn>
-
-            {/* Visual Placeholder */}
-            <FadeIn delay={0.2}>
-              <div className="relative flex aspect-square items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 shadow-inner">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] opacity-10"></div>
-                <div className="relative z-10 w-full max-w-xs rounded-xl bg-white p-6 shadow-lg">
-                  <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-2">
-                    <span className="text-xs font-bold text-slate-500 uppercase">Logic Flow</span>
-                    <div className="flex gap-1">
-                      <div className="h-2 w-2 rounded-full bg-red-400"></div>
-                      <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
-                      <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                    </div>
-                  </div>
-                  <div className="space-y-3 text-xs">
-                    <div className="rounded border border-slate-200 bg-slate-50 p-2 font-bold text-slate-700">
-                      IF Stock &lt; 10
-                    </div>
-                    <div className="flex justify-center">
-                      <ArrowRight className="h-4 w-4 rotate-90 text-slate-400" />
-                    </div>
-                    <div className="rounded border border-blue-100 bg-blue-50 p-2 font-bold text-blue-700">
-                      THEN Create PR
-                    </div>
-                    <div className="flex justify-center">
-                      <ArrowRight className="h-4 w-4 rotate-90 text-slate-400" />
-                    </div>
-                    <div className="rounded border border-green-100 bg-green-50 p-2 font-bold text-green-700">
-                      THEN Email Vendor
-                    </div>
-                  </div>
+            
+            <FadeIn delay={0.2} className="relative">
+              {/* Visual Representation / Placeholder for Graphic */}
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner dark:border-slate-800 dark:bg-slate-900/50 lg:aspect-auto lg:h-full">
+                <div className="absolute inset-0 flex items-center justify-center text-slate-400">
+                  <span className="text-sm">Workflow Visualizer Graphic</span>
                 </div>
-              </div>
-            </FadeIn>
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Applied AI */}
-      <Section className="border-t border-slate-200 bg-slate-50">
-        <Container size="7xl">
-          <FadeIn delay={0.1}>
-            <h2 className="mb-16 text-center text-2xl leading-tight font-bold text-slate-900 md:text-3xl lg:text-4xl">
-              Applied AI Capabilities
-            </h2>
-          </FadeIn>
-
-          <Grid cols={1} mdCols={3} gap={8}>
-            <FadeIn delay={0.1}>
-              <Card className="p-8 transition-shadow hover:shadow-lg">
-                <BrainCircuit className="mb-6 h-12 w-12 text-purple-600" />
-                <h3 className="mb-3 text-xl font-bold text-slate-900">Smart Forecasting</h3>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  Algoritma prediktif yang menganalisis data penjualan historis 2 tahun terakhir dan tren musiman untuk
-                  merekomendasikan jumlah
-                  {' '}
-                  <em>restock</em>
-                  {' '}
-                  yang optimal bulan depan. Mencegah
-                  {' '}
-                  <em>Overstock</em>
-                  {' '}
-                  (uang
-                  mati) dan
-                  {' '}
-                  <em>Stockout</em>
-                  {' '}
-                  (hilang omzet).
-                </p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <Card className="p-8 transition-shadow hover:shadow-lg">
-                <ScanLine className="mb-6 h-12 w-12 text-blue-600" />
-                <h3 className="mb-3 text-xl font-bold text-slate-900">OCR Document Scanner</h3>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  Foto invoice/kwitansi dari smartphone langsung ter-
-                  <em>extract</em>
-                  {' '}
-                  datanya (Nomor Invoice, Tanggal,
-                  Nominal, Vendor). Tidak perlu lagi ketik manual satu per satu. Akurasi 95%+ untuk dokumen berbahasa
-                  Indonesia.
-                </p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <Card className="p-8 transition-shadow hover:shadow-lg">
-                <ShieldAlert className="mb-6 h-12 w-12 text-red-600" />
-                <h3 className="mb-3 text-xl font-bold text-slate-900">Anomaly Detection</h3>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  Sistem mendeteksi pola transaksi yang mencurigakan. Misal: "Pembelian barang X dari Vendor Y naik
-                  300% dalam 1 bulan terakhir tanpa ada kenaikan penjualan." Cegah potensi fraud sejak dini.
-                </p>
-              </Card>
-            </FadeIn>
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Use Cases */}
-      <Section>
-        <Container size="7xl">
-          <FadeIn delay={0.1}>
-            <div className="mx-auto mb-12 max-w-3xl text-center">
-              <Badge className="mb-4">Real-World Examples</Badge>
-              <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl">Contoh Implementasi Nyata</h2>
-              <p className="text-lg text-slate-600">
-                Lihat bagaimana bisnis lain menggunakan otomatisasi untuk menghemat waktu dan biaya.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="space-y-6">
-            <FadeIn delay={0.1}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-8">
-                <div className="mb-4 flex items-start gap-4">
-                  <div className="bg-primary-50 text-primary-600 rounded-xl p-3">
-                    <Zap className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-xl font-bold text-slate-900">Auto-Approval Purchase Request</h3>
-                    <p className="text-slate-600">
-                      <strong>Skenario:</strong>
-                      {' '}
-                      PR di bawah Rp 5 juta otomatis disetujui oleh sistem tanpa perlu
-                      approval manual. PR di atas Rp 5 juta masuk ke approval manager.
-                    </p>
-                    <p className="mt-2 text-sm text-slate-500">
-                      <strong>Hasil:</strong>
-                      {' '}
-                      Waktu proses procurement turun dari 3 hari menjadi 30 menit.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-8">
-                <div className="mb-4 flex items-start gap-4">
-                  <div className="bg-primary-50 text-primary-600 rounded-xl p-3">
-                    <BrainCircuit className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-xl font-bold text-slate-900">Smart Lead Distribution</h3>
-                    <p className="text-slate-600">
-                      <strong>Skenario:</strong>
-                      {' '}
-                      Lead baru dari website otomatis di-assign ke salesman berdasarkan
-                      wilayah dan workload saat ini. Salesman dengan lead paling sedikit mendapat prioritas.
-                    </p>
-                    <p className="mt-2 text-sm text-slate-500">
-                      <strong>Hasil:</strong>
-                      {' '}
-                      Response time ke customer turun 70%, conversion rate naik 40%.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-8">
-                <div className="mb-4 flex items-start gap-4">
-                  <div className="bg-primary-50 text-primary-600 rounded-xl p-3">
-                    <ScanLine className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-xl font-bold text-slate-900">Expense Claim Automation</h3>
-                    <p className="text-slate-600">
-                      <strong>Skenario:</strong>
-                      {' '}
-                      Karyawan foto struk/invoice dari HP, sistem OCR extract data, auto-fill
-                      form expense claim, kirim ke approval manager via email.
-                    </p>
-                    <p className="mt-2 text-sm text-slate-500">
-                      <strong>Hasil:</strong>
-                      {' '}
-                      Proses claim dari 2 minggu menjadi 2 hari. Admin finance hemat 15 jam/bulan.
-                    </p>
-                  </div>
-                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -right-12 top-12 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+                <div className="absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl"></div>
               </div>
             </FadeIn>
           </div>
         </Container>
       </Section>
 
-      {/* CTA */}
-      <Section className="border-t border-slate-200 bg-slate-50">
-        <Container size="4xl" className="text-center">
+      {/* Workflow Automation Grid */}
+      <Section className="py-20 lg:py-24">
+        <Container size="7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <FadeIn delay={0.1}>
+              <div className="flex h-full flex-col justify-center">
+                <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+                  Workflow Automation (No-Code Logic)
+                </h2>
+                <div className="space-y-8">
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                      <GitMerge className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Visual Builder</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        Antarmuka <em>drag-and-drop</em> intuitif untuk membuat aturan logika "Jika X maka Y" tanpa perlu coding.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+                      <ArrowRight className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Scenario Example</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        "Jika Stok Barang &lt; 10 unit, otomatis buat <em>Purchase Request</em> ke Vendor A, kirim email PO, dan notifikasi WA ke Manajer Gudang."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5">
+                    <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+                      <Zap className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">Auto-Assignment</h3>
+                      <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                        Distribusi tugas otomatis. Misal: "Setiap Lead baru dari Jakarta Selatan otomatis di-assign ke Salesman Budi."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={0.2} className="relative">
+              {/* Visual Representation / Placeholder for Graphic */}
+              <div className="relative aspect-square overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner dark:border-slate-800 dark:bg-slate-900/50 lg:aspect-auto lg:h-full">
+                <div className="absolute inset-0 flex items-center justify-center text-slate-400">
+                  <span className="text-sm">Workflow Visualizer Graphic</span>
+                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -right-12 top-12 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+                <div className="absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl"></div>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Applied AI Section - Clean Grid */}
+      <Section className="bg-slate-50 py-20 dark:bg-slate-900 lg:py-24">
+        <Container size="7xl">
           <FadeIn delay={0.1}>
-            <h2 className="mb-8 text-4xl leading-tight font-bold text-slate-900 md:text-5xl">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="mb-4 inline-flex rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700 dark:border-purple-900/30 dark:bg-purple-900/10 dark:text-purple-400">
+                Applied AI
+              </div>
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+                Kecerdasan Buatan yang Praktis
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400">
+                Bukan sekadar <em>gimmick</em>. Fitur AI kami dirancang untuk menyelesaikan masalah nyata sehari-hari.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeInStagger>
+            <div className="grid gap-8 sm:grid-cols-3">
+              <FadeIn delay={0.1}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-200/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-none">
+                  <div className="mb-6 inline-flex rounded-xl bg-purple-50 p-4 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+                    <BrainCircuit className="h-7 w-7" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">Smart Forecasting</h3>
+                  <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                    Algoritma prediktif yang menganalisis data penjualan historis dan tren musiman untuk merekomendasikan jumlah <em>restock</em> yang optimal bulan depan.
+                  </p>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.2}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-200/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-none">
+                  <div className="mb-6 inline-flex rounded-xl bg-blue-50 p-4 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                    <ScanLine className="h-7 w-7" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">OCR Document Parsing</h3>
+                  <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                    Foto invoice/kwitansi dari smartphone langsung ter-<em>extract</em> datanya. Tidak perlu ketik manual satu per satu. Akurasi 95%+.
+                  </p>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.3}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-red-200/50 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-none">
+                  <div className="mb-6 inline-flex rounded-xl bg-red-50 p-4 text-red-600 dark:bg-red-900/20 dark:text-red-400">
+                    <ShieldAlert className="h-7 w-7" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">Anomaly Detection</h3>
+                  <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                    Sistem mendeteksi pola transaksi yang mencurigakan secara real-time untuk mencegah fraud dan pengeluaran tidak wajar.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+          </FadeInStagger>
+        </Container>
+      </Section>
+
+      {/* Use Cases - Compact Grid */}
+      <Section className="py-20 lg:py-24">
+        <Container size="7xl">
+          <FadeIn delay={0.1}>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="mb-4 inline-flex rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700 dark:border-green-900/30 dark:bg-green-900/10 dark:text-green-400">
+                Real-World Examples
+              </div>
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+                Contoh Implementasi Nyata
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400">
+                Lihat bagaimana bisnis menggunakan otomatisasi untuk menghemat waktu dan biaya.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeInStagger>
+            <div className="grid gap-6 sm:grid-cols-3">
+              <FadeIn delay={0.1}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+                  <div className="mb-4 inline-flex rounded-xl bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+                    <Zap className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">Auto-Approval PR</h3>
+                  <p className="mb-4 text-base text-slate-600 dark:text-slate-400">
+                    PR di bawah Rp 5 juta otomatis disetujui sistem tanpa approval manual.
+                  </p>
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-900/30 dark:bg-green-900/10">
+                    <p className="text-sm font-medium text-green-900 dark:text-green-300">
+                      ⚡ 3 hari → 30 menit
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.2}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+                  <div className="mb-4 inline-flex rounded-xl bg-purple-50 p-3 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+                    <BrainCircuit className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">Smart Lead Distribution</h3>
+                  <p className="mb-4 text-base text-slate-600 dark:text-slate-400">
+                    Lead baru otomatis di-assign ke salesman berdasarkan wilayah dan workload.
+                  </p>
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-900/30 dark:bg-green-900/10">
+                    <p className="text-sm font-medium text-green-900 dark:text-green-300">
+                      📈 Conversion +40%
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.3}>
+                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+                  <div className="mb-4 inline-flex rounded-xl bg-amber-50 p-3 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400">
+                    <ScanLine className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">Expense Claim OCR</h3>
+                  <p className="mb-4 text-base text-slate-600 dark:text-slate-400">
+                    Karyawan foto struk/invoice, sistem OCR extract data dan auto-fill form.
+                  </p>
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-900/30 dark:bg-green-900/10">
+                    <p className="text-sm font-medium text-green-900 dark:text-green-300">
+                      ⏱️ Hemat 15 jam/bulan
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </FadeInStagger>
+        </Container>
+      </Section>
+
+      {/* CTA Section - Consistent with Other Pages */}
+      <Section className="bg-slate-900 py-20 dark:bg-slate-950">
+        <Container size="5xl" className="text-center">
+          <FadeIn>
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
               Siap untuk Operasional Autopilot?
             </h2>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="mx-auto mb-12 max-w-2xl text-xl text-slate-600">
-              Jadwalkan demo 30 menit untuk melihat bagaimana otomatisasi dan AI bekerja secara real-time di bisnis
-              Anda.
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-300">
+              Jadwalkan demo 30 menit untuk melihat bagaimana otomatisasi dan AI bekerja secara real-time.
             </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <BouncyLink href="/demo" className="shadow-primary-500/20 h-16 px-10 text-xl shadow-xl">
+            <Link href="/demo">
+              <Button className="inline-flex h-12 items-center justify-center rounded-xl bg-white px-8 font-semibold text-slate-900 shadow-lg hover:bg-slate-50">
                 Jadwalkan Demo Sekarang
-              </BouncyLink>
-              <BouncyLink href="/contact" className="h-16 bg-white px-10 text-xl hover:bg-slate-50">
-                Hubungi Sales
-              </BouncyLink>
-            </div>
+              </Button>
+            </Link>
           </FadeIn>
         </Container>
       </Section>

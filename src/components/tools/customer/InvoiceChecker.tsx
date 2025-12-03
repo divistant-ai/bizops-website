@@ -258,10 +258,10 @@ export default function InvoiceChecker() {
             <FileCheck className="h-4 w-4" />
             Customer Tool
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
             Invoice Checker & Validator
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Validasi kelengkapan dan keakuratan invoice sebelum diproses. Hindari kesalahan pembayaran!
           </p>
         </div>
@@ -271,11 +271,11 @@ export default function InvoiceChecker() {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
             <Card className="p-6">
-              <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Data Invoice</h2>
+              <h2 className="mb-6 text-xl font-bold text-slate-900 dark:text-white">Data Invoice</h2>
 
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="invoice-number" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="invoice-number" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Nomor Invoice
                   </label>
                   <input
@@ -290,7 +290,7 @@ export default function InvoiceChecker() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="invoice-date" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                    <label htmlFor="invoice-date" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                       Tanggal Invoice
                     </label>
                     <input
@@ -302,7 +302,7 @@ export default function InvoiceChecker() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="due-date" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                    <label htmlFor="due-date" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                       Due Date
                     </label>
                     <input
@@ -316,7 +316,7 @@ export default function InvoiceChecker() {
                 </div>
 
                 <div>
-                  <label htmlFor="vendor-name" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="vendor-name" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Nama Vendor
                   </label>
                   <input
@@ -330,7 +330,7 @@ export default function InvoiceChecker() {
                 </div>
 
                 <div>
-                  <label htmlFor="vendor-tax" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="vendor-tax" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     NPWP Vendor (opsional)
                   </label>
                   <input
@@ -344,7 +344,7 @@ export default function InvoiceChecker() {
                 </div>
 
                 <div>
-                  <label htmlFor="amount" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="amount" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Jumlah Invoice (DPP)
                   </label>
                   <div className="relative">
@@ -364,7 +364,7 @@ export default function InvoiceChecker() {
                 </div>
 
                 <div>
-                  <label htmlFor="tax-amount" className="mb-2 block text-sm font-medium text-gray-700 dark:text-slate-300">
+                  <label htmlFor="tax-amount" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                     PPN 11% (opsional)
                   </label>
                   <div className="relative">
@@ -417,7 +417,7 @@ export default function InvoiceChecker() {
             <Card className="border-l-4 border-cyan-500 bg-cyan-50 p-4">
               <div className="flex gap-2">
                 <Info className="h-5 w-5 flex-shrink-0 text-cyan-600" />
-                <div className="text-xs text-gray-700 dark:text-slate-300">
+                <div className="text-xs text-slate-700 dark:text-slate-300">
                   <p className="mb-1 font-semibold">Yang Dicek:</p>
                   <ul className="list-inside list-disc space-y-0.5">
                     <li>Kelengkapan data wajib</li>
@@ -467,7 +467,7 @@ export default function InvoiceChecker() {
                     </Card>
 
                     <Card className="p-6">
-                      <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Detail Validation</h3>
+                      <h3 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">Detail Validation</h3>
 
                       <div className="space-y-3">
                         {result.items.map(item => (
@@ -483,8 +483,8 @@ export default function InvoiceChecker() {
                           >
                             {getStatusIcon(item.status)}
                             <div className="flex-1">
-                              <p className="text-sm font-medium text-gray-900 dark:text-white">{item.label}</p>
-                              <p className="text-xs text-gray-600 dark:text-slate-400">{item.message}</p>
+                              <p className="text-sm font-medium text-slate-900 dark:text-white">{item.label}</p>
+                              <p className="text-xs text-slate-600 dark:text-slate-400">{item.message}</p>
                             </div>
                           </div>
                         ))}
@@ -502,7 +502,7 @@ export default function InvoiceChecker() {
                       <Card className="border-l-4 border-red-500 bg-red-50 p-4">
                         <div className="flex gap-2">
                           <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600" />
-                          <div className="text-sm text-gray-700 dark:text-slate-300">
+                          <div className="text-sm text-slate-700 dark:text-slate-300">
                             <p className="font-semibold">Action Required:</p>
                             <p>
                               Perbaiki
@@ -536,10 +536,10 @@ export default function InvoiceChecker() {
                 <TrendingUp className="h-6 w-6 text-cyan-600" />
               </div>
               <div className="flex-1">
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">
                   Otomasi Invoice Processing & Validation
                 </h3>
-                <p className="mb-4 text-gray-600 dark:text-slate-400">
+                <p className="mb-4 text-slate-600 dark:text-slate-400">
                   Cek invoice manual satu per satu? BizOps otomatis validasi ratusan invoice,
                   deteksi anomali, dan approve/reject berdasarkan rules yang Anda set.
                 </p>
@@ -559,7 +559,7 @@ export default function InvoiceChecker() {
         <Card className="mt-8 border-l-4 border-cyan-500 bg-cyan-50 p-6">
           <div className="flex gap-3">
             <AlertTriangle className="h-5 w-5 flex-shrink-0 text-cyan-600" />
-            <div className="text-sm text-gray-700 dark:text-slate-300">
+            <div className="text-sm text-slate-700 dark:text-slate-300">
               <p className="mb-2 font-semibold">Tips Invoice Management:</p>
               <ul className="list-inside list-disc space-y-1">
                 <li>Selalu validasi NPWP untuk vendor PKP</li>

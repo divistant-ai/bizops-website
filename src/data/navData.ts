@@ -30,6 +30,7 @@ import {
   Package,
   PieChart,
   Plug,
+  Presentation,
   Rocket,
   Search,
   Server,
@@ -148,6 +149,7 @@ export const resourcesTabs: Array<MenuTab> = [
   { id: 'insights', label: 'Insights & News', icon: BookOpen },
   { id: 'customer-tools', label: 'Customer Tools', icon: Calculator },
   { id: 'strategic-tools', label: 'Strategic Tools', icon: BarChart },
+  { id: 'slides', label: 'Presentation Slides', icon: Presentation },
   { id: 'support', label: 'Support Center', icon: LifeBuoy },
 ];
 
@@ -190,6 +192,14 @@ export const resourcesContent: Record<string, MenuContent> = {
       { to: '/migration', label: 'Migration Center', desc: 'Data migration guides', icon: Rocket },
     ],
   },
+  'slides': {
+    title: 'Presentation Slides',
+    description: 'Interactive presentations about BizOps platform.',
+    items: [
+      { to: '/slide/intro', label: 'Platform Introduction', desc: 'Overview of BizOps platform', icon: Presentation },
+      { to: '/slide/onboarding', label: 'Onboarding Journey', desc: 'End-to-end implementation guide', icon: Rocket },
+    ],
+  },
   'support': {
     title: 'Help & Support',
     description: 'Get the assistance you need to succeed.',
@@ -222,7 +232,7 @@ export const companyContent: Record<string, MenuContent> = {
     items: [
       { to: '/partners', label: 'Partner Program', desc: 'Become a solution partner', icon: Handshake },
       { to: '/partners/directory', label: 'Partner Directory', desc: 'Find certified implementors', icon: Search },
-      { to: '/partners/startup', label: 'Startup Program', desc: 'Credits for early-stage startups', icon: Rocket },
+      { to: '/partners/startup-program', label: 'Startup Program', desc: 'Credits for early-stage startups', icon: Rocket },
       { to: '/careers', label: 'Careers', desc: 'We are hiring!', icon: Briefcase },
     ],
   },

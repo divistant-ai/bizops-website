@@ -193,10 +193,10 @@ export default function PajakPPh21Calculator() {
             <Calculator className="h-4 w-4" />
             Customer Tool
           </div>
-          <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
             Kalkulator Pajak PPh 21
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-slate-400">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Hitung pajak penghasilan karyawan sesuai aturan terbaru. Gratis, akurat, dan mudah digunakan.
           </p>
         </div>

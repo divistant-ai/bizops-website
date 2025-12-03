@@ -54,14 +54,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
     onToggle: () => void;
     children: React.ReactNode;
   }) => (
-    <div className="overflow-hidden rounded-xl border border-slate-100 dark:border-slate-800/50">
+    <div className="overflow-hidden rounded-xl border border-slate-200/80 shadow-sm dark:border-slate-800/50">
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between bg-slate-50/50 px-4 py-4 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+        className="flex w-full items-center justify-between bg-slate-50/80 px-5 py-4 text-base font-semibold text-slate-700 transition-all duration-200 hover:bg-slate-100 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:bg-slate-900/50 dark:text-white dark:hover:bg-slate-800"
         aria-expanded={isOpen}
       >
         {title}
-        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'text-primary-500 rotate-180' : 'text-slate-400'}`} />
+        <ChevronDown className={`h-4 w-4 transition-all duration-200 ${isOpen ? 'text-primary-600 rotate-180 dark:text-primary-400' : 'text-slate-400'}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -69,7 +69,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="overflow-hidden bg-white dark:bg-slate-950"
           >
             {children}
@@ -98,20 +98,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white shadow-2xl lg:hidden dark:bg-slate-950"
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-md overflow-y-auto bg-white shadow-2xl lg:hidden dark:bg-slate-950"
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white/95 backdrop-blur-md px-5 py-4 dark:border-slate-800 dark:bg-slate-950/95">
               <span className="text-lg font-bold text-slate-900 dark:text-white">Menu</span>
               <button
                 onClick={onClose}
-                className="rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+                className="rounded-lg p-2 text-slate-500 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                 aria-label="Close menu"
               >
                 <X className="h-6 w-6" />
               </button>
             </div>
 
-            <div className="flex flex-col space-y-2 p-6 pb-24">
+            <div className="flex flex-col space-y-3 p-5 pb-24">
               {/* Platform Accordion */}
               <AccordionItem
                 title="Platform"
@@ -130,9 +130,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -155,9 +155,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -180,9 +180,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -226,9 +226,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -251,9 +251,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -313,9 +313,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -338,9 +338,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -370,9 +370,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -395,9 +395,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -429,9 +429,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -454,9 +454,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                           key={item.to}
                           href={item.to}
                           onClick={onClose}
-                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                          className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg p-3 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-50 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:text-slate-300 dark:hover:bg-slate-800"
                         >
-                          <item.icon className="h-4 w-4 text-slate-400" />
+                          <item.icon className="h-5 w-5 text-slate-400" />
                           <div className="flex flex-col">
                             <span>{item.label}</span>
                             {item.desc && (
@@ -474,7 +474,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
               <Link
                 href="/pricing"
                 onClick={onClose}
-                className="flex w-full items-center justify-between rounded-xl border border-slate-100 bg-slate-50/50 px-4 py-4 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-800/50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+                className="flex w-full items-center justify-between rounded-xl border border-slate-200/80 bg-slate-50/80 px-5 py-4 text-base font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-100 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:border-slate-800/50 dark:bg-slate-900/50 dark:text-white dark:hover:bg-slate-800"
               >
                 Pricing
               </Link>
@@ -484,11 +484,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onDemoClick })
                 <Link
                   href="/login"
                   onClick={onClose}
-                  className="flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white py-3.5 text-sm font-bold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
                 >
                   Login
                 </Link>
-                <Button fullWidth size="lg" onClick={onDemoClick} className="rounded-xl">
+                <Button 
+                  fullWidth 
+                  size="lg" 
+                  onClick={onDemoClick} 
+                  className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                >
                   Book a Demo
                 </Button>
               </div>

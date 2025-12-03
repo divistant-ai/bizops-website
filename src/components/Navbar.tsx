@@ -47,6 +47,14 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Skip Navigation Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+      >
+        Skip to main content
+      </a>
+      
       <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
 
       <motion.header
@@ -56,16 +64,21 @@ export const Navbar: React.FC = () => {
         }}
         animate={isVisible ? 'visible' : 'hidden'}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`sticky top-0 z-50 transition-all duration-500 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'border-b border-neutral-200/50 bg-white/90 shadow-sm backdrop-blur-xl dark:border-white/5 dark:bg-slate-950/90'
-            : 'border-b border-transparent bg-white/80 backdrop-blur-md dark:bg-slate-950/80'
+            ? 'border-b border-neutral-200/50 bg-white/95 backdrop-blur-md shadow-sm dark:border-white/5 dark:bg-slate-950/95'
+            : 'border-b border-transparent bg-white dark:bg-slate-950'
         }`}
       >
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
+          <div className="flex h-16 items-center justify-between gap-3 sm:gap-4 md:gap-6 lg:h-20 lg:gap-8">
+            {/* Logo - Left side */}
             <NavbarLogo />
+
+            {/* Desktop Navigation - Takes remaining space */}
             <NavbarDesktop onDemoClick={openDemo} />
+
+            {/* Mobile Navigation - Right side */}
             <NavbarMobile
               isOpen={isOpen}
               onToggle={() => setIsOpen(!isOpen)}

@@ -331,18 +331,18 @@ export default function HomePageContent() {
           {homeUVP.map((uvp, idx) => {
             const Icon = uvp.icon;
             return (
-              <SpotlightCard key={idx} className="h-full rounded-3xl bg-slate-50 dark:border dark:border-slate-700 dark:bg-slate-800" spotlightColor="rgba(37, 99, 235, 0.1)">
+              <SpotlightCard key={idx} className="h-full rounded-3xl bg-white border border-slate-200 dark:border-slate-700 dark:bg-slate-900" spotlightColor="rgba(37, 99, 235, 0.1)">
                 <div className="relative flex h-full flex-col p-8">
-                  <div className="pointer-events-none absolute top-8 right-8 text-slate-200 transition-colors group-hover:text-blue-100">
+                  <div className="pointer-events-none absolute top-8 right-8 text-slate-200 dark:text-slate-700 transition-colors group-hover:text-blue-100 dark:group-hover:text-blue-900">
                     <Icon className="h-24 w-24 transform opacity-20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6" aria-hidden="true" />
                   </div>
                   <div className="relative z-10 flex-grow">
-                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mb-6 h-14 w-14 rounded-2xl bg-white text-blue-600 shadow-sm ring-1 ring-slate-100 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-slate-900 dark:ring-slate-700">
+                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mb-6 h-14 w-14 rounded-2xl bg-slate-50 text-blue-600 shadow-sm ring-1 ring-slate-100 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:bg-slate-800 dark:ring-slate-700 dark:group-hover:bg-blue-600">
                       <Icon className="h-7 w-7" aria-hidden="true" />
                     </Stack>
-                    <h3 className="mb-2 text-2xl font-bold text-slate-900">{uvp.title}</h3>
-                    <p className="mb-3 font-medium tracking-wide text-blue-600">{uvp.subtitle}</p>
-                    <p className="leading-relaxed text-slate-600">{uvp.desc}</p>
+                    <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">{uvp.title}</h3>
+                    <p className="mb-3 font-medium tracking-wide text-blue-600 dark:text-blue-400">{uvp.subtitle}</p>
+                    <p className="leading-relaxed text-slate-600 dark:text-slate-400">{uvp.desc}</p>
                   </div>
                 </div>
               </SpotlightCard>
@@ -379,28 +379,28 @@ export default function HomePageContent() {
             desktopItemWidth="lg:w-full"
           >
             {/* Card 1: Fragmented Stack */}
-            <SpotlightCard className="h-full rounded-3xl border-red-200" spotlightColor="rgba(239, 68, 68, 0.1)">
+            <SpotlightCard className="h-full rounded-3xl border-red-200 dark:border-red-900" spotlightColor="rgba(239, 68, 68, 0.1)">
               <div className="flex h-full flex-col p-8">
                 <Stack direction="horizontal" justify="between" className="mb-6">
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold tracking-wider text-slate-500 uppercase">Problem #1</span>
-                  <div className="rounded-xl bg-red-50 p-2 text-red-500">
+                  <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Problem #1</span>
+                  <div className="rounded-xl bg-red-50 dark:bg-red-950 p-2 text-red-500 dark:text-red-400">
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                   </div>
                 </Stack>
 
-                <h3 className="mb-2 text-2xl font-bold text-slate-900">Fragmented Stack</h3>
-                <p className="mb-6 leading-relaxed text-slate-500">
+                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Fragmented Stack</h3>
+                <p className="mb-6 leading-relaxed text-slate-600 dark:text-slate-400">
                   Menggabungkan 3-5 aplikasi SaaS berbeda. Akibatnya:
                   {' '}
-                  <span className="font-semibold text-red-500">Data Silo & Vendor Fatigue.</span>
+                  <span className="font-semibold text-red-600 dark:text-red-400">Data Silo & Vendor Fatigue.</span>
                 </p>
 
                 <div className="mt-auto">
-                  <Stack direction="vertical" gap={3} className="mb-6 border-b border-slate-100 pb-4">
+                  <Stack direction="vertical" gap={3} className="mb-6 border-b border-slate-200 dark:border-slate-700 pb-4">
                     {[{ label: 'CRM License', price: 'Rp 150rb' }, { label: 'Accounting App', price: 'Rp 250rb' }, { label: 'HRIS App', price: 'Rp 20rb' }].map((item, i) => (
-                      <Stack key={i} direction="horizontal" justify="between" className="text-xs text-slate-500">
+                      <Stack key={i} direction="horizontal" justify="between" className="text-xs text-slate-600 dark:text-slate-400">
                         <span>{item.label}</span>
-                        <span className="font-bold text-slate-700">
+                        <span className="font-bold text-slate-800 dark:text-slate-200">
                           {item.price}
                           <span className="font-normal opacity-70">/user</span>
                         </span>
@@ -408,20 +408,20 @@ export default function HomePageContent() {
                     ))}
                   </Stack>
 
-                  <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
                     <Stack direction="horizontal" align="end" justify="between" className="mb-2">
-                      <span className="text-sm text-slate-500">Total Cost (50 Users)</span>
-                      <span className="text-lg font-bold text-slate-900">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">Total Cost (50 Users)</span>
+                      <span className="text-lg font-bold text-slate-900 dark:text-white">
                         ~Rp 21 Jt
-                        <span className="text-xs font-normal text-slate-400">/bln</span>
+                        <span className="text-xs font-normal text-slate-500 dark:text-slate-400">/bln</span>
                       </span>
                     </Stack>
-                    <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
-                      <div className="h-full w-[90%] bg-red-400"></div>
+                    <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+                      <div className="h-full w-[90%] bg-red-400 dark:bg-red-500"></div>
                     </div>
-                    <Stack direction="horizontal" justify="between" className="text-[10px] text-slate-400">
+                    <Stack direction="horizontal" justify="between" className="text-[10px] text-slate-500 dark:text-slate-400">
                       <span>Integration Time:</span>
-                      <span className="font-bold text-red-500">3-6 Bulan</span>
+                      <span className="font-bold text-red-600 dark:text-red-400">3-6 Bulan</span>
                     </Stack>
                   </div>
                 </div>
@@ -429,27 +429,27 @@ export default function HomePageContent() {
             </SpotlightCard>
 
             {/* Card 2: Legacy ERP */}
-            <SpotlightCard className="h-full rounded-3xl border-amber-200" spotlightColor="rgba(245, 158, 11, 0.1)">
+            <SpotlightCard className="h-full rounded-3xl border-amber-200 dark:border-amber-900" spotlightColor="rgba(245, 158, 11, 0.1)">
               <div className="flex h-full flex-col p-8">
                 <Stack direction="horizontal" justify="between" className="mb-6">
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold tracking-wider text-slate-500 uppercase">Problem #2</span>
-                  <div className="rounded-xl bg-amber-50 p-2 text-amber-500">
+                  <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Problem #2</span>
+                  <div className="rounded-xl bg-amber-50 dark:bg-amber-950 p-2 text-amber-500 dark:text-amber-400">
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                   </div>
                 </Stack>
-                <h3 className="mb-2 text-2xl font-bold text-slate-900">Legacy / Global ERP</h3>
-                <p className="mb-6 leading-relaxed text-slate-500">
+                <h3 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Legacy / Global ERP</h3>
+                <p className="mb-6 leading-relaxed text-slate-600 dark:text-slate-400">
                   Model lisensi per user yang kaku. Akibatnya:
                   {' '}
-                  <span className="font-semibold text-amber-500">Growth Penalty & Mahal.</span>
+                  <span className="font-semibold text-amber-600 dark:text-amber-400">Growth Penalty & Mahal.</span>
                 </p>
 
                 <div className="mt-auto">
-                  <Stack direction="vertical" gap={3} className="mb-6 border-b border-slate-100 pb-4">
+                  <Stack direction="vertical" gap={3} className="mb-6 border-b border-slate-200 dark:border-slate-700 pb-4">
                     {[{ label: 'Standard License', price: '~Rp 210rb' }, { label: 'Implementation', price: '$$$ (Extra)' }, { label: 'Maintenance', price: '~20% / year' }].map((item, i) => (
-                      <Stack key={i} direction="horizontal" justify="between" className="text-xs text-slate-500">
+                      <Stack key={i} direction="horizontal" justify="between" className="text-xs text-slate-600 dark:text-slate-400">
                         <span>{item.label}</span>
-                        <span className="font-bold text-slate-700">
+                        <span className="font-bold text-slate-800 dark:text-slate-200">
                           {item.price}
                           {item.label.includes('License') && <span className="font-normal opacity-70">/user</span>}
                         </span>
@@ -457,20 +457,20 @@ export default function HomePageContent() {
                     ))}
                   </Stack>
 
-                  <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
                     <Stack direction="horizontal" align="end" justify="between" className="mb-2">
-                      <span className="text-sm text-slate-500">Total Cost (50 Users)</span>
-                      <span className="text-lg font-bold text-slate-900">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">Total Cost (50 Users)</span>
+                      <span className="text-lg font-bold text-slate-900 dark:text-white">
                         ~Rp 10.5 Jt
-                        <span className="text-xs font-normal text-slate-400">/bln</span>
+                        <span className="text-xs font-normal text-slate-500 dark:text-slate-400">/bln</span>
                       </span>
                     </Stack>
-                    <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
-                      <div className="h-full w-[60%] bg-amber-400"></div>
+                    <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+                      <div className="h-full w-[60%] bg-amber-400 dark:bg-amber-500"></div>
                     </div>
-                    <Stack direction="horizontal" justify="between" className="text-[10px] text-slate-400">
+                    <Stack direction="horizontal" justify="between" className="text-[10px] text-slate-500 dark:text-slate-400">
                       <span>Implementation Time:</span>
-                      <span className="font-bold text-amber-500">6-12 Bulan</span>
+                      <span className="font-bold text-amber-600 dark:text-amber-400">6-12 Bulan</span>
                     </Stack>
                   </div>
                 </div>
@@ -593,7 +593,7 @@ export default function HomePageContent() {
                 )}
 
                 <div className="relative z-10 flex h-full flex-col rounded-2xl border border-slate-700/50 bg-slate-900/50 p-8 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-1 hover:border-blue-500/50 hover:bg-slate-800 hover:shadow-2xl hover:shadow-blue-900/20">
-                  <div className="mb-6 text-5xl leading-tight font-black text-slate-800 transition-colors duration-500 group-hover:text-blue-500/20">{step.step}</div>
+                  <div className="mb-6 text-5xl leading-tight font-black text-slate-700/30 transition-colors duration-500 group-hover:text-blue-500/20">{step.step}</div>
                   <h3 className="mb-3 text-2xl font-bold text-white group-hover:text-blue-400">{step.title}</h3>
                   <p className="text-sm leading-relaxed text-slate-400 group-hover:text-slate-300">{step.desc}</p>
                 </div>
@@ -606,8 +606,8 @@ export default function HomePageContent() {
       {/* 7. INDUSTRIES & ROLES */}
       <Section id="industries" className="bg-white dark:bg-slate-950" noPadding containerClassName="py-24 md:py-32">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Solusi Spesifik Industri</h2>
-          <p className="mt-2 text-slate-600">Kami tidak percaya pada solusi "Satu Ukuran untuk Semua".</p>
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Solusi Spesifik Industri</h2>
+          <p className="mt-2 text-slate-600 dark:text-slate-400">Kami tidak percaya pada solusi "Satu Ukuran untuk Semua".</p>
         </div>
 
         <CardSlider desktopClassName="md:grid md:grid-cols-2 lg:grid-cols-4 gap-6" mobileItemWidth="w-[85vw] sm:w-[350px]" className="mb-24">
@@ -617,12 +617,12 @@ export default function HomePageContent() {
               <Link key={ind.id} href={`/solutions/${ind.id}`} className="group block h-full">
                 <SpotlightCard className="h-full rounded-3xl" spotlightColor="rgba(37, 99, 235, 0.1)">
                   <div className="flex h-full flex-col p-8">
-                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mb-6 h-12 w-12 rounded-xl bg-slate-50 text-slate-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mb-6 h-12 w-12 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-600 dark:group-hover:text-white">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </Stack>
-                    <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-blue-600">{ind.title}</h3>
-                    <p className="mb-4 flex-grow text-sm leading-relaxed text-slate-600">{ind.description}</p>
-                    <Stack direction="horizontal" gap={4} align="center" className="-translate-x-2 text-sm font-bold text-blue-600 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">{ind.title}</h3>
+                    <p className="mb-4 flex-grow text-sm leading-relaxed text-slate-600 dark:text-slate-400">{ind.description}</p>
+                    <Stack direction="horizontal" gap={4} align="center" className="-translate-x-2 text-sm font-bold text-blue-600 dark:text-blue-400 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                       Explore
                       {' '}
                       <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
@@ -635,8 +635,8 @@ export default function HomePageContent() {
         </CardSlider>
 
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold text-slate-900">Didesain untuk Peran Anda</h2>
-          <p className="mt-2 text-slate-600">Dashboard yang relevan untuk setiap pemangku kepentingan.</p>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Didesain untuk Peran Anda</h2>
+          <p className="mt-2 text-slate-600 dark:text-slate-400">Dashboard yang relevan untuk setiap pemangku kepentingan.</p>
         </div>
 
         <CardSlider desktopClassName="md:grid md:grid-cols-3 lg:grid-cols-5 gap-4" mobileItemWidth="w-[85vw] sm:w-[250px]">
@@ -646,11 +646,11 @@ export default function HomePageContent() {
               <Link key={role.id} href={`/role/${role.id}`} className="group block h-full">
                 <SpotlightCard className="h-full rounded-2xl text-center" spotlightColor="rgba(59, 130, 246, 0.1)">
                   <div className="flex h-full flex-col items-center p-6">
-                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mx-auto mb-3 h-10 w-10 rounded-full bg-blue-50 text-blue-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white">
+                    <Stack direction="horizontal" gap={4} align="center" justify="center" className="mx-auto mb-3 h-10 w-10 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-600 dark:group-hover:text-white">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </Stack>
-                    <h3 className="mb-1 text-lg font-bold text-slate-900">{role.title}</h3>
-                    <p className="text-xs text-slate-600">{role.subtitle}</p>
+                    <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white">{role.title}</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{role.subtitle}</p>
                   </div>
                 </SpotlightCard>
               </Link>
@@ -733,25 +733,25 @@ export default function HomePageContent() {
       </Section>
 
       {/* 9. INTEGRATIONS */}
-      <Section id="integrations" className="border-y border-slate-200 !bg-slate-50" noPadding containerClassName="py-24 md:py-32">
+      <Section id="integrations" className="border-y border-slate-200 dark:border-slate-800 !bg-slate-50 dark:!bg-slate-900" noPadding containerClassName="py-24 md:py-32">
         <Container size="4xl" className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Terhubung dengan Ekosistem</h2>
-          <p className="mt-2 text-slate-600">Open API kami memudahkan integrasi dengan bank, pajak, dan marketplace.</p>
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Terhubung dengan Ekosistem</h2>
+          <p className="mt-2 text-slate-600 dark:text-slate-400">Open API kami memudahkan integrasi dengan bank, pajak, dan marketplace.</p>
         </Container>
 
         <div className="max-w-full overflow-hidden">
           <InfiniteScrollLoop speed={40} direction="right">
             {homeIntegrations.map((int, idx) => (
-              <div key={idx} className="mx-2 flex cursor-default items-center gap-3 rounded-full border border-slate-200 bg-white px-6 py-3 whitespace-nowrap shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-lg">
-                <div className="text-xs font-bold tracking-wider text-slate-400 uppercase" aria-hidden="true">{int.icon}</div>
-                <div className="text-sm font-semibold text-slate-900">{int.name}</div>
+              <div key={idx} className="mx-2 flex cursor-default items-center gap-3 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-3 whitespace-nowrap shadow-sm transition-all duration-300 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-lg">
+                <div className="text-xs font-bold tracking-wider text-slate-400 dark:text-slate-500 uppercase" aria-hidden="true">{int.icon}</div>
+                <div className="text-sm font-semibold text-slate-900 dark:text-slate-100">{int.name}</div>
               </div>
             ))}
           </InfiniteScrollLoop>
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/platform/technologies/integration" className="inline-flex items-center gap-2 font-bold text-blue-600 transition-colors hover:text-blue-700">
+          <Link href="/platform/technologies/integration" className="inline-flex items-center gap-2 font-bold text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300">
             Lihat 50+ Integrasi Lainnya
             {' '}
             <ArrowUpRight className="ml-1 h-4 w-4" aria-hidden="true" />

@@ -301,15 +301,15 @@ function ToolCard({ tool }: { tool: typeof customerTools[0] }) {
 
         {/* Content */}
         <div className="mb-4">
-          <h3 className="mb-1 text-xl font-bold text-neutral-900 dark:text-white">{tool.title}</h3>
-          <p className="mb-3 text-sm font-medium text-neutral-500 dark:text-neutral-400">{tool.subtitle}</p>
-          <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">{tool.description}</p>
+          <h3 className="mb-1 text-xl font-bold text-slate-900 dark:text-white">{tool.title}</h3>
+          <p className="mb-3 text-sm font-medium text-slate-500 dark:text-slate-400">{tool.subtitle}</p>
+          <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{tool.description}</p>
         </div>
 
         {/* Features */}
         <ul className="space-y-2">
           {tool.features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-400">
+            <li key={idx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
               <div className={`size-1.5 rounded-full ${colors.bg}`} />
               {feature}
             </li>
@@ -339,14 +339,14 @@ export default function ToolsHubPage() {
               <Sparkles className="size-4" />
               Free Business Tools
             </div>
-            <h1 className="mb-6 text-5xl leading-tight font-extrabold text-neutral-900 md:text-6xl dark:text-white">
+            <h1 className="mb-6 text-5xl leading-tight font-extrabold text-slate-900 md:text-6xl dark:text-white">
               Tools untuk Bisnis Anda
               <br />
               <span className="from-primary-600 bg-gradient-to-r to-purple-600 bg-clip-text text-transparent">
                 100% Gratis
               </span>
             </h1>
-            <p className="mb-10 text-xl leading-relaxed text-neutral-600 dark:text-neutral-400">
+            <p className="mb-10 text-xl leading-relaxed text-slate-600 dark:text-slate-400">
               Dari kalkulator pajak hingga strategic planning tools. Semuanya dirancang untuk membantu bisnis Anda
               tumbuh lebih cepat.
             </p>
@@ -359,8 +359,8 @@ export default function ToolsHubPage() {
                 <Calculator className="size-6 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Customer Tools</h2>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Customer Tools</h2>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
                   Kalkulator & tools untuk operasional sehari-hari
                 </p>
               </div>
@@ -379,8 +379,8 @@ export default function ToolsHubPage() {
                 <BarChart3 className="size-6 text-purple-600 dark:text-purple-400" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Strategic Tools</h2>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Strategic Tools</h2>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
                   Tools untuk perencanaan & transformasi digital
                 </p>
               </div>
@@ -393,17 +393,17 @@ export default function ToolsHubPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="from-primary-50 dark:from-primary-900/20 mt-20 rounded-3xl border border-neutral-200 bg-gradient-to-br to-purple-50 p-8 md:p-12 dark:border-neutral-800 dark:to-purple-900/20">
+          <div className="from-primary-50 dark:from-primary-900/20 mt-20 rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br to-purple-50 p-8 md:p-12 dark:border-neutral-800 dark:to-purple-900/20">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
                 <div className="bg-primary-100 dark:bg-primary-900/30 rounded-full p-4">
                   <Rocket className="text-primary-600 dark:text-primary-400 size-8" />
                 </div>
               </div>
-              <h2 className="mb-4 text-3xl font-bold text-neutral-900 dark:text-white">
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">
                 Butuh Solusi yang Lebih Lengkap?
               </h2>
-              <p className="mb-8 text-lg text-neutral-600 dark:text-neutral-400">
+              <p className="mb-8 text-lg text-slate-600 dark:text-slate-400">
                 Tools ini gratis dan powerful, tapi untuk otomasi penuh dan integrasi sistem, Anda butuh platform
                 BizOps. Coba gratis 14 hari, no credit card required.
               </p>
@@ -428,8 +428,8 @@ export default function ToolsHubPage() {
       <Section className="bg-white py-20 dark:bg-slate-950">
         <Container>
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-neutral-900 dark:text-white">Kenapa Menggunakan Tools Kami?</h2>
-            <p className="mb-12 text-lg text-neutral-600 dark:text-neutral-400">
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Kenapa Menggunakan Tools Kami?</h2>
+            <p className="mb-12 text-lg text-slate-600 dark:text-slate-400">
               Dirancang berdasarkan pengalaman puluhan proyek implementasi ERP yang sukses.
             </p>
 
@@ -457,8 +457,8 @@ export default function ToolsHubPage() {
                     <div className="bg-primary-50 dark:bg-primary-900/20 mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl">
                       <Icon className="text-primary-600 dark:text-primary-400 size-8" />
                     </div>
-                    <h3 className="mb-2 text-lg font-bold text-neutral-900 dark:text-white">{benefit.title}</h3>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">{benefit.desc}</p>
+                    <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{benefit.title}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{benefit.desc}</p>
                   </div>
                 );
               })}

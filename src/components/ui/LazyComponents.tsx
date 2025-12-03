@@ -31,7 +31,12 @@ export const SpotlightCard = dynamic(() => import('./SpotlightCard'), {
 // Modal components moved to ClientLazyComponents.tsx to avoid SSR issues
 
 // Heavy page content components (for route-based code splitting)
-export const SlideContent = dynamic(() => import('@/app/[locale]/(marketing)/slide/SlideContent'), {
+export const SlideContent = dynamic(() => import('@/app/[locale]/(marketing)/slide/intro/SlideContent'), {
+  loading: () => <div className="flex min-h-screen items-center justify-center"><div className="border-primary-500 h-12 w-12 animate-spin rounded-full border-4 border-t-transparent" /></div>,
+  ssr: true,
+});
+
+export const OnboardingSlideContent = dynamic(() => import('@/app/[locale]/(marketing)/slide/onboarding/OnboardingSlideContent'), {
   loading: () => <div className="flex min-h-screen items-center justify-center"><div className="border-primary-500 h-12 w-12 animate-spin rounded-full border-4 border-t-transparent" /></div>,
   ssr: true,
 });
