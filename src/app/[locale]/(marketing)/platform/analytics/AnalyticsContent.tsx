@@ -3,15 +3,14 @@
 import { BarChart2, Calendar, FileBarChart, Filter, PieChart, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { Badge, Button, Card, Grid } from '@/components/ui';
-import { BouncyLink } from '@/components/ui/BouncyLink';
+import { Button } from '@/components/ui';
 import { FadeIn, FadeInStagger } from '@/components/ui/FadeIn';
 
 export default function AnalyticsContent() {
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-slate-900 py-20 text-white dark:bg-slate-950 lg:py-24">
+      <div className="relative overflow-hidden bg-slate-900 py-20 text-white lg:py-24 dark:bg-slate-950">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         <Container size="5xl" className="relative z-10 text-center">
           <FadeIn delay={0.1}>
@@ -20,14 +19,19 @@ export default function AnalyticsContent() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Laporan Anda, Cara Anda. <br />
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+              Laporan Anda, Cara Anda.
+              {' '}
+              <br />
               <span className="text-cyan-400">Tanpa Coding.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-300 md:text-xl">
-              Setiap bisnis punya cara unik melihat data. Jangan terpaku pada laporan standar yang kaku. Dengan <em className="text-cyan-300">Report Builder</em>, Anda menjadi analis data bagi perusahaan Anda sendiri.
+              Setiap bisnis punya cara unik melihat data. Jangan terpaku pada laporan standar yang kaku. Dengan
+              {' '}
+              <em className="text-cyan-300">Report Builder</em>
+              , Anda menjadi analis data bagi perusahaan Anda sendiri.
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -48,7 +52,7 @@ export default function AnalyticsContent() {
               <div className="mb-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:border-blue-900/30 dark:bg-blue-900/10 dark:text-blue-400">
                 Key Features
               </div>
-              <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
                 Bangun Laporan Sesuai Kebutuhan
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -100,14 +104,14 @@ export default function AnalyticsContent() {
       </Section>
 
       {/* Report Types - Contextual Layout */}
-      <Section className="bg-white py-20 dark:bg-slate-900 lg:py-24">
+      <Section className="bg-white py-20 lg:py-24 dark:bg-slate-900">
         <Container size="6xl">
           <FadeIn delay={0.1}>
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <div className="mb-4 inline-flex rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700 dark:border-purple-900/30 dark:bg-purple-900/10 dark:text-purple-400">
                 Popular Reports
               </div>
-              <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
                 Contoh Laporan yang Sering Dipakai
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400">

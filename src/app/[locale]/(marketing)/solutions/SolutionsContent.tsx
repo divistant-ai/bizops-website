@@ -72,7 +72,7 @@ export default function SolutionsContent() {
       <Section className="relative overflow-hidden !bg-white py-16 md:py-24">
         <Container size="7xl">
           <FadeIn className="mx-auto mb-12 max-w-3xl text-center md:mb-20">
-            <h2 className="mb-6 text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
               Solusi Spesifik Industri
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">

@@ -120,7 +120,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
   const ctaHeadText = typeof data.cta === 'string' ? 'Siap Memulai?' : data.cta?.head || 'Siap untuk Transformasi?';
 
   return (
-    <div className="selection:bg-primary-500/30 bg-slate-50 dark:bg-slate-950 font-sans transition-colors">
+    <div className="selection:bg-primary-500/30 bg-slate-50 font-sans transition-colors dark:bg-slate-950">
 
       {/* --- HERO SECTION --- */}
       <section className="relative overflow-hidden bg-white pt-32 pb-24 lg:pt-48 lg:pb-32">
@@ -146,13 +146,13 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
             )}
 
             <FadeIn delay={0.1}>
-              <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 dark:text-white md:text-6xl lg:text-7xl">
+              <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 md:text-6xl lg:text-7xl dark:text-white">
                 {headline}
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed font-normal text-slate-600 dark:text-slate-400 md:text-2xl">
+              <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed font-normal text-slate-600 md:text-2xl dark:text-slate-400">
                 {subheadline}
               </p>
             </FadeIn>
@@ -165,7 +165,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="rounded-full border-neutral-300 px-8 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:bg-slate-950">
+                  <Button size="lg" variant="outline" className="rounded-full border-neutral-300 px-8 text-slate-700 hover:bg-slate-50 dark:bg-slate-950 dark:text-slate-300">
                     Hubungi Kami
                   </Button>
                 </Link>
@@ -179,7 +179,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
               <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-neutral-200 md:gap-8">
                 {data.metrics.map((m, i) => (
                   <div key={i} className="px-4">
-                    <div className="mb-1 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">{m.value}</div>
+                    <div className="mb-1 text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl dark:text-white">{m.value}</div>
                     <div className="text-sm font-medium tracking-wide text-neutral-500 uppercase md:text-base">{m.label}</div>
                   </div>
                 ))}
@@ -237,7 +237,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
 
       {/* --- METHODOLOGY (SERVICES) --- */}
       {data.methodology && (
-        <Section className="border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+        <Section className="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
           <Container size="6xl">
             <div className="mb-16 text-center">
               <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Metodologi Kami</h2>
@@ -246,7 +246,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
             <div className="grid gap-6 md:grid-cols-4">
               {data.methodology.map((m, i) => (
                 <FadeIn key={i} delay={i * 0.1} className="relative">
-                  <div className="relative z-10 h-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white p-6">
+                  <div className="relative z-10 h-full rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800">
                     <div className="absolute top-4 right-4 z-0 text-4xl font-black text-neutral-100">{i + 1}</div>
                     <div className="relative z-10">
                       <h3 className="mb-3 text-lg font-bold text-slate-900 dark:text-white">{m.title}</h3>
@@ -309,7 +309,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
 
       {/* --- PROBLEMS / CHALLENGES --- */}
       {data.challenges && (
-        <Section className="border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+        <Section className="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
           <Container size="6xl">
             <div className="mb-16 text-center">
               <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Mengapa Cara Lama Tidak Cukup?</h2>
@@ -319,7 +319,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
             <div className="grid gap-8 md:grid-cols-3">
               {data.challenges.map((c, i) => (
                 <FadeIn key={i} delay={i * 0.1} className="h-full">
-                  <div className="h-full rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
                     {/* Industry Style Challenge */}
                     {c.title && (
                       <>
@@ -336,7 +336,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
                           <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">{c.pain}</h3>
                           <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{c.context}</p>
                         </div>
-                        <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
+                        <div className="border-t border-slate-100 pt-6 dark:border-slate-800">
                           <div className="mb-2 text-xs font-bold tracking-wider text-green-600 uppercase">The BizOps Way</div>
                           <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{c.gain}</h3>
                           <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{c.gainDesc}</p>
@@ -364,8 +364,8 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
               {featuresList.map((f, i) => {
                 return (
                   <FadeIn key={i} delay={i * 0.1} className="h-full">
-                    <div className="group hover:bg-primary-50/50 hover:border-primary-100 h-full rounded-[2rem] border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-8 transition-colors">
-                      <div className="text-primary-600 mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-transform duration-300 group-hover:scale-110">
+                    <div className="group hover:bg-primary-50/50 hover:border-primary-100 h-full rounded-[2rem] border border-slate-100 bg-slate-50 p-8 transition-colors dark:border-slate-800 dark:bg-slate-950">
+                      <div className="text-primary-600 mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-100 bg-white shadow-sm transition-transform duration-300 group-hover:scale-110 dark:border-slate-800 dark:bg-slate-900">
                         {f.icon ? f.icon : <CheckCircle2 className="h-7 w-7" />}
                       </div>
                       <h3 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">{f.title || f.desc}</h3>
@@ -397,7 +397,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
 
       {/* --- CONNECTIONS / INTEGRATIONS --- */}
       {data.connections && (
-        <Section className="border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+        <Section className="border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
           <Container size="6xl">
             <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <div>
@@ -410,7 +410,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {data.connections.map((c, i) => (
-                <div key={i} className="hover:border-primary-300 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white p-6 shadow-sm transition-colors">
+                <div key={i} className="hover:border-primary-300 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors dark:border-slate-800">
                   <div className="text-primary-600 mb-2 text-xs font-bold tracking-wider uppercase">Connected to</div>
                   <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-white">{c.target}</h3>
                   <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">{c.desc}</p>
@@ -431,9 +431,9 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
               </div>
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{data.extraSection.title}</h2>
             </div>
-            <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm dark:border-slate-800">
               <table className="w-full text-left text-sm">
-                <thead className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-xs font-bold tracking-wider text-slate-900 dark:text-white uppercase">
+                <thead className="border-b border-slate-200 bg-slate-50 text-xs font-bold tracking-wider text-slate-900 uppercase dark:border-slate-800 dark:bg-slate-950 dark:text-white">
                   <tr>
                     {data.extraSection.headers.map((h, i) => (
                       <th key={i} className="px-6 py-4">{h}</th>
@@ -444,7 +444,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
                   {data.extraSection.rows.map((row, i) => (
                     <tr key={i} className="transition-colors hover:bg-slate-50 dark:bg-slate-950/50">
                       {row.map((cell, j) => (
-                        <td key={j} className="first:text-primary-600 px-6 py-4 font-medium whitespace-nowrap text-slate-600 dark:text-slate-400 first:font-bold">
+                        <td key={j} className="first:text-primary-600 px-6 py-4 font-medium whitespace-nowrap text-slate-600 first:font-bold dark:text-slate-400">
                           {cell}
                         </td>
                       ))}
@@ -527,9 +527,9 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
       )}
 
       {/* --- FINAL CTA --- */}
-      <Section className="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+      <Section className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
         <Container size="4xl" className="text-center">
-          <h2 className="mb-6 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
+          <h2 className="mb-6 text-3xl font-extrabold text-slate-900 md:text-4xl dark:text-white">
             {ctaHeadText}
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
@@ -539,7 +539,7 @@ const GenericLandingPage: React.FC<{ data: GenericLandingPageProps }> = ({ data 
             <Button size="lg" className="shadow-primary-500/20 bg-primary-600 hover:bg-primary-700 h-14 rounded-xl px-10 text-lg text-white shadow-xl">
               {ctaBtnText}
             </Button>
-            <Button size="lg" variant="outline" className="h-14 rounded-xl border-neutral-300 bg-white px-10 text-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:bg-slate-950">
+            <Button size="lg" variant="outline" className="h-14 rounded-xl border-neutral-300 bg-white px-10 text-lg text-slate-700 hover:bg-slate-50 dark:bg-slate-950 dark:text-slate-300">
               Jadwalkan Konsultasi Gratis
             </Button>
           </div>

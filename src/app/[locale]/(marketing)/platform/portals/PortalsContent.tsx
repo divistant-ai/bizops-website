@@ -11,7 +11,7 @@ const PortalsContent: React.FC = () => {
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
       {/* Hero Section - Consistent */}
-      <Section className="bg-slate-900 py-20 text-white dark:bg-slate-950 lg:py-24">
+      <Section className="bg-slate-900 py-20 text-white lg:py-24 dark:bg-slate-950">
         <Container size="5xl" className="text-center">
           <FadeIn delay={0.1}>
             <div className="mb-6 inline-flex rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 p-3 shadow-lg shadow-blue-500/30">
@@ -19,8 +19,10 @@ const PortalsContent: React.FC = () => {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Berhenti Menjadi Admin <br />
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+              Berhenti Menjadi Admin
+              {' '}
+              <br />
               <span className="text-cyan-400">untuk Klien Anda.</span>
             </h1>
           </FadeIn>

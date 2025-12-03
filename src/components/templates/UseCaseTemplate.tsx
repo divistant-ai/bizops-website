@@ -49,7 +49,7 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
             <div className="grid gap-8 md:grid-cols-2">
               {/* Challenge Card */}
               <FadeIn>
-                <div className="flex h-full flex-col rounded-3xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 shadow-xl">
+                <div className="flex h-full flex-col rounded-3xl border border-slate-100 bg-white p-10 shadow-xl dark:border-slate-800 dark:bg-slate-900">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600">
                     <TrendingUp className="h-6 w-6 rotate-180" />
                   </div>
@@ -64,7 +64,7 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
 
               {/* Solution Card */}
               <FadeIn>
-                <div className="flex h-full flex-col rounded-3xl border border-slate-800 dark:border-slate-700 bg-slate-900 dark:bg-slate-800 p-10 text-white shadow-xl">
+                <div className="flex h-full flex-col rounded-3xl border border-slate-800 bg-slate-900 p-10 text-white shadow-xl dark:border-slate-700 dark:bg-slate-800">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
                     <Lightbulb className="h-6 w-6" />
                   </div>
@@ -80,7 +80,7 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
       </Section>
 
       {/* Results Section */}
-      <Section className="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <Section className="border-y border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
         <Container size="5xl">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">Impact & Results</h2>
@@ -90,7 +90,7 @@ export function UseCaseTemplate({ data }: UseCaseTemplateProps) {
           <div className="grid gap-8 md:grid-cols-3">
             {data.results.map((result, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="hover:border-primary-200 dark:hover:border-primary-700 h-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-6 text-center transition-colors">
+                <div className="hover:border-primary-200 dark:hover:border-primary-700 h-full rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center transition-colors dark:border-slate-800 dark:bg-slate-900">
                   <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
                     <CheckCircle2 className="h-5 w-5" />
                   </div>

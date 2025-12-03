@@ -20,8 +20,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
       <nav className={navbarStyles.container.nav} aria-label="Main Navigation">
         {/* MENU 1: PLATFORM */}
         <div className="group relative flex h-full items-center">
-          <Link 
-            href="/platform" 
+          <Link
+            href="/platform"
             className={getMenuItemClasses(pathname?.startsWith('/platform') || false)}
             aria-current={pathname?.startsWith('/platform') ? 'page' : undefined}
           >
@@ -33,8 +33,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
 
         {/* MENU 2: SOLUTIONS */}
         <div className="group relative flex h-full items-center">
-          <Link 
-            href="/solutions" 
+          <Link
+            href="/solutions"
             className={getMenuItemClasses(pathname?.startsWith('/solutions') || false)}
             aria-current={pathname?.startsWith('/solutions') ? 'page' : undefined}
           >
@@ -46,8 +46,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
 
         {/* MENU 3: SERVICES */}
         <div className="group relative flex h-full items-center">
-          <Link 
-            href="/services" 
+          <Link
+            href="/services"
             className={getMenuItemClasses(pathname?.startsWith('/services') || false)}
             aria-current={pathname?.startsWith('/services') ? 'page' : undefined}
           >
@@ -59,7 +59,7 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
               <Link
                 key={item.to}
                 href={item.to}
-                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 hover:text-primary-600 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-primary-400"
+                className="hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition-all hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50"
               >
                 <item.icon className="h-4 w-4 flex-shrink-0 opacity-70" />
                 {item.label}
@@ -68,8 +68,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
           </div>
         </div>
 
-        <Link 
-          href="/pricing" 
+        <Link
+          href="/pricing"
           className={getMenuItemClasses(pathname?.startsWith('/pricing') || false)}
           aria-current={pathname?.startsWith('/pricing') ? 'page' : undefined}
         >
@@ -78,8 +78,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
 
         {/* MENU 4: RESOURCES */}
         <div className="group relative flex h-full items-center">
-          <Link 
-            href="/resources" 
+          <Link
+            href="/resources"
             className={getMenuItemClasses(pathname?.startsWith('/resources') || false)}
             aria-current={pathname?.startsWith('/resources') ? 'page' : undefined}
           >
@@ -91,8 +91,8 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
 
         {/* MENU 5: COMPANY */}
         <div className="group relative flex h-full items-center">
-          <Link 
-            href="/about" 
+          <Link
+            href="/about"
             className={getMenuItemClasses(pathname?.startsWith('/about') || pathname?.startsWith('/company') || pathname?.startsWith('/careers') || pathname?.startsWith('/partners') || false)}
             aria-current={pathname?.startsWith('/about') || pathname?.startsWith('/company') ? 'page' : undefined}
           >
@@ -105,26 +105,26 @@ const NavbarDesktop: React.FC<NavbarDesktopProps> = ({ onDemoClick }) => {
 
       {/* Visual Separator */}
       <div className={navbarStyles.container.separator} aria-hidden="true" />
-      
+
       {/* Action Buttons */}
       <div className={navbarStyles.container.actions}>
         <NotificationCenter />
-        <Link 
-          href="/search" 
-          className={getIconButtonClasses()} 
+        <Link
+          href="/search"
+          className={getIconButtonClasses()}
           aria-label="Search"
         >
           <Search className={navbarStyles.iconSize.medium} />
         </Link>
-        <Link 
-          href="/login" 
+        <Link
+          href="/login"
           className={getTextButtonClasses()}
         >
           Login
         </Link>
-        <Button 
-          size="sm" 
-          className={getCTAButtonClasses()} 
+        <Button
+          size="sm"
+          className={getCTAButtonClasses()}
           onClick={onDemoClick}
         >
           Book a Demo

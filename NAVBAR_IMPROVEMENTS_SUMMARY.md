@@ -72,7 +72,7 @@ All buttons now meet WCAG AA minimum (40x40px):
 
 ### 5. **Visual Separator Added** ✓
 ```tsx
-<div className="mx-3 hidden h-8 w-px bg-slate-200 dark:bg-slate-700 xl:block" />
+<div className="mx-3 hidden h-8 w-px bg-slate-200 xl:block dark:bg-slate-700" />;
 ```
 
 **Benefits:**
@@ -103,9 +103,9 @@ All buttons now meet WCAG AA minimum (40x40px):
 
 **Skip Navigation:**
 ```tsx
-<a href="#main-content" className="sr-only focus:not-sr-only...">
+<a href="#main-content" className="focus:not-sr-only... sr-only">
   Skip to main content
-</a>
+</a>;
 ```
 
 **Focus States:**
@@ -328,4 +328,3 @@ These are nice-to-haves for future iterations:
 **Ready for**: Production Testing
 
 **Next Steps**: Test in browser, gather feedback, iterate on Priority 2 items if needed.
-

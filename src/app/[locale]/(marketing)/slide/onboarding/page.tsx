@@ -9,4 +9,3 @@ export const metadata = genMeta({
 export default function OnboardingSlidePage() {
   return <OnboardingSlideContent />;
 }
-

@@ -11,7 +11,7 @@ const MultiCompanyContent: React.FC = () => {
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
       {/* Hero Section - Consistent with Platform */}
-      <Section className="bg-slate-900 py-20 text-white dark:bg-slate-950 lg:py-24">
+      <Section className="bg-slate-900 py-20 text-white lg:py-24 dark:bg-slate-950">
         <Container size="5xl" className="text-center">
           <FadeIn delay={0.1}>
             <div className="mb-6 inline-flex rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 p-3 shadow-lg shadow-purple-500/30">
@@ -19,14 +19,23 @@ const MultiCompanyContent: React.FC = () => {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Satu Platform untuk <br />
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+              Satu Platform untuk
+              {' '}
+              <br />
               <span className="text-purple-400">Seluruh Grup Bisnis Anda.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-300 md:text-xl">
-              Punya banyak PT, CV, atau unit bisnis berbeda? Satukan manajemen grup perusahaan Anda dengan struktur <em className="text-purple-300">Multi-Company</em> yang <em className="text-purple-300">native</em>.
+              Punya banyak PT, CV, atau unit bisnis berbeda? Satukan manajemen grup perusahaan Anda dengan struktur
+              {' '}
+              <em className="text-purple-300">Multi-Company</em>
+              {' '}
+              yang
+              {' '}
+              <em className="text-purple-300">native</em>
+              .
             </p>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -53,7 +62,11 @@ const MultiCompanyContent: React.FC = () => {
                     Unified Login & Access
                   </h3>
                   <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                    Cukup satu <em>username</em> untuk mengakses data PT A, PT B, dan CV C. Pindah antar perusahaan semudah ganti saluran TV, namun hak akses data tetap terpisah secara ketat.
+                    Cukup satu
+                    {' '}
+                    <em>username</em>
+                    {' '}
+                    untuk mengakses data PT A, PT B, dan CV C. Pindah antar perusahaan semudah ganti saluran TV, namun hak akses data tetap terpisah secara ketat.
                   </p>
                 </div>
               </FadeIn>
@@ -67,7 +80,10 @@ const MultiCompanyContent: React.FC = () => {
                     Financial Consolidation
                   </h3>
                   <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                    Lupakan proses 'VLOOKUP' Excel yang memusingkan. BizOps menarik data Neraca dan Laba Rugi dari seluruh anak perusahaan dan menyajikannya dalam satu Laporan Konsolidasi Grup secara <em>real-time</em>.
+                    Lupakan proses 'VLOOKUP' Excel yang memusingkan. BizOps menarik data Neraca dan Laba Rugi dari seluruh anak perusahaan dan menyajikannya dalam satu Laporan Konsolidasi Grup secara
+                    {' '}
+                    <em>real-time</em>
+                    .
                   </p>
                 </div>
               </FadeIn>
@@ -81,7 +97,15 @@ const MultiCompanyContent: React.FC = () => {
                     Inter-Company Transactions
                   </h3>
                   <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-                    Otomatisasi transaksi internal. Saat PT A menjual barang ke PT B, sistem otomatis membuat <em>Sales Invoice</em> di pembukuan PT A dan <em>Purchase Invoice</em> di PT B secara bersamaan.
+                    Otomatisasi transaksi internal. Saat PT A menjual barang ke PT B, sistem otomatis membuat
+                    {' '}
+                    <em>Sales Invoice</em>
+                    {' '}
+                    di pembukuan PT A dan
+                    {' '}
+                    <em>Purchase Invoice</em>
+                    {' '}
+                    di PT B secara bersamaan.
                   </p>
                 </div>
               </FadeIn>

@@ -393,7 +393,7 @@ export default function ToolsHubPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="from-primary-50 dark:from-primary-900/20 mt-20 rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br to-purple-50 p-8 md:p-12 dark:border-neutral-800 dark:to-purple-900/20">
+          <div className="from-primary-50 dark:from-primary-900/20 mt-20 rounded-3xl border border-slate-200 bg-gradient-to-br to-purple-50 p-8 md:p-12 dark:border-neutral-800 dark:border-slate-800 dark:to-purple-900/20">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-6 flex justify-center">
                 <div className="bg-primary-100 dark:bg-primary-900/30 rounded-full p-4">

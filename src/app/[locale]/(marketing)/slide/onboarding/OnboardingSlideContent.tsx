@@ -20,8 +20,8 @@ import {
   Shield,
   Target,
   TrendingUp,
-  Users,
   UserCheck,
+  Users,
   Zap,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -125,7 +125,7 @@ export default function OnboardingSlideContent() {
           <motion.div variants={itemVariants} className="mb-8 inline-flex rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
             <Rocket className="h-16 w-16" />
           </motion.div>
-          <motion.h1 variants={itemVariants} className="mb-6 text-center text-6xl font-bold leading-tight">
+          <motion.h1 variants={itemVariants} className="mb-6 text-center text-6xl leading-tight font-bold">
             BizOps Onboarding Journey
           </motion.h1>
           <motion.p variants={itemVariants} className="mb-12 max-w-3xl text-center text-2xl text-blue-100">
@@ -136,7 +136,9 @@ export default function OnboardingSlideContent() {
           <motion.div variants={itemVariants}>
             <Link href="/demo">
               <Button size="lg" className="h-14 rounded-xl bg-white px-10 text-lg font-semibold text-blue-600 hover:bg-blue-50">
-                Jadwalkan Onboarding <ArrowRight className="ml-2 h-5 w-5" />
+                Jadwalkan Onboarding
+                {' '}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </motion.div>
@@ -477,25 +479,33 @@ export default function OnboardingSlideContent() {
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
                     <span>
-                      <strong>Admin Training:</strong> System admin, configuration, report builder
+                      <strong>Admin Training:</strong>
+                      {' '}
+                      System admin, configuration, report builder
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
                     <span>
-                      <strong>End-User Training:</strong> Role-specific workflows, daily operations
+                      <strong>End-User Training:</strong>
+                      {' '}
+                      Role-specific workflows, daily operations
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
                     <span>
-                      <strong>Train-the-Trainer:</strong> Internal champions for ongoing support
+                      <strong>Train-the-Trainer:</strong>
+                      {' '}
+                      Internal champions for ongoing support
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-green-600 dark:text-green-400" />
                     <span>
-                      <strong>Documentation:</strong> User manuals, video tutorials, FAQ knowledge base
+                      <strong>Documentation:</strong>
+                      {' '}
+                      User manuals, video tutorials, FAQ knowledge base
                     </span>
                   </li>
                 </ul>
@@ -512,25 +522,33 @@ export default function OnboardingSlideContent() {
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>
-                      <strong>Test Scenarios:</strong> End-to-end process testing with real data
+                      <strong>Test Scenarios:</strong>
+                      {' '}
+                      End-to-end process testing with real data
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>
-                      <strong>Bug Tracking:</strong> Log issues, prioritize fixes, retest
+                      <strong>Bug Tracking:</strong>
+                      {' '}
+                      Log issues, prioritize fixes, retest
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>
-                      <strong>Performance Testing:</strong> Load testing, stress testing, optimization
+                      <strong>Performance Testing:</strong>
+                      {' '}
+                      Load testing, stress testing, optimization
                     </span>
                   </li>
                   <li className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
                     <span>
-                      <strong>Sign-off:</strong> Formal UAT acceptance from business owners
+                      <strong>Sign-off:</strong>
+                      {' '}
+                      Formal UAT acceptance from business owners
                     </span>
                   </li>
                 </ul>
@@ -698,8 +716,10 @@ export default function OnboardingSlideContent() {
           <motion.div variants={itemVariants} className="mb-8 inline-flex rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
             <Rocket className="h-16 w-16" />
           </motion.div>
-          <motion.h1 variants={itemVariants} className="mb-6 text-center text-5xl font-bold leading-tight">
-            Ready to Start Your <br />
+          <motion.h1 variants={itemVariants} className="mb-6 text-center text-5xl leading-tight font-bold">
+            Ready to Start Your
+            {' '}
+            <br />
             BizOps Journey?
           </motion.h1>
           <motion.p variants={itemVariants} className="mb-12 max-w-3xl text-center text-xl text-blue-100">
@@ -710,7 +730,9 @@ export default function OnboardingSlideContent() {
           <motion.div variants={itemVariants} className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link href="/demo">
               <Button size="lg" className="h-14 rounded-xl bg-white px-10 text-lg font-semibold text-blue-600 hover:bg-blue-50">
-                Jadwalkan Kickoff Meeting <ArrowRight className="ml-2 h-5 w-5" />
+                Jadwalkan Kickoff Meeting
+                {' '}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link href="/contact">
@@ -730,4 +752,3 @@ export default function OnboardingSlideContent() {
 
   return <SlideDeck slides={slides} />;
 }
-

@@ -72,7 +72,7 @@ export default function ContactContent() {
                 </div>
               </div>
 
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-8">
+              <div className="border-t border-slate-200 pt-8 dark:border-slate-700">
                 <div className="mb-2 flex items-center gap-2 text-slate-500 dark:text-slate-400">
                   <Clock className="h-4 w-4" />
                   <span className="text-sm font-medium tracking-wider uppercase">Jam Operasional</span>
@@ -83,7 +83,7 @@ export default function ContactContent() {
 
             {/* Form */}
             <FadeIn delay={0.2} className="lg:col-span-2">
-              <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-xl md:p-10">
+              <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl md:p-10 dark:border-slate-800 dark:bg-slate-900">
                 <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">Kirim Pesan</h2>
                 <form className="space-y-6">
                   <div className="grid gap-6 md:grid-cols-2">
@@ -92,7 +92,7 @@ export default function ContactContent() {
                       <input
                         type="text"
                         id="name"
-                        className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 outline-none focus:ring-2"
+                        className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:ring-2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         placeholder="John Doe"
                       />
                     </div>
@@ -101,7 +101,7 @@ export default function ContactContent() {
                       <input
                         type="email"
                         id="email"
-                        className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 outline-none focus:ring-2"
+                        className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:ring-2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -112,14 +112,14 @@ export default function ContactContent() {
                     <input
                       type="text"
                       id="company"
-                      className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 outline-none focus:ring-2"
+                      className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:ring-2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       placeholder="PT Maju Mundur"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="interest" className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">Topik</label>
-                    <select id="interest" className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 outline-none focus:ring-2">
+                    <select id="interest" className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:ring-2 dark:border-slate-700 dark:bg-slate-800 dark:text-white">
                       <option>Permintaan Demo Produk</option>
                       <option>Tanya Harga / Quotation</option>
                       <option>Konsultasi Teknis</option>
@@ -133,7 +133,7 @@ export default function ContactContent() {
                     <textarea
                       id="message"
                       rows={4}
-                      className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-4 py-3 outline-none focus:ring-2"
+                      className="focus:ring-primary-500 dark:focus:ring-primary-400 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:ring-2 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       placeholder="Ceritakan kebutuhan bisnis Anda..."
                     >
                     </textarea>

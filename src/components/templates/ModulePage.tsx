@@ -35,7 +35,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         onClick={() => setIsOpen(!isOpen)}
         className="group flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-50 focus:outline-none dark:hover:bg-slate-800/50"
       >
-        <span className="pr-4 text-sm font-semibold text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400 md:text-base">
+        <span className="pr-4 text-sm font-semibold text-slate-900 transition-colors group-hover:text-blue-600 md:text-base dark:text-white dark:group-hover:text-blue-400">
           {question}
         </span>
         <div
@@ -51,7 +51,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           isOpen ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <p className="px-4 pb-4 text-xs leading-relaxed text-slate-600 dark:text-slate-400 md:text-sm">{answer}</p>
+        <p className="px-4 pb-4 text-xs leading-relaxed text-slate-600 md:text-sm dark:text-slate-400">{answer}</p>
       </div>
     </div>
   );
@@ -89,9 +89,9 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-slate-950">
       {/* 1. COMPACT PREMIUM HERO */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-white pb-12 pt-24 dark:border-slate-800 dark:bg-slate-950 lg:pb-16 lg:pt-32">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-white pt-24 pb-12 lg:pt-32 lg:pb-16 dark:border-slate-800 dark:bg-slate-950">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-        
+
         <Container size="5xl" className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -109,7 +109,7 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
               animate={{ scale: 1, opacity: 1 }}
               className="mb-6 inline-flex items-center justify-center"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-600/20 ring-4 ring-blue-50 dark:ring-blue-900/20">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg ring-4 shadow-blue-600/20 ring-blue-50 dark:ring-blue-900/20">
                 <Icon className="h-8 w-8 text-white" />
               </div>
             </motion.div>
@@ -117,7 +117,7 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-white md:text-4xl lg:text-5xl"
+              className="mb-4 text-3xl leading-tight font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl dark:text-white"
             >
               {data.title}
             </motion.h1>
@@ -135,7 +135,7 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400 md:text-lg"
+              className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg dark:text-slate-400"
             >
               {data.description}
             </motion.p>
@@ -165,7 +165,7 @@ export default function ModulePage({ moduleId, relatedModuleIds = [] }: ModulePa
               {data.metrics.map((metric: { value: string; label: string }, idx: number) => (
                 <FadeIn key={idx} delay={0.1 * idx}>
                   <div className="rounded-xl border border-slate-100 bg-slate-50/50 p-6 text-center transition-colors hover:border-slate-200 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:border-slate-700">
-                    <div className="mb-1 text-3xl font-bold text-blue-600 dark:text-blue-400 md:text-4xl">
+                    <div className="mb-1 text-3xl font-bold text-blue-600 md:text-4xl dark:text-blue-400">
                       <CounterUp to={Number.parseInt(metric.value.replace(/\D/g, '')) || 0} label={metric.label} suffix={metric.value.replace(/\d/g, '')} />
                     </div>
                     <div className="text-sm font-medium text-slate-600 dark:text-slate-400">{metric.label}</div>

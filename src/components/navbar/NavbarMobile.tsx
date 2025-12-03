@@ -18,9 +18,9 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({ isOpen, onToggle, onClose, 
     <>
       <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
         <NotificationCenter />
-        <Link 
-          href="/search" 
-          className={getIconButtonClasses(true)} 
+        <Link
+          href="/search"
+          className={getIconButtonClasses(true)}
           aria-label="Search"
         >
           <Search className={navbarStyles.iconSize.medium} />

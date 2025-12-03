@@ -60,4 +60,3 @@ export const getTextButtonClasses = (): string => {
 export const getCTAButtonClasses = (): string => {
   return `${navbarStyles.ctaButton.gradient} ${navbarStyles.ctaButton.shadow} ${navbarStyles.ctaButton.animation}`;
 };
-
